@@ -79,7 +79,7 @@ Plans:
   3. `skillgate scan` audits all SKILL.md files in the current project and reports per-category results in colored terminal output
   4. `skillgate install --json <url>` outputs machine-readable JSON to stdout (for CI/CD use)
   5. CLI accepts GitHub raw URLs, skills.sh registry slugs, any HTTP URL, and local file paths as input
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Package scaffold, types, and shared lib modules (api-client, input-resolver, gating, output)
@@ -106,5 +106,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Audit Engine | 2/2 | Complete   | 2026-03-05 |
 | 2. API Surface | 1/2 | In Progress | - |
 | 3. Web UI | 4/4 | Complete   | 2026-03-05 |
-| 4. CLI | 0/3 | Not started | - |
+| 4. CLI | 1/3 | In Progress|  |
 | 5. Publish | 0/? | Not started | - |
