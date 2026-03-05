@@ -29,7 +29,7 @@
 ### CLI
 
 - [x] **CLI-01**: `skillgate install <url>` audits a SKILL.md from URL and downloads it to the project on pass
-- [ ] **CLI-02**: `skillgate scan` audits all SKILL.md files in the current project
+- [x] **CLI-02**: `skillgate scan` audits all SKILL.md files in the current project
 - [x] **CLI-03**: CLI exits with non-zero code when any skill scores High or Critical
 - [x] **CLI-04**: `--force` flag overrides High/Critical block
 - [x] **CLI-05**: `--json` flag outputs machine-readable JSON for CI/CD integration
@@ -103,7 +103,7 @@
 | WEB-08 | Phase 3 | Complete |
 | WEB-09 | Phase 3 | Complete |
 | CLI-01 | Phase 4 | Complete |
-| CLI-02 | Phase 4 | Pending |
+| CLI-02 | Phase 4 | Complete |
 | CLI-03 | Phase 4 | Complete |
 | CLI-04 | Phase 4 | Complete |
 | CLI-05 | Phase 4 | Complete |
