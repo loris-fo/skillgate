@@ -61,7 +61,12 @@ Plans:
   3. Audit report shows per-category severity with expandable rows — clicking a category reveals the plain-English reasoning
   4. Audit report page has a permanent URL the user can copy and share; loading that URL shows the same report
   5. Audit report page shows a copyable markdown snippet for adding the Skillgate badge to a README
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Tailwind v4 dark theme, fonts, severity helpers, shared report loader
+- [ ] 03-02-PLAN.md — Homepage audit form with URL and content inputs
+- [ ] 03-03-PLAN.md — Report page with hero, categories, utility, badge section, OG image
 
 ### Phase 4: CLI
 **Goal**: Developers can run `skillgate install` and `skillgate scan` from the terminal with gating, force override, and JSON output
@@ -94,6 +99,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Audit Engine | 2/2 | Complete   | 2026-03-05 |
 | 2. API Surface | 1/2 | In Progress | - |
-| 3. Web UI | 0/? | Not started | - |
+| 3. Web UI | 0/3 | Not started | - |
 | 4. CLI | 0/? | Not started | - |
 | 5. Publish | 0/? | Not started | - |
