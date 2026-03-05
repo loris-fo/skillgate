@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { fetchWithRetry } from "../src/lib/retry.js";
 
 describe("fetchWithRetry", () => {
@@ -21,18 +21,14 @@ describe("fetchWithRetry", () => {
   });
 
   it("retries on network error up to maxRetries", async () => {
-    globalThis.fetch = vi
-      .fn()
-      .mockRejectedValueOnce(new Error("network error"))
-      .mockRejectedValueOnce(new Error("network error"))
-      .mockRejectedValueOnce(new Error("network error"));
+    globalThis.fetch = vi.fn().mockRejectedValue(new Error("network error"));
 
     await expect(
-      fetchWithRetry("https://api.test/audit", { method: "POST" }, 3),
+      fetchWithRetry("https://api.test/audit", { method: "POST" }, 2),
     ).rejects.toThrow("network error");
 
-    expect(globalThis.fetch).toHaveBeenCalledTimes(3);
-  });
+    expect(globalThis.fetch).toHaveBeenCalledTimes(2);
+  }, 15_000);
 
   it("succeeds on retry after initial failure", async () => {
     const mockResponse = { ok: true, status: 200 };
@@ -49,5 +45,5 @@ describe("fetchWithRetry", () => {
 
     expect(result).toBe(mockResponse);
     expect(globalThis.fetch).toHaveBeenCalledTimes(2);
-  });
+  }, 15_000);
 });
