@@ -7,12 +7,12 @@
 
 ### Audit Engine
 
-- [ ] **AUDIT-01**: Audit engine analyzes SKILL.md across 5 security categories (Hidden Logic, Data Access, Action Risk, Permission Scope, Override Attempts)
-- [ ] **AUDIT-02**: Each category produces a severity score (safe/low/moderate/high/critical) with plain-English explanation
-- [ ] **AUDIT-03**: Each category includes a by_design flag distinguishing intentional risk from malicious risk
-- [ ] **AUDIT-04**: Audit engine produces utility analysis (what it does, use cases, who it's NOT for, trigger behavior, dependencies)
-- [ ] **AUDIT-05**: Audit engine produces a final recommendation (install / install_with_caution / review_first / avoid)
-- [ ] **AUDIT-06**: Audit results are cached by content hash (SHA-256 of SKILL.md content) — same content returns cached result without re-analysis
+- [x] **AUDIT-01**: Audit engine analyzes SKILL.md across 5 security categories (Hidden Logic, Data Access, Action Risk, Permission Scope, Override Attempts)
+- [x] **AUDIT-02**: Each category produces a severity score (safe/low/moderate/high/critical) with plain-English explanation
+- [x] **AUDIT-03**: Each category includes a by_design flag distinguishing intentional risk from malicious risk
+- [x] **AUDIT-04**: Audit engine produces utility analysis (what it does, use cases, who it's NOT for, trigger behavior, dependencies)
+- [x] **AUDIT-05**: Audit engine produces a final recommendation (install / install_with_caution / review_first / avoid)
+- [x] **AUDIT-06**: Audit results are cached by content hash (SHA-256 of SKILL.md content) — same content returns cached result without re-analysis
 
 ### Web App
 
@@ -47,7 +47,7 @@
 - [x] **INFRA-01**: pnpm workspace monorepo with packages: audit-engine, web, cli
 - [x] **INFRA-02**: Audit engine is a shared package imported by web API routes
 - [x] **INFRA-03**: CLI calls web API over HTTP (never imports audit engine directly)
-- [ ] **INFRA-04**: Upstash Redis for audit result persistence and caching
+- [x] **INFRA-04**: Upstash Redis for audit result persistence and caching
 - [x] **INFRA-05**: TypeScript throughout with strict mode
 - [ ] **INFRA-06**: npm-publishable CLI package as `skillgate`
 
@@ -87,12 +87,12 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUDIT-01 | Phase 1 | Pending |
-| AUDIT-02 | Phase 1 | Pending |
-| AUDIT-03 | Phase 1 | Pending |
-| AUDIT-04 | Phase 1 | Pending |
-| AUDIT-05 | Phase 1 | Pending |
-| AUDIT-06 | Phase 1 | Pending |
+| AUDIT-01 | Phase 1 | Complete |
+| AUDIT-02 | Phase 1 | Complete |
+| AUDIT-03 | Phase 1 | Complete |
+| AUDIT-04 | Phase 1 | Complete |
+| AUDIT-05 | Phase 1 | Complete |
+| AUDIT-06 | Phase 1 | Complete |
 | WEB-01 | Phase 3 | Pending |
 | WEB-02 | Phase 3 | Pending |
 | WEB-03 | Phase 3 | Pending |
@@ -115,7 +115,7 @@
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
 | INFRA-03 | Phase 1 | Complete |
-| INFRA-04 | Phase 1 | Pending |
+| INFRA-04 | Phase 1 | Complete |
 | INFRA-05 | Phase 1 | Complete |
 | INFRA-06 | Phase 5 | Pending |
 

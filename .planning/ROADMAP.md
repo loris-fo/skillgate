@@ -12,7 +12,7 @@ Skillgate is built in dependency order: the audit engine is the foundation every
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Audit Engine** - Core audit logic, monorepo scaffolding, and shared infrastructure
+- [x] **Phase 1: Audit Engine** - Core audit logic, monorepo scaffolding, and shared infrastructure (completed 2026-03-05)
 - [ ] **Phase 2: API Surface** - Next.js API routes, KV persistence, badge generation, and shareable URLs
 - [ ] **Phase 3: Web UI** - Homepage audit interface and report permalink pages
 - [ ] **Phase 4: CLI** - `skillgate` CLI with install, scan, and terminal output
@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A SKILL.md containing prompt injection attempts (instructions targeting the auditor) is handled without escaping the XML content delimiters
   4. Each category result includes a `by_design` flag correctly distinguishing intentional high-privilege behavior from malicious patterns
   5. The audit result includes a final recommendation of install / install_with_caution / review_first / avoid
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Monorepo scaffold, types, schemas, and content hashing
@@ -88,7 +88,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Audit Engine | 0/2 | Planning | - |
+| 1. Audit Engine | 2/2 | Complete   | 2026-03-05 |
 | 2. API Surface | 0/? | Not started | - |
 | 3. Web UI | 0/? | Not started | - |
 | 4. CLI | 0/? | Not started | - |
