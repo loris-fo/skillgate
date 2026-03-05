@@ -17,3 +17,6 @@ export {
 
 // Schema (useful for consumers to validate)
 export { auditResultSchema } from "./schema.js";
+
+// Hashing (needed by API routes for content dedup)
+export { buildCacheKey } from "./hash.js";
