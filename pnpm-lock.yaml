@@ -20,6 +20,9 @@ importers:
       '@upstash/ratelimit':
         specifier: ^2
         version: 2.0.8(@upstash/redis@1.36.3)
+      '@upstash/redis':
+        specifier: ^1.36
+        version: 1.36.3
       badge-maker:
         specifier: ^4
         version: 4.1.0
