@@ -21,7 +21,7 @@
 - [ ] **WEB-03**: Audit report displays per-category severity with expandable rows showing detailed reasoning
 - [ ] **WEB-04**: Audit report displays utility analysis section
 - [ ] **WEB-05**: Audit report displays final recommendation prominently
-- [ ] **WEB-06**: Each audit has a permanent shareable URL (content-hash based)
+- [x] **WEB-06**: Each audit has a permanent shareable URL (content-hash based)
 - [ ] **WEB-07**: Audit page shows copyable markdown badge snippet for READMEs
 - [ ] **WEB-08**: Homepage IS the audit interface — no separate landing page
 - [ ] **WEB-09**: Dark terminal aesthetic UI with Tailwind CSS
@@ -40,7 +40,7 @@
 
 - [x] **DIST-01**: SVG badge generated at `/api/badge/[slug].svg` reflecting audit result
 - [x] **DIST-02**: Dual URL scheme — content hash for integrity, human-readable slug for display
-- [ ] **DIST-03**: Badge and audit URLs are permanent and publicly accessible (no auth)
+- [x] **DIST-03**: Badge and audit URLs are permanent and publicly accessible (no auth)
 
 ### Infrastructure
 
@@ -98,7 +98,7 @@
 | WEB-03 | Phase 3 | Pending |
 | WEB-04 | Phase 3 | Pending |
 | WEB-05 | Phase 3 | Pending |
-| WEB-06 | Phase 2 | Pending |
+| WEB-06 | Phase 2 | Complete |
 | WEB-07 | Phase 3 | Pending |
 | WEB-08 | Phase 3 | Pending |
 | WEB-09 | Phase 3 | Pending |
@@ -111,7 +111,7 @@
 | CLI-07 | Phase 4 | Pending |
 | DIST-01 | Phase 2 | Complete |
 | DIST-02 | Phase 2 | Complete |
-| DIST-03 | Phase 2 | Pending |
+| DIST-03 | Phase 2 | Complete |
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
 | INFRA-03 | Phase 1 | Complete |
