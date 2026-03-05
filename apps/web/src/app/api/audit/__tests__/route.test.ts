@@ -104,7 +104,7 @@ describe("POST /api/audit", () => {
   });
 
   it("returns 200 with AuditResponse for valid content", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: VALID_CONTENT });
 
     const response = await POST(request as any);
@@ -121,7 +121,7 @@ describe("POST /api/audit", () => {
   });
 
   it("returns 422 VALIDATION_ERROR for empty content", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: "" });
 
     const response = await POST(request as any);
@@ -132,7 +132,7 @@ describe("POST /api/audit", () => {
   });
 
   it("returns 422 VALIDATION_ERROR for missing content field", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ foo: "bar" });
 
     const response = await POST(request as any);
@@ -143,7 +143,7 @@ describe("POST /api/audit", () => {
   });
 
   it("returns 413 INPUT_TOO_LARGE for content exceeding 100KB", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const largeContent = "# Big Skill\n" + "x".repeat(101_000);
     const request = makeRequest({ content: largeContent });
 
@@ -158,7 +158,7 @@ describe("POST /api/audit", () => {
     const resetTime = Date.now() + 60_000;
     mockLimit.mockResolvedValue({ success: false, reset: resetTime });
 
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: VALID_CONTENT });
 
     const response = await POST(request as any);
@@ -181,7 +181,7 @@ describe("POST /api/audit", () => {
       return Promise.resolve(null);
     });
 
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: VALID_CONTENT });
 
     const response = await POST(request as any);
@@ -195,7 +195,7 @@ describe("POST /api/audit", () => {
   });
 
   it("meta.url matches /api/report/{slug}", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: VALID_CONTENT });
 
     const response = await POST(request as any);
@@ -205,7 +205,7 @@ describe("POST /api/audit", () => {
   });
 
   it("meta.badge_url matches /api/badge/{slug}.svg", async () => {
-    const { POST } = await import("../../route");
+    const { POST } = await import("../route");
     const request = makeRequest({ content: VALID_CONTENT });
 
     const response = await POST(request as any);
