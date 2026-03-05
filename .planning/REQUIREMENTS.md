@@ -97,9 +97,9 @@
 | WEB-02 | Phase 3 | Complete |
 | WEB-03 | Phase 3 | Complete |
 | WEB-04 | Phase 3 | Complete |
-| WEB-05 | Phase 3 | Complete |
+| WEB-05 | Phase 3, Phase 6 | Complete (partial integration gap) |
 | WEB-06 | Phase 2 | Complete |
-| WEB-07 | Phase 3 | Complete |
+| WEB-07 | Phase 3, Phase 6 | Complete (badge URL inconsistency) |
 | WEB-08 | Phase 3 | Complete |
 | WEB-09 | Phase 3 | Complete |
 | CLI-01 | Phase 4 | Complete |
@@ -108,8 +108,8 @@
 | CLI-04 | Phase 4 | Complete |
 | CLI-05 | Phase 4 | Complete |
 | CLI-06 | Phase 4 | Complete |
-| CLI-07 | Phase 4 | Complete |
-| DIST-01 | Phase 2 | Complete |
+| CLI-07 | Phase 4, Phase 6 | Complete (partial integration gap) |
+| DIST-01 | Phase 2, Phase 6 | Complete (badge URL inconsistency) |
 | DIST-02 | Phase 2 | Complete |
 | DIST-03 | Phase 2 | Complete |
 | INFRA-01 | Phase 1 | Complete |

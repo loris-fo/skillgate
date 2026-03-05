@@ -17,6 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Web UI** - Homepage audit interface and report permalink pages (completed 2026-03-05)
 - [ ] **Phase 4: CLI** - `skillgate` CLI with install, scan, and terminal output
 - [ ] **Phase 5: Publish** - npm package configuration and first publish
+- [ ] **Phase 6: Tech Debt Cleanup** - Close integration gaps and tech debt from milestone audit
 
 ## Phase Details
 
@@ -99,6 +100,22 @@ Plans:
 Plans:
 - [ ] 05-01-PLAN.md — Package metadata, dependency fix, README, and tarball verification
 
+### Phase 6: Tech Debt Cleanup
+**Goal**: Close all non-blocking integration gaps and tech debt items identified by the v1.0 milestone audit
+**Depends on**: Phase 4, Phase 3
+**Requirements**: CLI-07, WEB-05, DIST-01, WEB-07
+**Gap Closure:** Closes gaps from v1.0 audit
+**Success Criteria** (what must be TRUE):
+  1. CLI spinner shows animated progress during audit operations (ora wired) OR ora dependency removed if deemed unnecessary
+  2. Audit report UI renders recommendation sub-fields (`for_who`, `caveats`, `alternatives`) when present
+  3. Badge URL format is consistent between `AuditMeta.badge_url` and `BadgeSection` component
+  4. All API route tests pass in jsdom environment (no Anthropic SDK `dangerouslyAllowBrowser` failures)
+  5. `severity.test.ts` has real test assertions replacing the stub comment
+**Plans:** 0 plans
+
+Plans:
+- (none yet)
+
 ## Progress
 
 **Execution Order:**
@@ -111,3 +128,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Web UI | 4/4 | Complete   | 2026-03-05 |
 | 4. CLI | 2/3 | In Progress|  |
 | 5. Publish | 0/1 | Not started | - |
+| 6. Tech Debt Cleanup | 0/0 | Not started | - |
