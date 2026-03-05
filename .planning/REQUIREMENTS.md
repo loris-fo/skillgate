@@ -28,10 +28,10 @@
 
 ### CLI
 
-- [ ] **CLI-01**: `skillgate install <url>` audits a SKILL.md from URL and downloads it to the project on pass
+- [x] **CLI-01**: `skillgate install <url>` audits a SKILL.md from URL and downloads it to the project on pass
 - [ ] **CLI-02**: `skillgate scan` audits all SKILL.md files in the current project
 - [x] **CLI-03**: CLI exits with non-zero code when any skill scores High or Critical
-- [ ] **CLI-04**: `--force` flag overrides High/Critical block
+- [x] **CLI-04**: `--force` flag overrides High/Critical block
 - [x] **CLI-05**: `--json` flag outputs machine-readable JSON for CI/CD integration
 - [x] **CLI-06**: CLI accepts GitHub raw URLs, skills.sh registry slugs, any HTTP URL, and local file paths
 - [x] **CLI-07**: CLI displays colored terminal output with per-category breakdown
@@ -102,10 +102,10 @@
 | WEB-07 | Phase 3 | Complete |
 | WEB-08 | Phase 3 | Complete |
 | WEB-09 | Phase 3 | Complete |
-| CLI-01 | Phase 4 | Pending |
+| CLI-01 | Phase 4 | Complete |
 | CLI-02 | Phase 4 | Pending |
 | CLI-03 | Phase 4 | Complete |
-| CLI-04 | Phase 4 | Pending |
+| CLI-04 | Phase 4 | Complete |
 | CLI-05 | Phase 4 | Complete |
 | CLI-06 | Phase 4 | Complete |
 | CLI-07 | Phase 4 | Complete |
