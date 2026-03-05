@@ -94,7 +94,10 @@ Plans:
   1. `npm install -g skillgate` installs the CLI and `skillgate --version` works on Node >= 18
   2. The published npm tarball contains no sensitive files (no .env, no workspace:* references, no source maps with credentials)
   3. `npx skillgate install <url>` works without global install — package is usable as a one-shot runner
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 05-01-PLAN.md — Package metadata, dependency fix, README, and tarball verification
 
 ## Progress
 
@@ -107,4 +110,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. API Surface | 1/2 | In Progress | - |
 | 3. Web UI | 4/4 | Complete   | 2026-03-05 |
 | 4. CLI | 2/3 | In Progress|  |
-| 5. Publish | 0/? | Not started | - |
+| 5. Publish | 0/1 | Not started | - |
