@@ -57,7 +57,7 @@ describe("GET /api/badge/[id].svg", () => {
   });
 
   it("returns 200 with Content-Type image/svg+xml", async () => {
-    const { GET } = await import("../../[id].svg/route");
+    const { GET } = await import("@/app/api/badge/[id]/route");
     const request = new Request(`http://localhost:3000/api/badge/${SLUG}.svg`);
     const response = await GET(request as any, { params: Promise.resolve({ id: SLUG }) });
 
@@ -66,7 +66,7 @@ describe("GET /api/badge/[id].svg", () => {
   });
 
   it("response body contains Skillgate and verdict text", async () => {
-    const { GET } = await import("../../[id].svg/route");
+    const { GET } = await import("@/app/api/badge/[id]/route");
     const request = new Request(`http://localhost:3000/api/badge/${SLUG}.svg`);
     const response = await GET(request as any, { params: Promise.resolve({ id: SLUG }) });
     const body = await response.text();
@@ -76,7 +76,7 @@ describe("GET /api/badge/[id].svg", () => {
   });
 
   it("has Cache-Control header with public, max-age=86400", async () => {
-    const { GET } = await import("../../[id].svg/route");
+    const { GET } = await import("@/app/api/badge/[id]/route");
     const request = new Request(`http://localhost:3000/api/badge/${SLUG}.svg`);
     const response = await GET(request as any, { params: Promise.resolve({ id: SLUG }) });
 
@@ -86,7 +86,7 @@ describe("GET /api/badge/[id].svg", () => {
   });
 
   it("returns 404 for unknown slug", async () => {
-    const { GET } = await import("../../[id].svg/route");
+    const { GET } = await import("@/app/api/badge/[id]/route");
     const request = new Request("http://localhost:3000/api/badge/unknown.svg");
     const response = await GET(request as any, { params: Promise.resolve({ id: "unknown" }) });
 

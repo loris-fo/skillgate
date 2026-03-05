@@ -58,7 +58,7 @@ describe("GET /api/report/[id]", () => {
   });
 
   it("returns 200 with AuditResponse for known slug", async () => {
-    const { GET } = await import("../../[id]/route");
+    const { GET } = await import("@/app/api/report/[id]/route");
     const request = new Request(`http://localhost:3000/api/report/${SLUG}`);
     const response = await GET(request as any, { params: Promise.resolve({ id: SLUG }) });
     const data = await response.json();
@@ -72,7 +72,7 @@ describe("GET /api/report/[id]", () => {
   });
 
   it("returns 200 with AuditResponse for content hash lookup", async () => {
-    const { GET } = await import("../../[id]/route");
+    const { GET } = await import("@/app/api/report/[id]/route");
     const request = new Request(`http://localhost:3000/api/report/${CONTENT_HASH}`);
     const response = await GET(request as any, { params: Promise.resolve({ id: CONTENT_HASH }) });
     const data = await response.json();
@@ -84,7 +84,7 @@ describe("GET /api/report/[id]", () => {
   });
 
   it("returns 404 NOT_FOUND for unknown id", async () => {
-    const { GET } = await import("../../[id]/route");
+    const { GET } = await import("@/app/api/report/[id]/route");
     const request = new Request("http://localhost:3000/api/report/unknown-slug");
     const response = await GET(request as any, { params: Promise.resolve({ id: "unknown-slug" }) });
     const data = await response.json();
