@@ -73,12 +73,12 @@ describe("CategoryCard", () => {
     expect(chevron).toBeTruthy();
 
     // Expanded by default — no rotation
-    expect(chevron!.className).toContain("rotate-0");
+    expect(chevron!.getAttribute("class")).toContain("rotate-0");
 
     fireEvent.click(header);
 
     // Collapsed — rotated
-    expect(chevron!.className).toContain("rotate-180");
+    expect(chevron!.getAttribute("class")).toContain("rotate-180");
   });
 
   it("by_design badge renders when result.by_design is true", () => {
