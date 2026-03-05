@@ -2,7 +2,25 @@
   "name": "@skillgate/web",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run"
+  },
   "dependencies": {
-    "@skillgate/audit-engine": "workspace:*"
+    "@skillgate/audit-engine": "workspace:*",
+    "@upstash/ratelimit": "^2",
+    "badge-maker": "^4",
+    "next": "^15.1",
+    "react": "^19",
+    "react-dom": "^19",
+    "slugify": "^1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "typescript": "^5.7",
+    "vitest": "^3.2"
   }
 }
