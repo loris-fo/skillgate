@@ -1,7 +1,21 @@
 {
   "name": "skillgate",
   "version": "0.1.0",
+  "description": "Audit Claude skills for security risks before installing them",
   "type": "module",
+  "license": "MIT",
+  "author": "loris-fo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loris-fo/skillgate.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/loris-fo/skillgate",
+  "bugs": "https://github.com/loris-fo/skillgate/issues",
+  "keywords": ["claude", "skill", "security", "audit", "mcp", "cli"],
+  "engines": {
+    "node": ">= 18"
+  },
   "bin": {
     "skillgate": "./dist/index.js"
   },
@@ -15,10 +29,10 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepublishOnly": "pnpm run build && pnpm run test"
   },
   "dependencies": {
-    "@skillgate/audit-engine": "workspace:*",
     "chalk": "^5.6.0",
     "cli-table3": "^0.6.5",
     "commander": "^14.0.0",
@@ -27,6 +41,7 @@
     "zod": "^3.24.0"
   },
   "devDependencies": {
+    "@skillgate/audit-engine": "workspace:*",
     "@types/node": "^25.3.3",
     "tsup": "^8.5.0",
     "typescript": "^5.7.0",
