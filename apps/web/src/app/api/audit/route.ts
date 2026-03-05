@@ -34,15 +34,70 @@ export async function POST(request: NextRequest) {
     return errorResponse("VALIDATION_ERROR", "Invalid JSON body");
   }
 
-  const content =
+  const rawContent =
     typeof body === "object" && body !== null && "content" in body
       ? (body as { content: unknown }).content
       : undefined;
 
-  if (typeof content !== "string" || !content.trim()) {
+  const rawUrl =
+    typeof body === "object" && body !== null && "url" in body
+      ? (body as { url: unknown }).url
+      : undefined;
+
+  // Resolve content: prefer content over url
+  let content: string | undefined;
+
+  if (typeof rawContent === "string" && rawContent.trim()) {
+    content = rawContent;
+  } else if (typeof rawUrl === "string" && rawUrl.trim()) {
+    // Validate URL format
+    try {
+      new URL(rawUrl);
+    } catch {
+      return errorResponse("VALIDATION_ERROR", "Invalid URL format");
+    }
+
+    // Fetch URL server-side (solves CORS issues)
+    let fetchResponse: Response;
+    try {
+      fetchResponse = await fetch(rawUrl, {
+        signal: AbortSignal.timeout(10_000),
+      });
+    } catch {
+      return errorResponse(
+        "VALIDATION_ERROR",
+        "Failed to fetch URL: request timed out or network error",
+      );
+    }
+
+    if (!fetchResponse.ok) {
+      return errorResponse(
+        "VALIDATION_ERROR",
+        `Failed to fetch URL: server returned ${fetchResponse.status}`,
+      );
+    }
+
+    // Reject HTML pages (e.g. GitHub non-raw URLs)
+    const contentType = fetchResponse.headers.get("content-type") ?? "";
+    if (contentType.includes("text/html")) {
+      return errorResponse(
+        "VALIDATION_ERROR",
+        "URL must point to raw file content, not an HTML page. For GitHub, use the 'Raw' button URL.",
+      );
+    }
+
+    content = await fetchResponse.text();
+
+    if (!content.trim()) {
+      return errorResponse(
+        "VALIDATION_ERROR",
+        "URL returned empty content",
+      );
+    }
+  } else {
     return errorResponse(
       "VALIDATION_ERROR",
-      "Request body must include a non-empty 'content' string",
+      "Request body must include 'content' or 'url'",
     );
   }
 
