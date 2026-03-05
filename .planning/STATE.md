@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Phase 5 context gathered
-last_updated: "2026-03-05T23:14:40.551Z"
-last_activity: 2026-03-05 — Completed Plan 04-03 (Scan Command)
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-05T23:30:58.122Z"
+last_activity: 2026-03-06 — Completed Plan 05-01 (NPM Publish Preparation)
 progress:
   total_phases: 5
-  completed_phases: 4
-  total_plans: 12
-  completed_plans: 12
+  completed_phases: 5
+  total_plans: 13
+  completed_plans: 13
   percent: 100
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Developers can trust-verify any Claude skill before installing it — with plain-English reasoning, not just a score.
-**Current focus:** Phase 4 — CLI
+**Current focus:** Phase 5 — Publish
 
 ## Current Position
 
-Phase: 4 of 5 (CLI)
-Plan: 3 of 3 in current phase
+Phase: 5 of 5 (Publish)
+Plan: 1 of 1 in current phase
 Status: Phase Complete
-Last activity: 2026-03-05 — Completed Plan 04-03 (Scan Command)
+Last activity: 2026-03-06 — Completed Plan 05-01 (NPM Publish Preparation)
 
 Progress: [██████████] 100%
 
@@ -61,6 +61,7 @@ Progress: [██████████] 100%
 | Phase 04-cli P01 | 5min | 2 tasks | 16 files |
 | Phase 04-cli P02 | 4min | 2 tasks | 3 files |
 | Phase 04-cli P03 | 4min | 2 tasks | 3 files |
+| Phase 05-publish P01 | 2min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,8 @@ Recent decisions affecting current work:
 - [Phase 04-cli]: Promise-based pool pattern for concurrency limiting (no external library)
 - [Phase 04-cli]: Scan resolves file paths to absolute before auditing for unambiguous table display
 - [Phase 04-cli]: Default scan targets .claude/ and .claude/skills/ with dedup via Set
+- [Phase 05-publish]: Moved @skillgate/audit-engine to devDependencies since tsup inlines at build time
+- [Phase 05-publish]: GitHub URL as homepage (skillgate.dev may not be live yet)
 
 ### Pending Todos
 
@@ -114,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T23:14:40.541Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-publish/05-CONTEXT.md
+Last session: 2026-03-05T23:30:56.139Z
+Stopped at: Completed 05-01-PLAN.md
+Resume file: None

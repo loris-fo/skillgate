@@ -49,7 +49,7 @@
 - [x] **INFRA-03**: CLI calls web API over HTTP (never imports audit engine directly)
 - [x] **INFRA-04**: Upstash Redis for audit result persistence and caching
 - [x] **INFRA-05**: TypeScript throughout with strict mode
-- [ ] **INFRA-06**: npm-publishable CLI package as `skillgate`
+- [x] **INFRA-06**: npm-publishable CLI package as `skillgate`
 
 ## v2 Requirements
 
@@ -117,7 +117,7 @@
 | INFRA-03 | Phase 1 | Complete |
 | INFRA-04 | Phase 1 | Complete |
 | INFRA-05 | Phase 1 | Complete |
-| INFRA-06 | Phase 5 | Pending |
+| INFRA-06 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 31 total
