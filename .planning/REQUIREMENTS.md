@@ -38,8 +38,8 @@
 
 ### Distribution
 
-- [ ] **DIST-01**: SVG badge generated at `/api/badge/[slug].svg` reflecting audit result
-- [ ] **DIST-02**: Dual URL scheme — content hash for integrity, human-readable slug for display
+- [x] **DIST-01**: SVG badge generated at `/api/badge/[slug].svg` reflecting audit result
+- [x] **DIST-02**: Dual URL scheme — content hash for integrity, human-readable slug for display
 - [ ] **DIST-03**: Badge and audit URLs are permanent and publicly accessible (no auth)
 
 ### Infrastructure
@@ -109,8 +109,8 @@
 | CLI-05 | Phase 4 | Pending |
 | CLI-06 | Phase 4 | Pending |
 | CLI-07 | Phase 4 | Pending |
-| DIST-01 | Phase 2 | Pending |
-| DIST-02 | Phase 2 | Pending |
+| DIST-01 | Phase 2 | Complete |
+| DIST-02 | Phase 2 | Complete |
 | DIST-03 | Phase 2 | Pending |
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
