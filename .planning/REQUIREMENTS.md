@@ -24,7 +24,7 @@
 - [x] **WEB-06**: Each audit has a permanent shareable URL (content-hash based)
 - [ ] **WEB-07**: Audit page shows copyable markdown badge snippet for READMEs
 - [ ] **WEB-08**: Homepage IS the audit interface — no separate landing page
-- [ ] **WEB-09**: Dark terminal aesthetic UI with Tailwind CSS
+- [x] **WEB-09**: Dark terminal aesthetic UI with Tailwind CSS
 
 ### CLI
 
@@ -101,7 +101,7 @@
 | WEB-06 | Phase 2 | Complete |
 | WEB-07 | Phase 3 | Pending |
 | WEB-08 | Phase 3 | Pending |
-| WEB-09 | Phase 3 | Pending |
+| WEB-09 | Phase 3 | Complete |
 | CLI-01 | Phase 4 | Pending |
 | CLI-02 | Phase 4 | Pending |
 | CLI-03 | Phase 4 | Pending |
