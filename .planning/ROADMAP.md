@@ -30,7 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A SKILL.md containing prompt injection attempts (instructions targeting the auditor) is handled without escaping the XML content delimiters
   4. Each category result includes a `by_design` flag correctly distinguishing intentional high-privilege behavior from malicious patterns
   5. The audit result includes a final recommendation of install / install_with_caution / review_first / avoid
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Monorepo scaffold, types, schemas, and content hashing
+- [ ] 01-02-PLAN.md — Cache, prompt, engine orchestration, and tests
 
 ### Phase 2: API Surface
 **Goal**: The web API accepts audits, persists results to KV, and serves reports and badges via permanent URLs
@@ -84,7 +88,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Audit Engine | 0/? | Not started | - |
+| 1. Audit Engine | 0/2 | Planning | - |
 | 2. API Surface | 0/? | Not started | - |
 | 3. Web UI | 0/? | Not started | - |
 | 4. CLI | 0/? | Not started | - |
