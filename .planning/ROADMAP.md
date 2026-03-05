@@ -45,7 +45,11 @@ Plans:
   2. `GET /api/report/[id]` returns audit data for both the content-hash and human-readable slug URL formats
   3. `GET /api/badge/[id].svg` returns a correctly colored SVG badge reflecting the audit recommendation
   4. Repeated identical requests within a session return the cached result without additional Claude API calls
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Bootstrap Next.js 15, shared lib modules (KV, slug, badge, rate-limit, types, errors)
+- [ ] 02-02-PLAN.md — API route handlers (POST audit, GET report, GET badge) with integration tests
 
 ### Phase 3: Web UI
 **Goal**: Developers can paste or link a SKILL.md on the homepage and get a full audit report with shareable URL and badge embed
@@ -89,7 +93,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Audit Engine | 2/2 | Complete   | 2026-03-05 |
-| 2. API Surface | 0/? | Not started | - |
+| 2. API Surface | 0/2 | Planned | - |
 | 3. Web UI | 0/? | Not started | - |
 | 4. CLI | 0/? | Not started | - |
 | 5. Publish | 0/? | Not started | - |
