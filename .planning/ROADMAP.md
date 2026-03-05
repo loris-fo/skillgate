@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Audit Engine** - Core audit logic, monorepo scaffolding, and shared infrastructure (completed 2026-03-05)
 - [ ] **Phase 2: API Surface** - Next.js API routes, KV persistence, badge generation, and shareable URLs
-- [ ] **Phase 3: Web UI** - Homepage audit interface and report permalink pages
+- [x] **Phase 3: Web UI** - Homepage audit interface and report permalink pages (completed 2026-03-05)
 - [ ] **Phase 4: CLI** - `skillgate` CLI with install, scan, and terminal output
 - [ ] **Phase 5: Publish** - npm package configuration and first publish
 
@@ -61,7 +61,7 @@ Plans:
   3. Audit report shows per-category severity with expandable rows — clicking a category reveals the plain-English reasoning
   4. Audit report page has a permanent URL the user can copy and share; loading that URL shows the same report
   5. Audit report page shows a copyable markdown snippet for adding the Skillgate badge to a README
-**Plans:** 1/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 - [ ] 03-00-PLAN.md — Wave 0: test infrastructure (vitest jsdom, testing-library, test dirs)
@@ -100,6 +100,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Audit Engine | 2/2 | Complete   | 2026-03-05 |
 | 2. API Surface | 1/2 | In Progress | - |
-| 3. Web UI | 1/4 | In Progress|  |
+| 3. Web UI | 4/4 | Complete   | 2026-03-05 |
 | 4. CLI | 0/? | Not started | - |
 | 5. Publish | 0/? | Not started | - |

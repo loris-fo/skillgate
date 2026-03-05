@@ -16,14 +16,14 @@
 
 ### Web App
 
-- [ ] **WEB-01**: User can paste raw SKILL.md content into a textarea and trigger an audit
-- [ ] **WEB-02**: User can enter a URL (GitHub, HTTP) to fetch and audit a remote SKILL.md
+- [x] **WEB-01**: User can paste raw SKILL.md content into a textarea and trigger an audit
+- [x] **WEB-02**: User can enter a URL (GitHub, HTTP) to fetch and audit a remote SKILL.md
 - [ ] **WEB-03**: Audit report displays per-category severity with expandable rows showing detailed reasoning
 - [ ] **WEB-04**: Audit report displays utility analysis section
 - [ ] **WEB-05**: Audit report displays final recommendation prominently
 - [x] **WEB-06**: Each audit has a permanent shareable URL (content-hash based)
 - [ ] **WEB-07**: Audit page shows copyable markdown badge snippet for READMEs
-- [ ] **WEB-08**: Homepage IS the audit interface — no separate landing page
+- [x] **WEB-08**: Homepage IS the audit interface — no separate landing page
 - [x] **WEB-09**: Dark terminal aesthetic UI with Tailwind CSS
 
 ### CLI
@@ -93,14 +93,14 @@
 | AUDIT-04 | Phase 1 | Complete |
 | AUDIT-05 | Phase 1 | Complete |
 | AUDIT-06 | Phase 1 | Complete |
-| WEB-01 | Phase 3 | Pending |
-| WEB-02 | Phase 3 | Pending |
+| WEB-01 | Phase 3 | Complete |
+| WEB-02 | Phase 3 | Complete |
 | WEB-03 | Phase 3 | Pending |
 | WEB-04 | Phase 3 | Pending |
 | WEB-05 | Phase 3 | Pending |
 | WEB-06 | Phase 2 | Complete |
 | WEB-07 | Phase 3 | Pending |
-| WEB-08 | Phase 3 | Pending |
+| WEB-08 | Phase 3 | Complete |
 | WEB-09 | Phase 3 | Complete |
 | CLI-01 | Phase 4 | Pending |
 | CLI-02 | Phase 4 | Pending |
