@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-00-PLAN.md
-last_updated: "2026-03-05T20:39:51.364Z"
-last_activity: 2026-03-05 — Completed Plan 03-00 (Test Infrastructure)
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-05T20:39:29Z"
+last_activity: 2026-03-05 — Completed Plan 03-01 (Theme & Shared Utilities)
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 8
-  completed_plans: 5
-  percent: 63
+  completed_plans: 6
+  percent: 75
 ---
 
 # Project State
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 ## Current Position
 
 Phase: 3 of 5 (Web UI)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In Progress
-Last activity: 2026-03-05 — Completed Plan 03-00 (Test Infrastructure)
+Last activity: 2026-03-05 — Completed Plan 03-01 (Theme & Shared Utilities)
 
-Progress: [██████░░░░] 63%
+Progress: [███████░░░] 75%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [██████░░░░] 63%
 | Phase 02-api-surface P01 | 3min | 2 tasks | 14 files |
 | Phase 02 P02 | 5min | 2 tasks | 7 files |
 | Phase 03-web-ui P00 | 1min | 2 tasks | 5 files |
+| Phase 03-web-ui P01 | 2min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 02-api-surface]: Exported buildCacheKey from audit-engine public API for route handler content dedup
 - [Phase 02-api-surface]: Changed badge route from [id].svg to [id] folder to fix Next.js type generation
 - [Phase 03-web-ui]: Updated existing vitest.config.ts with jsdom environment and react plugin rather than creating from scratch
+- [Phase 03-web-ui]: Hardcode dark class on html to prevent hydration flash (dark-only app)
+- [Phase 03-web-ui]: Use @theme inline for font variables so next/font CSS vars resolve at runtime
+- [Phase 03-web-ui]: Direct Redis reads in getReportBySlug to avoid Server Component self-fetch anti-pattern
 
 ### Pending Todos
 
@@ -89,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05T20:39:51.357Z
-Stopped at: Completed 03-00-PLAN.md
+Last session: 2026-03-05T20:39:29Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None
