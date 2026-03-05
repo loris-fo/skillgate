@@ -142,18 +142,21 @@ describe("engine", () => {
       new Error("Connection timeout")
     );
 
-    await expect(
-      auditSkill("# Failing Skill\nThis will fail.")
-    ).rejects.toThrow(AuditError);
-    await expect(
-      auditSkill("# Failing Skill\nThis will fail.")
-    ).rejects.toMatchObject({ code: "API_ERROR" });
+    const promise = auditSkill("# Failing Skill\nThis will fail.");
+    await expect(promise).rejects.toThrow(AuditError);
+
+    // Set up mock again for second assertion
+    mockClient.messages.create.mockRejectedValueOnce(
+      new Error("Connection timeout")
+    );
+    const promise2 = auditSkill("# Failing Skill\nThis will fail.");
+    await expect(promise2).rejects.toMatchObject({ code: "API_ERROR" });
     // Errors should not be cached
     expect(mockCache.setCached).not.toHaveBeenCalled();
   });
 
   it("throws AuditError with code VALIDATION_ERROR on malformed Claude response", async () => {
-    mockClient.messages.create.mockResolvedValueOnce({
+    const malformedResponse = {
       id: "msg_mock",
       type: "message" as const,
       role: "assistant" as const,
@@ -168,14 +171,15 @@ describe("engine", () => {
       ],
       stop_reason: "tool_use" as const,
       usage: { input_tokens: 100, output_tokens: 200 },
-    });
+    };
 
-    await expect(
-      auditSkill("# Bad Response\nWill get malformed result.")
-    ).rejects.toThrow(AuditError);
-    await expect(
-      auditSkill("# Bad Response\nWill get malformed result.")
-    ).rejects.toMatchObject({ code: "VALIDATION_ERROR" });
+    mockClient.messages.create.mockResolvedValueOnce(malformedResponse);
+    const promise = auditSkill("# Bad Response\nWill get malformed result.");
+    await expect(promise).rejects.toThrow(AuditError);
+
+    mockClient.messages.create.mockResolvedValueOnce(malformedResponse);
+    const promise2 = auditSkill("# Bad Response\nWill get malformed result.");
+    await expect(promise2).rejects.toMatchObject({ code: "VALIDATION_ERROR" });
     expect(mockCache.setCached).not.toHaveBeenCalled();
   });
 

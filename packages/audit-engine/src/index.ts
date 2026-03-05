@@ -1,5 +1,19 @@
-export * from "./types.js";
-export * from "./schema.js";
-export * from "./hash.js";
+// Public API
+export { auditSkill, createEngine } from "./engine.js";
+export type { EngineConfig, Engine } from "./engine.js";
 
-// TODO: Export engine.ts (Plan 01-02)
+// Types
+export {
+  AuditError,
+  type AuditResult,
+  type AuditErrorCode,
+  type Score,
+  type Verdict,
+  type CategoryResult,
+  type Categories,
+  type UtilityAnalysis,
+  type Recommendation,
+} from "./types.js";
+
+// Schema (useful for consumers to validate)
+export { auditResultSchema } from "./schema.js";
