@@ -44,11 +44,11 @@
 
 ### Infrastructure
 
-- [ ] **INFRA-01**: pnpm workspace monorepo with packages: audit-engine, web, cli
-- [ ] **INFRA-02**: Audit engine is a shared package imported by web API routes
-- [ ] **INFRA-03**: CLI calls web API over HTTP (never imports audit engine directly)
+- [x] **INFRA-01**: pnpm workspace monorepo with packages: audit-engine, web, cli
+- [x] **INFRA-02**: Audit engine is a shared package imported by web API routes
+- [x] **INFRA-03**: CLI calls web API over HTTP (never imports audit engine directly)
 - [ ] **INFRA-04**: Upstash Redis for audit result persistence and caching
-- [ ] **INFRA-05**: TypeScript throughout with strict mode
+- [x] **INFRA-05**: TypeScript throughout with strict mode
 - [ ] **INFRA-06**: npm-publishable CLI package as `skillgate`
 
 ## v2 Requirements
@@ -112,11 +112,11 @@
 | DIST-01 | Phase 2 | Pending |
 | DIST-02 | Phase 2 | Pending |
 | DIST-03 | Phase 2 | Pending |
-| INFRA-01 | Phase 1 | Pending |
-| INFRA-02 | Phase 1 | Pending |
-| INFRA-03 | Phase 1 | Pending |
+| INFRA-01 | Phase 1 | Complete |
+| INFRA-02 | Phase 1 | Complete |
+| INFRA-03 | Phase 1 | Complete |
 | INFRA-04 | Phase 1 | Pending |
-| INFRA-05 | Phase 1 | Pending |
+| INFRA-05 | Phase 1 | Complete |
 | INFRA-06 | Phase 5 | Pending |
 
 **Coverage:**

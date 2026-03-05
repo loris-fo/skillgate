@@ -26,9 +26,18 @@ Core audit logic, monorepo scaffolding, and shared infrastructure. The audit eng
 - Failure mode: return error on malformed Claude response or API failure — never cache failures, user retries
 
 ### Claude's Discretion
-- Audit output shape (score types, how categories combine into final recommendation)
-- Monorepo structure (package boundaries, shared types, tsconfig, build scripts)
-- Prompt versioning scheme (semantic version string vs prompt content hash)
+- Audit output shape: already fully defined. Tool use schema must implement
+  exactly: overall score, verdict, summary, intent, 5 security categories
+  (each with score/finding/detail/by_design), utility analysis
+  (what_it_does/use_cases/not_for/trigger_behavior/dependencies),
+  recommendation (verdict/for_who/caveats/alternatives).
+  Scores: "safe"|"low"|"moderate"|"high"|"critical".
+  Recommendation verdicts: "install"|"install_with_caution"|"review_first"|"avoid".
+- Monorepo: pnpm workspaces. packages/audit-engine (the core, independently
+  testable), apps/web (Next.js). Shared TypeScript config at root.
+- Prompt versioning: semantic version string (e.g. "1.0") stored as constant
+  alongside the prompt. Cache key format: {contentHash}:{promptVersion}.
+  Bump manually only when audit logic meaningfully changes.
 - Prompt file location (inline in engine code vs separate file)
 
 </decisions>
