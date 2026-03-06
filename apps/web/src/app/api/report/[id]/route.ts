@@ -4,6 +4,24 @@ import { redis } from "@/lib/kv";
 import { errorResponse } from "@/lib/errors";
 import type { AuditMeta, AuditResponse } from "@/lib/types";
 
+/**
+ * Upstash Redis can return nested objects as JSON strings.
+ * Deep-parse any string fields that should be objects.
+ */
+function ensureDeepParsed(result: unknown): AuditResult {
+  if (typeof result !== "object" || result === null) {
+    throw new Error("Invalid audit result from cache");
+  }
+  const r = result as Record<string, unknown>;
+  const fields = ["categories", "utility_analysis", "recommendation"] as const;
+  for (const field of fields) {
+    if (typeof r[field] === "string") {
+      r[field] = JSON.parse(r[field] as string);
+    }
+  }
+  return r as unknown as AuditResult;
+}
+
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ id: string }> },
@@ -42,10 +60,11 @@ export async function GET(
   }
 
   // 3. Load audit data
-  const result = await redis.get<AuditResult>(`audit:${contentHash}`);
-  if (!result) {
+  const rawResult = await redis.get<AuditResult>(`audit:${contentHash}`);
+  if (!rawResult) {
     return errorResponse("NOT_FOUND", `Audit data missing for id: ${id}`);
   }
+  const result = ensureDeepParsed(rawResult);
 
   // 4. Build response
   const meta: AuditMeta = {

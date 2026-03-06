@@ -13,6 +13,24 @@ import type { AuditMeta, AuditResponse } from "@/lib/types";
 
 export const maxDuration = 60; // Vercel Pro for long Claude calls
 
+/**
+ * Upstash Redis can return nested objects as JSON strings.
+ * Deep-parse any string fields that should be objects.
+ */
+function ensureDeepParsed(result: unknown): AuditResult {
+  if (typeof result !== "object" || result === null) {
+    throw new Error("Invalid audit result from cache");
+  }
+  const r = result as Record<string, unknown>;
+  const fields = ["categories", "utility_analysis", "recommendation"] as const;
+  for (const field of fields) {
+    if (typeof r[field] === "string") {
+      r[field] = JSON.parse(r[field] as string);
+    }
+  }
+  return r as unknown as AuditResult;
+}
+
 const MAX_CONTENT_BYTES = 100_000; // 100KB
 
 export async function POST(request: NextRequest) {
@@ -121,6 +139,7 @@ export async function POST(request: NextRequest) {
     const cachedResult = await redis.get<AuditResult>(`audit:${contentHash}`);
 
     if (slugEntry && cachedResult) {
+      const safeCachedResult = ensureDeepParsed(cachedResult);
       const meta: AuditMeta = {
         slug: existingSlug,
         url: `/api/report/${existingSlug}`,
@@ -128,7 +147,7 @@ export async function POST(request: NextRequest) {
         created_at: slugEntry.createdAt,
         cached: true,
       };
-      return Response.json({ result: cachedResult, meta } satisfies AuditResponse);
+      return Response.json({ result: safeCachedResult, meta } satisfies AuditResponse);
     }
   }
 
@@ -177,5 +196,5 @@ export async function POST(request: NextRequest) {
     cached: false,
   };
 
-  return Response.json({ result, meta } satisfies AuditResponse);
+  return Response.json({ result: ensureDeepParsed(result), meta } satisfies AuditResponse);
 }
