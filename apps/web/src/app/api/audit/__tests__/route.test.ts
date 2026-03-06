@@ -20,13 +20,21 @@ vi.mock("@/lib/kv", () => ({
 }));
 
 const mockAuditSkill = vi.fn();
-vi.mock("@skillgate/audit-engine", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("@skillgate/audit-engine")>();
-  return {
-    ...actual,
-    auditSkill: (...args: unknown[]) => mockAuditSkill(...args),
-  };
-});
+vi.mock("@skillgate/audit-engine", () => ({
+  auditSkill: (...args: unknown[]) => mockAuditSkill(...args),
+  AuditError: class AuditError extends Error {
+    readonly code: string;
+    constructor(message: string, code: string) {
+      super(message);
+      this.name = "AuditError";
+      this.code = code;
+    }
+  },
+  buildCacheKey: (content: string) => {
+    const { createHash } = require("node:crypto");
+    return createHash("sha256").update(content.trim()).digest("hex") + ":v1";
+  },
+}));
 
 // --- Fixtures ---
 
