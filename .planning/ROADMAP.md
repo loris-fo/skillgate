@@ -111,15 +111,16 @@ Plans:
   3. Badge URL format is consistent between `AuditMeta.badge_url` and `BadgeSection` component
   4. All API route tests pass in jsdom environment (no Anthropic SDK `dangerouslyAllowBrowser` failures)
   5. `severity.test.ts` has real test assertions replacing the stub comment
-**Plans:** 0 plans
+**Plans:** 2 plans
 
 Plans:
-- (none yet)
+- [ ] 06-01-PLAN.md — Wire real ora spinners into CLI output handler with contextual messages
+- [ ] 06-02-PLAN.md — Recommendation sub-fields UI, badge URL fix, test fixes
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -128,4 +129,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Web UI | 4/4 | Complete   | 2026-03-05 |
 | 4. CLI | 2/3 | In Progress|  |
 | 5. Publish | 0/1 | Not started | - |
-| 6. Tech Debt Cleanup | 0/0 | Not started | - |
+| 6. Tech Debt Cleanup | 0/2 | Not started | - |
