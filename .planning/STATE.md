@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-03-06T00:33:04.632Z"
+stopped_at: Completed 06-02-PLAN.md
+last_updated: "2026-03-06T00:33:23.435Z"
 last_activity: 2026-03-06 — Completed Plan 06-02 (Web Tech Debt Fixes)
 progress:
   total_phases: 6
@@ -63,6 +63,7 @@ Progress: [██████████] 100%
 | Phase 04-cli P03 | 4min | 2 tasks | 3 files |
 | Phase 05-publish P01 | 2min | 2 tasks | 2 files |
 | Phase 06-tech-debt-cleanup P01 | 2min | 2 tasks | 5 files |
+| Phase 06-tech-debt-cleanup P02 | 2min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -107,6 +108,7 @@ Recent decisions affecting current work:
 - [Phase 05-publish]: GitHub URL as homepage (skillgate.dev may not be live yet)
 - [Phase 06-tech-debt-cleanup]: ora output directed to stderr to keep stdout clean for JSON piping
 - [Phase 06-tech-debt-cleanup]: JSON mode returns cast no-op object with isSpinning/text for scan compatibility
+- [Phase 06-tech-debt-cleanup]: Full vi.mock without importOriginal for audit-engine to avoid Anthropic SDK dangerouslyAllowBrowser error in jsdom
 
 ### Pending Todos
 
@@ -120,6 +122,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-06T00:33:04.629Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-03-06T00:33:22.410Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None

@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: Web UI** - Homepage audit interface and report permalink pages (completed 2026-03-05)
 - [ ] **Phase 4: CLI** - `skillgate` CLI with install, scan, and terminal output
 - [ ] **Phase 5: Publish** - npm package configuration and first publish
-- [ ] **Phase 6: Tech Debt Cleanup** - Close integration gaps and tech debt from milestone audit
+- [x] **Phase 6: Tech Debt Cleanup** - Close integration gaps and tech debt from milestone audit (completed 2026-03-06)
 
 ## Phase Details
 
@@ -111,7 +111,7 @@ Plans:
   3. Badge URL format is consistent between `AuditMeta.badge_url` and `BadgeSection` component
   4. All API route tests pass in jsdom environment (no Anthropic SDK `dangerouslyAllowBrowser` failures)
   5. `severity.test.ts` has real test assertions replacing the stub comment
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 06-01-PLAN.md — Wire real ora spinners into CLI output handler with contextual messages
@@ -129,4 +129,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Web UI | 4/4 | Complete   | 2026-03-05 |
 | 4. CLI | 2/3 | In Progress|  |
 | 5. Publish | 0/1 | Not started | - |
-| 6. Tech Debt Cleanup | 0/2 | Not started | - |
+| 6. Tech Debt Cleanup | 2/2 | Complete   | 2026-03-06 |
