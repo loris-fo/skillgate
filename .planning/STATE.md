@@ -5,7 +5,7 @@ milestone_name: MVP
 status: milestone_complete
 stopped_at: v1.0 milestone archived
 last_updated: "2026-03-06T08:30:00.000Z"
-last_activity: 2026-03-06 — v1.0 milestone completed and archived
+last_activity: 2026-03-06 - Completed quick task 1: Fix CLI Zod schema to match API response shape
 progress:
   total_phases: 6
   completed_phases: 6
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-06)
 
 Milestone: v1.0 MVP — SHIPPED 2026-03-06
 Status: Milestone Complete
-Last activity: 2026-03-06 — v1.0 milestone completed and archived
+Last activity: 2026-03-06 - Completed quick task 1: Fix CLI Zod schema to match API response shape
 
 Progress: [██████████] 100%
 
@@ -44,6 +44,12 @@ None.
 ### Blockers/Concerns
 
 None — all v1.0 blockers resolved.
+
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 1 | Fix CLI Zod schema to match API response shape for categories, utility_analysis, and recommendation fields | 2026-03-06 | 8f652a4 | [1-fix-cli-zod-schema-to-match-api-response](./quick/1-fix-cli-zod-schema-to-match-api-response/) |
 
 ## Session Continuity
 
