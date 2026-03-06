@@ -1,7 +1,8 @@
 import type { AuditResponse, ErrorResponse } from "../types.js";
 import { fetchWithRetry } from "./retry.js";
+import { auditResponseSchema } from "./schema.js";
 
-const DEFAULT_API_URL = "https://skillgate.dev/api";
+const DEFAULT_API_URL = "https://skillgate.sh/api";
 
 function getApiUrl(): string {
   return process.env.SKILLGATE_API_URL || DEFAULT_API_URL;
@@ -21,5 +22,6 @@ export async function auditViaApi(
     throw new Error(error.error.message);
   }
 
-  return response.json() as Promise<AuditResponse>;
+  const json = await response.json();
+  return auditResponseSchema.parse(json);
 }
