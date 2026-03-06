@@ -26,7 +26,11 @@ Developers can trust-verify any Claude skill before installing it — with plain
 
 ### Active
 
-(None yet — define in next milestone)
+- [ ] Shared layout with header (wordmark + npm snippet + GitHub icon) and footer (GitHub · npm · skillgate.sh · MIT License)
+- [ ] Landing page with hero, feature sections, animated report mockup, badge snippet with copy button
+- [ ] Audit page with redesigned form UI, loading state, redirect to report on completion
+- [ ] Report page with redesigned verdict, categories, utility analysis, badge, copy link, "Audit another" link
+- [ ] Light design system: #F0F9FF background, white cards with #BAE6FD borders, #06B6D4 accent
 
 ### Out of Scope
 
@@ -55,7 +59,7 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 - **Storage**: Upstash Redis for audit persistence — no database
 - **Hosting**: Vercel for web/API
 - **Packages**: npm as `skillgate`, domain skillgate.sh, GitHub loris-fo/skillgate
-- **Styling**: Tailwind CSS v4, dark terminal aesthetic
+- **Styling**: Tailwind CSS v4, light sky-blue aesthetic (v1.1 redesign)
 - **Quality**: Clean open-source code, contributor-friendly DX
 
 ## Key Decisions
@@ -75,4 +79,14 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 | ora spinner via stderr | Keeps stdout clean for JSON piping in CI/CD | ✓ Good — composable CLI |
 
 ---
-*Last updated: 2026-03-06 after v1.0 milestone*
+## Current Milestone: v1.1 Web Redesign
+
+**Goal:** Redesign the web app with a light, professional aesthetic — new shared layout, landing page, audit page, and report page — while keeping all API routes, data logic, and audit engine untouched.
+
+**Target features:**
+- Shared layout component (header + footer) used across all pages
+- Landing page (/) with hero, features, animated report mockup, badge copy
+- Audit page (/audit) with redesigned form wired to existing logic
+- Report page (/report/[slug]) with redesigned verdict/category display
+
+*Last updated: 2026-03-06 after v1.1 milestone start*
