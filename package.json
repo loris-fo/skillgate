@@ -2,7 +2,7 @@
   "name": "skillgate",
   "private": true,
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "pnpm --filter @skillgate/audit-engine build && pnpm --filter @skillgate/web build",
     "test": "pnpm -r test",
     "typecheck": "pnpm -r exec tsc --noEmit"
   },
