@@ -221,4 +221,40 @@ describe("POST /api/audit", () => {
 
     expect(data.meta.badge_url).toBe(`/api/badge/${data.meta.slug}.svg`);
   });
+
+  it("handles cached result with string-encoded nested fields", async () => {
+    const existingSlug = "commit-helper-abc123";
+    // Simulate Upstash returning nested fields as JSON strings (the double-serialization bug)
+    const stringifiedResult = {
+      ...MOCK_RESULT,
+      categories: JSON.stringify(MOCK_RESULT.categories),
+      utility_analysis: JSON.stringify(MOCK_RESULT.utility_analysis),
+      recommendation: JSON.stringify(MOCK_RESULT.recommendation),
+    };
+
+    mockRedis.get.mockImplementation((key: string) => {
+      if (key.startsWith("hash-to-slug:")) return Promise.resolve(existingSlug);
+      if (key === `slug:${existingSlug}`)
+        return Promise.resolve({ contentHash: "abc123", createdAt: "2026-01-01T00:00:00Z" });
+      if (key.startsWith("audit:"))
+        return Promise.resolve(stringifiedResult);
+      return Promise.resolve(null);
+    });
+
+    const { POST } = await import("../route");
+    const request = makeRequest({ content: VALID_CONTENT });
+
+    const response = await POST(request as any);
+    const data = await response.json();
+
+    expect(response.status).toBe(200);
+    // These must be objects, not strings
+    expect(typeof data.result.categories).toBe("object");
+    expect(typeof data.result.utility_analysis).toBe("object");
+    expect(typeof data.result.recommendation).toBe("object");
+    // Verify deep structure is intact
+    expect(data.result.categories.hidden_logic.score).toBe("safe");
+    expect(data.result.utility_analysis.what_it_does).toBe("Generates commit messages from staged changes");
+    expect(data.result.recommendation.verdict).toBe("install");
+  });
 });
