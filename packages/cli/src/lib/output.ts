@@ -1,5 +1,6 @@
 import chalk from "chalk";
 import Table from "cli-table3";
+import ora from "ora";
 import type { AuditResponse, Score } from "../types.js";
 import type { Verdict } from "../types.js";
 
@@ -56,15 +57,11 @@ export function createOutputHandler(jsonMode: boolean) {
           stop() {},
           fail(_message?: string) {},
           succeed(_message?: string) {},
-        };
+          isSpinning: false,
+          text: "",
+        } as unknown as ReturnType<typeof ora>;
       }
-      // Dynamic import for ora (ESM-only) - use sync placeholder
-      // Actual ora usage will be in command handlers
-      return {
-        stop() {},
-        fail(_message?: string) {},
-        succeed(_message?: string) {},
-      };
+      return ora({ text, stream: process.stderr }).start();
     },
 
     printResult(response: AuditResponse) {

@@ -90,18 +90,52 @@ describe("output module", () => {
       expect(parsed.meta.slug).toBe("test-skill");
     });
 
-    it("startSpinner returns no-op object", async () => {
+    it("startSpinner returns no-op object with all methods", async () => {
       const { createOutputHandler } = await import("../src/lib/output.js");
       const handler = createOutputHandler(true);
       const spinner = handler.startSpinner("Loading...");
       // Should not throw
       spinner.stop();
       spinner.fail("error");
+      spinner.succeed("done");
+      // isSpinning should be false in JSON mode
+      expect(spinner.isSpinning).toBe(false);
+      // text property should be writable without error
+      spinner.text = "updated";
       // No output written for spinner in JSON mode
     });
   });
 
   describe("colored mode", () => {
+    it("startSpinner returns real ora instance", async () => {
+      const fakeOraInstance = {
+        start: vi.fn().mockReturnThis(),
+        stop: vi.fn(),
+        fail: vi.fn(),
+        succeed: vi.fn(),
+        isSpinning: true,
+        text: "",
+      };
+      const oraFactory = vi.fn().mockReturnValue(fakeOraInstance);
+
+      vi.doMock("ora", () => ({ default: oraFactory }));
+      // Reset module registry so output.ts re-imports the mocked ora
+      vi.resetModules();
+      const { createOutputHandler } = await import("../src/lib/output.js");
+      const handler = createOutputHandler(false);
+      const spinner = handler.startSpinner("Auditing...");
+
+      expect(oraFactory).toHaveBeenCalledWith({
+        text: "Auditing...",
+        stream: process.stderr,
+      });
+      expect(fakeOraInstance.start).toHaveBeenCalled();
+      expect(spinner).toBe(fakeOraInstance);
+
+      vi.doUnmock("ora");
+      vi.resetModules();
+    });
+
     it("includes category names in output", async () => {
       const consoleSpy = vi
         .spyOn(console, "log")
