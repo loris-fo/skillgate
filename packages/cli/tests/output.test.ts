@@ -58,8 +58,8 @@ const mockResponse: AuditResponse = {
   },
   meta: {
     slug: "test-skill",
-    url: "https://skillgate.dev/report/test-skill",
-    badge_url: "https://skillgate.dev/badge/test-skill",
+    url: "https://skillgate.sh/report/test-skill",
+    badge_url: "https://skillgate.sh/badge/test-skill",
     created_at: "2026-01-01T00:00:00Z",
     cached: false,
   },
@@ -139,7 +139,7 @@ describe("output module", () => {
     it("includes category names in output", async () => {
       const consoleSpy = vi
         .spyOn(console, "log")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
       const { printCompactResult } = await import("../src/lib/output.js");
       printCompactResult(mockResponse);
 
@@ -155,13 +155,13 @@ describe("output module", () => {
     it("includes report link in output", async () => {
       const consoleSpy = vi
         .spyOn(console, "log")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
       const { printCompactResult } = await import("../src/lib/output.js");
       printCompactResult(mockResponse);
 
       const output = consoleSpy.mock.calls.map((c) => c[0]).join("\n");
       expect(output).toContain(
-        "Full report: https://skillgate.dev/report/test-skill",
+        "Full report: https://skillgate.sh/report/test-skill",
       );
       consoleSpy.mockRestore();
     });
@@ -171,7 +171,7 @@ describe("output module", () => {
     it("renders table rows and pass/fail summary", async () => {
       const consoleSpy = vi
         .spyOn(console, "log")
-        .mockImplementation(() => {});
+        .mockImplementation(() => { });
       const { printScanTable } = await import("../src/lib/output.js");
 
       printScanTable([

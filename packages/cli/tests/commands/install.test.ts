@@ -96,8 +96,8 @@ function makeResponse(
     },
     meta: {
       slug: "abc123",
-      url: "https://skillgate.dev/report/abc123",
-      badge_url: "https://skillgate.dev/badge/abc123",
+      url: "https://skillgate.sh/report/abc123",
+      badge_url: "https://skillgate.sh/badge/abc123",
       created_at: "2026-01-01T00:00:00Z",
       cached: false,
     },

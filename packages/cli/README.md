@@ -69,7 +69,7 @@ skillgate scan [options]
 
 ## Links
 
-- [Website](https://skillgate.dev)
+- [Website](https://skillgate.sh)
 - [GitHub](https://github.com/loris-fo/skillgate)
 
 ## License

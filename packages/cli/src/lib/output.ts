@@ -46,7 +46,7 @@ export function printCompactResult(response: AuditResponse): void {
     console.log(`  ${color(cat.score.padEnd(10))} ${label}`);
   }
 
-  console.log(`\nFull report: https://skillgate.dev/report/${meta.slug}`);
+  console.log(`\nFull report: https://skillgate.sh/report/${meta.slug}`);
 }
 
 export function createOutputHandler(jsonMode: boolean) {
@@ -54,9 +54,9 @@ export function createOutputHandler(jsonMode: boolean) {
     startSpinner(text: string) {
       if (jsonMode) {
         return {
-          stop() {},
-          fail(_message?: string) {},
-          succeed(_message?: string) {},
+          stop() { },
+          fail(_message?: string) { },
+          succeed(_message?: string) { },
           isSpinning: false,
           text: "",
         } as unknown as ReturnType<typeof ora>;
