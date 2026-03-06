@@ -12,21 +12,21 @@ Developers can trust-verify any Claude skill before installing it — with plain
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Web audit interface (paste SKILL.md or URL, get full report) — v1.0
+- ✓ CLI with `install` and `scan` commands — v1.0
+- ✓ Audit engine powered by Claude (5 security categories + utility analysis) — v1.0
+- ✓ Permanent shareable audit URLs (content-hash dedup + human-readable slugs) — v1.0
+- ✓ Embeddable SVG badge generation for READMEs — v1.0
+- ✓ CLI blocks on High/Critical by default (non-zero exit, --force override) — v1.0
+- ✓ CLI fetches from GitHub URLs, skills.sh registry, any HTTP URL, or local files — v1.0
+- ✓ CLI downloads and places SKILL.md into project on successful audit — v1.0
+- ✓ Audit result caching by content hash (same content = same audit, no re-analysis) — v1.0
+- ✓ Dark terminal aesthetic UI — v1.0
+- ✓ Landing page IS the audit interface (no separate marketing page) — v1.0
 
 ### Active
 
-- [ ] Web audit interface (paste SKILL.md, get full report)
-- [ ] CLI with `install` and `scan` commands
-- [ ] Audit engine powered by Claude (5 security categories + utility analysis)
-- [ ] Permanent shareable audit URLs (content-hash dedup + human-readable slugs)
-- [ ] Embeddable SVG badge generation for READMEs
-- [ ] CLI blocks on High/Critical by default (non-zero exit, --force override)
-- [ ] CLI fetches from GitHub URLs, skills.sh registry, any HTTP URL, or local files
-- [ ] CLI downloads and places SKILL.md into project on successful audit
-- [ ] Audit result caching by content hash (same content = same audit, no re-analysis)
-- [ ] Dark terminal aesthetic UI
-- [ ] Landing page IS the audit interface (no separate marketing page)
+(None yet — define in next milestone)
 
 ### Out of Scope
 
@@ -40,35 +40,39 @@ Developers can trust-verify any Claude skill before installing it — with plain
 
 ## Context
 
-- Claude Code's skill ecosystem (skills.sh, skill-forge) is growing fast with no trust layer
-- ~15% of public AI skills contain malicious instructions per Gen Threat Labs research
-- The badge system is the primary growth mechanic — skill authors add badges to READMEs
-- Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch
-- The audit prompt is already written and ready to wire in
-- Web app and CLI share the same audit engine (API call to /api/audit)
+Shipped v1.0 with 4,797 LOC TypeScript across 146 files.
+Tech stack: Next.js 15 (App Router), pnpm monorepo, Upstash Redis, Anthropic SDK, Tailwind v4.
+118 tests across 20 test files, all passing.
+Claude Code's skill ecosystem (skills.sh, skill-forge) is growing fast with no trust layer.
+The badge system is the primary growth mechanic — skill authors add badges to READMEs.
+Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 
 ## Constraints
 
-- **Tech stack**: TypeScript throughout — Next.js 14 (App Router), Node.js CLI, Anthropic SDK
+- **Tech stack**: TypeScript throughout — Next.js 15 (App Router), Node.js CLI, Anthropic SDK
 - **Monorepo**: pnpm workspaces (no build orchestrator)
 - **AI model**: claude-sonnet-4-20250514 for audit analysis
-- **Storage**: Vercel KV or Upstash Redis for audit persistence — no database
+- **Storage**: Upstash Redis for audit persistence — no database
 - **Hosting**: Vercel for web/API
 - **Packages**: npm as `skillgate`, domain skillgate.dev, GitHub loris-fo/skillgate
-- **Styling**: Tailwind CSS, dark terminal aesthetic
+- **Styling**: Tailwind CSS v4, dark terminal aesthetic
 - **Quality**: Clean open-source code, contributor-friendly DX
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Audits always public, no auth | Zero friction = maximum adoption | — Pending |
-| Content-hash dedup for audits | Same SKILL.md = same result, saves API costs | — Pending |
-| Dual URL scheme (hash + slug) | Hash for integrity, slug for human-readable sharing | — Pending |
-| CLI downloads + places SKILL.md on pass | Full install flow, not just audit-only gate | — Pending |
-| Audit interface IS the homepage | Strongest conversion — no friction between landing and using | — Pending |
-| pnpm workspaces (no Turborepo) | Lightweight, minimal tooling overhead | — Pending |
-| Badge system as growth engine | Skill authors self-distribute trust signal in READMEs | — Pending |
+| Audits always public, no auth | Zero friction = maximum adoption | ✓ Good — core UX strength |
+| Content-hash dedup for audits | Same SKILL.md = same result, saves API costs | ✓ Good — works reliably |
+| Dual URL scheme (hash + slug) | Hash for integrity, slug for human-readable sharing | ✓ Good — both formats work |
+| CLI downloads + places SKILL.md on pass | Full install flow, not just audit-only gate | ✓ Good — complete workflow |
+| Audit interface IS the homepage | Strongest conversion — no friction between landing and using | ✓ Good — zero-click barrier |
+| pnpm workspaces (no Turborepo) | Lightweight, minimal tooling overhead | ✓ Good — fast builds, no issues |
+| Badge system as growth engine | Skill authors self-distribute trust signal in READMEs | — Pending (needs launch data) |
+| Server-side URL fetch for CORS bypass | Browser can't fetch cross-origin SKILL.md files | ✓ Good — transparent to user |
+| DI factories for testability | createEngine/createCache enable full unit testing without live APIs | ✓ Good — 118 tests pass |
+| CLI ESM-only with tsup bundling | Modern Node.js, tree-shakeable, clean bin entry | ✓ Good — npm-publishable |
+| ora spinner via stderr | Keeps stdout clean for JSON piping in CI/CD | ✓ Good — composable CLI |
 
 ---
-*Last updated: 2026-03-05 after initialization*
+*Last updated: 2026-03-06 after v1.0 milestone*
