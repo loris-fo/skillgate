@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: completed
-stopped_at: Phase 6 context gathered
-last_updated: "2026-03-06T00:01:58.933Z"
-last_activity: 2026-03-06 — Completed Plan 05-01 (NPM Publish Preparation)
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-03-06T00:33:04.632Z"
+last_activity: 2026-03-06 — Completed Plan 06-02 (Web Tech Debt Fixes)
 progress:
   total_phases: 6
-  completed_phases: 5
-  total_plans: 13
-  completed_plans: 13
+  completed_phases: 6
+  total_plans: 15
+  completed_plans: 15
   percent: 100
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Developers can trust-verify any Claude skill before installing it — with plain-English reasoning, not just a score.
-**Current focus:** Phase 5 — Publish
+**Current focus:** Phase 6 — Tech Debt Cleanup
 
 ## Current Position
 
-Phase: 5 of 5 (Publish)
-Plan: 1 of 1 in current phase
-Status: Phase Complete
-Last activity: 2026-03-06 — Completed Plan 05-01 (NPM Publish Preparation)
+Phase: 6 of 6 (Tech Debt Cleanup)
+Plan: 2 of 2 in current phase
+Status: Plan Complete
+Last activity: 2026-03-06 — Completed Plan 06-02 (Web Tech Debt Fixes)
 
 Progress: [██████████] 100%
 
@@ -62,6 +62,7 @@ Progress: [██████████] 100%
 | Phase 04-cli P02 | 4min | 2 tasks | 3 files |
 | Phase 04-cli P03 | 4min | 2 tasks | 3 files |
 | Phase 05-publish P01 | 2min | 2 tasks | 2 files |
+| Phase 06-tech-debt-cleanup P01 | 2min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -104,6 +105,8 @@ Recent decisions affecting current work:
 - [Phase 04-cli]: Default scan targets .claude/ and .claude/skills/ with dedup via Set
 - [Phase 05-publish]: Moved @skillgate/audit-engine to devDependencies since tsup inlines at build time
 - [Phase 05-publish]: GitHub URL as homepage (skillgate.dev may not be live yet)
+- [Phase 06-tech-debt-cleanup]: ora output directed to stderr to keep stdout clean for JSON piping
+- [Phase 06-tech-debt-cleanup]: JSON mode returns cast no-op object with isSpinning/text for scan compatibility
 
 ### Pending Todos
 
@@ -117,6 +120,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-06T00:01:58.921Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-tech-debt-cleanup/06-CONTEXT.md
+Last session: 2026-03-06T00:33:04.629Z
+Stopped at: Completed 06-01-PLAN.md
+Resume file: None
