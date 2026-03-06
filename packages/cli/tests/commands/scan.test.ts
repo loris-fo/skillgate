@@ -43,15 +43,61 @@ function makeAuditResponse(
 ): AuditResponse {
   return {
     result: {
-      overall_score: score as any,
-      recommendation: { verdict: verdict as any, summary: "test" },
-      categories: {},
-    } as any,
+      overall_score: score as AuditResponse["result"]["overall_score"],
+      verdict: "Safe to use",
+      summary: "Test summary",
+      intent: "Test intent",
+      categories: {
+        hidden_logic: {
+          score: "safe",
+          finding: "None",
+          detail: "No hidden logic",
+          by_design: false,
+        },
+        data_access: {
+          score: "safe",
+          finding: "None",
+          detail: "No data access",
+          by_design: false,
+        },
+        action_risk: {
+          score: "safe",
+          finding: "None",
+          detail: "No action risk",
+          by_design: false,
+        },
+        permission_scope: {
+          score: "safe",
+          finding: "None",
+          detail: "No permission scope",
+          by_design: false,
+        },
+        override_attempts: {
+          score: "safe",
+          finding: "None",
+          detail: "No override attempts",
+          by_design: false,
+        },
+      },
+      utility_analysis: {
+        what_it_does: "Test",
+        use_cases: [],
+        not_for: [],
+        trigger_behavior: "manual",
+        dependencies: [],
+      },
+      recommendation: {
+        verdict: verdict as AuditResponse["result"]["recommendation"]["verdict"],
+        for_who: "everyone",
+        caveats: [],
+        alternatives: [],
+      },
+    },
     meta: {
       slug: "test",
-      url: "https://skillgate.dev/report/test",
-      badge_url: "https://skillgate.dev/badge/test",
-      created_at: "2026-01-01",
+      url: "https://skillgate.sh/report/test",
+      badge_url: "https://skillgate.sh/badge/test",
+      created_at: "2026-01-01T00:00:00Z",
       cached: false,
     },
   };
@@ -85,10 +131,10 @@ describe("scanCommand", () => {
       printError: vi.fn(),
     });
 
-    mockConsoleLog = vi.spyOn(console, "log").mockImplementation(() => {});
+    mockConsoleLog = vi.spyOn(console, "log").mockImplementation(() => { });
     mockConsoleError = vi
       .spyOn(console, "error")
-      .mockImplementation(() => {});
+      .mockImplementation(() => { });
     mockProcessExit = vi
       .spyOn(process, "exit")
       .mockImplementation(() => undefined as never);
