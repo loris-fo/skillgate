@@ -138,7 +138,7 @@ export async function auditSkill(
 }
 ```
 
-**CLI calls API, not SDK directly:** This keeps `ANTHROPIC_API_KEY` server-side only. The CLI posts to `https://skillgate.dev/api/audit` (or a configurable endpoint). No AI key ever ships in the npm package.
+**CLI calls API, not SDK directly:** This keeps `ANTHROPIC_API_KEY` server-side only. The CLI posts to `https://skillgate.sh/api/audit` (or a configurable endpoint). No AI key ever ships in the npm package.
 
 **Confidence:** HIGH — Pattern is standard for this architecture. SDK version may need verification.
 
@@ -183,7 +183,7 @@ export async function GET(req: Request, { params }) {
 
 **README embed snippet (what skill authors paste):**
 ```markdown
-[![Skillgate](https://skillgate.dev/api/badge/swift-falcon-7x2.svg)](https://skillgate.dev/a/swift-falcon-7x2)
+[![Skillgate](https://skillgate.sh/api/badge/swift-falcon-7x2.svg)](https://skillgate.sh/a/swift-falcon-7x2)
 ```
 
 **Confidence:** MEDIUM — `badge-maker` is the shields.io underlying library, well-established. Version needs verification.

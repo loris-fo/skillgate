@@ -274,7 +274,7 @@ Mistakes that cause rewrites, security holes, or complete credibility loss.
 
 ### Pitfall 11: Badge Hotlinking Generates Unbounded Vercel Bandwidth Costs
 
-**What goes wrong:** Every GitHub README that embeds a Skillgate badge makes an HTTP request to `skillgate.dev/api/badge/{hash}.svg` on every page load. A popular skill with 10,000 GitHub stars generates 10,000 badge requests per day just from README views. Vercel's hobby tier has generous but finite bandwidth; Pro tier charges per GB.
+**What goes wrong:** Every GitHub README that embeds a Skillgate badge makes an HTTP request to `skillgate.sh/api/badge/{hash}.svg` on every page load. A popular skill with 10,000 GitHub stars generates 10,000 badge requests per day just from README views. Vercel's hobby tier has generous but finite bandwidth; Pro tier charges per GB.
 
 **Why it happens:** Badge systems are inherently hotlinked. Shields.io and similar services handle this at scale with CDN caching, but a self-hosted badge route is hit directly unless CDN headers are set correctly.
 
@@ -310,7 +310,7 @@ Mistakes that cause rewrites, security holes, or complete credibility loss.
 
 ### Pitfall 13: Human-Readable Slug Collisions
 
-**What goes wrong:** The slug generation for audit URLs (e.g., `skillgate.dev/audit/dangerous-bash-tool-x7q2`) produces collisions when two different skills have similar names. The second skill overwrites the first's slug-to-hash mapping in KV, or the slug lookup returns the wrong audit.
+**What goes wrong:** The slug generation for audit URLs (e.g., `skillgate.sh/audit/dangerous-bash-tool-x7q2`) produces collisions when two different skills have similar names. The second skill overwrites the first's slug-to-hash mapping in KV, or the slug lookup returns the wrong audit.
 
 **Prevention:**
 - Use slug as a display alias only — primary lookup key is always the content hash

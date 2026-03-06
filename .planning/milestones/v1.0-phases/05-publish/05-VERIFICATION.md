@@ -53,7 +53,7 @@ No orphaned requirements: REQUIREMENTS.md maps INFRA-06 to Phase 5 only; no addi
 
 | File                           | Line | Pattern              | Severity | Impact                                                                                          |
 |--------------------------------|------|----------------------|----------|-------------------------------------------------------------------------------------------------|
-| `packages/cli/README.md`       | 72   | `skillgate.dev` link | Info     | README links to `https://skillgate.dev` as "Website" but PLAN decision was to use GitHub URL since skillgate.dev may not be live. Package.json homepage correctly uses GitHub URL. |
+| `packages/cli/README.md`       | 72   | `skillgate.sh` link | Info     | README links to `https://skillgate.sh` as "Website" but PLAN decision was to use GitHub URL since skillgate.sh may not be live. Package.json homepage correctly uses GitHub URL. |
 
 No blockers. No warnings.
 

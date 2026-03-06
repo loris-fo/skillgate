@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Skillgate is a security and utility auditor for Claude AI skill files (SKILL.md). It analyzes skills across five security categories and produces explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.dev), an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
+Skillgate is a security and utility auditor for Claude AI skill files (SKILL.md). It analyzes skills across five security categories and produces explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.sh), an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
 
 ## Core Value
 
@@ -54,7 +54,7 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 - **AI model**: claude-sonnet-4-20250514 for audit analysis
 - **Storage**: Upstash Redis for audit persistence — no database
 - **Hosting**: Vercel for web/API
-- **Packages**: npm as `skillgate`, domain skillgate.dev, GitHub loris-fo/skillgate
+- **Packages**: npm as `skillgate`, domain skillgate.sh, GitHub loris-fo/skillgate
 - **Styling**: Tailwind CSS v4, dark terminal aesthetic
 - **Quality**: Clean open-source code, contributor-friendly DX
 

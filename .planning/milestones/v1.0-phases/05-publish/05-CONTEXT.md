@@ -34,7 +34,7 @@ Correctly package and publish the `skillgate` CLI to npm as a production package
 ### Pre-publish Checklist
 - Add `prepublishOnly` script to package.json: runs build + tests automatically before every publish
 - Verify tarball with `npm pack --dry-run` before first publish: check no .env, source maps, or workspace:* refs leak
-- Dedicated CLI README.md in packages/cli/ for the npm listing page (install instructions, usage examples, link to skillgate.dev)
+- Dedicated CLI README.md in packages/cli/ for the npm listing page (install instructions, usage examples, link to skillgate.sh)
 - Manual first publish via `npm publish` — automate via GitHub Actions later once flow is validated
 
 ### Claude's Discretion

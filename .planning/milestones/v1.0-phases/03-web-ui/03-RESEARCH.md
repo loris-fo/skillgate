@@ -509,7 +509,7 @@ export function CategoryCard({
 import { CopyButton } from "./copy-button";
 
 export function BadgeSection({ slug }: { slug: string }) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.sh";
   const badgeUrl = `${baseUrl}/api/badge/${slug}`;
   const reportUrl = `${baseUrl}/report/${slug}`;
   const snippet = `[![Skillgate](${badgeUrl})](${reportUrl})`;

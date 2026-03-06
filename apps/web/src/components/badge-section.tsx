@@ -2,7 +2,7 @@ import { CopyButton } from "@/components/copy-button";
 
 export function BadgeSection({ slug }: { slug: string }) {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.dev";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.sh";
   const badgeSrc = `/api/badge/${slug}.svg`;
   const snippet = `[![Skillgate](${baseUrl}/api/badge/${slug}.svg)](${baseUrl}/report/${slug})`;
 

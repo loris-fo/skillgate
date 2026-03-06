@@ -17,7 +17,7 @@
 - Compact summary by default: verdict + overall score + one-line per category (5 lines)
 - Emoji + color for verdict display: ✅ Install / ⚠️ Review First / ❌ Avoid
 - Animated spinner (ora-style) with "Auditing skill..." while API call is in progress
-- Always append full web report link: "Full report: https://skillgate.dev/report/{slug}"
+- Always append full web report link: "Full report: https://skillgate.sh/report/{slug}"
 - --json flag outputs machine-readable JSON to stdout (no color, no spinner, no emoji)
 - --verbose flag for expanded output with category findings (future consideration)
 
@@ -39,7 +39,7 @@
 - --no-fail flag makes it always exit 0 (reporting only, no gating)
 
 ### API Configuration
-- Default API base URL: https://skillgate.dev/api
+- Default API base URL: https://skillgate.sh/api
 - Override via SKILLGATE_API_URL environment variable
 - Request timeout: 60 seconds (covers Vercel cold start + long Claude analysis)
 - Retry on network failure: 2-3 retries with backoff, then fail with clear message ("Could not reach Skillgate API. Check your network connection.")

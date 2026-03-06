@@ -20,7 +20,7 @@ The main technical challenge is that ora 9 and chalk 5 are pure ESM packages. Si
 - Compact summary by default: verdict + overall score + one-line per category (5 lines)
 - Emoji + color for verdict display: checkmark Install / warning Review First / cross Avoid
 - Animated spinner (ora-style) with "Auditing skill..." while API call is in progress
-- Always append full web report link: "Full report: https://skillgate.dev/report/{slug}"
+- Always append full web report link: "Full report: https://skillgate.sh/report/{slug}"
 - --json flag outputs machine-readable JSON to stdout (no color, no spinner, no emoji)
 - Default placement: .claude/ directory in project root
 - Configurable via --output/-o flag to override target directory
@@ -35,7 +35,7 @@ The main technical challenge is that ora 9 and chalk 5 are pure ESM packages. Si
 - Parallel scan execution with concurrency limit
 - Exit code: exit 1 if ANY skill scores High/Critical
 - --no-fail flag makes scan always exit 0
-- Default API base URL: https://skillgate.dev/api
+- Default API base URL: https://skillgate.sh/api
 - Override via SKILLGATE_API_URL environment variable
 - Request timeout: 60 seconds
 - Retry on network failure: 2-3 retries with backoff
@@ -343,7 +343,7 @@ export default defineConfig({
 ```typescript
 import type { AuditResponse, ErrorResponse } from "./types.js";
 
-const DEFAULT_API_URL = "https://skillgate.dev/api";
+const DEFAULT_API_URL = "https://skillgate.sh/api";
 
 function getApiUrl(): string {
   return process.env.SKILLGATE_API_URL || DEFAULT_API_URL;
@@ -410,7 +410,7 @@ export function printCompactResult(response: AuditResponse): void {
     console.log(`  ${color(cat.score.padEnd(10))} ${label}`);
   }
 
-  console.log(`\nFull report: https://skillgate.dev/report/${meta.slug}`);
+  console.log(`\nFull report: https://skillgate.sh/report/${meta.slug}`);
 }
 ```
 

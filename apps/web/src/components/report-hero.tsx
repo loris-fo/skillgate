@@ -13,7 +13,7 @@ export function ReportHero({
   const verdictKey = result.recommendation.verdict;
   const verdict = VERDICT_CONFIG[verdictKey] ?? VERDICT_CONFIG.install;
   const severity = SEVERITY_CONFIG[result.overall_score];
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.sh";
   const permalink = `${baseUrl}/report/${meta.slug}`;
 
   return (

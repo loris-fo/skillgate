@@ -94,7 +94,7 @@ User pastes SKILL.md content
 ```
 skillgate scan <url|file|github>
   → fetcher.ts: resolve + download SKILL.md content
-  → POST https://skillgate.dev/api/audit  { content }
+  → POST https://skillgate.sh/api/audit  { content }
   → receive { id, slug, report }
   → formatter.ts: render terminal report
   → exit 0 (pass) or exit 1 (High/Critical, unless --force)
@@ -241,7 +241,7 @@ The CLI communicates with the deployed API over HTTP. This is intentional — it
 
 ```typescript
 // packages/cli/src/api-client.ts
-const BASE_URL = process.env.SKILLGATE_API_URL ?? "https://skillgate.dev";
+const BASE_URL = process.env.SKILLGATE_API_URL ?? "https://skillgate.sh";
 
 export async function submitAudit(content: string): Promise<AuditResult> {
   const res = await fetch(`${BASE_URL}/api/audit`, {
@@ -422,7 +422,7 @@ The package dependency graph dictates build order:
 │  skillgate install <source>                             │
 │                                                         │
 │  fetcher.ts → normalize GitHub/HTTP/local               │
-│  api-client.ts → POST https://skillgate.dev/api/audit  │
+│  api-client.ts → POST https://skillgate.sh/api/audit  │
 │  formatter.ts → terminal output                         │
 │  exit 0 (safe/risky) | exit 1 (high/critical)          │
 └──────────────────────────┬──────────────────────────────┘

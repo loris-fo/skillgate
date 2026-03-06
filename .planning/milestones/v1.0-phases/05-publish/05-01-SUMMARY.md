@@ -27,7 +27,7 @@ key-files:
 
 key-decisions:
   - "Moved @skillgate/audit-engine to devDependencies since tsup inlines at build time"
-  - "GitHub URL as homepage (skillgate.dev may not be live yet)"
+  - "GitHub URL as homepage (skillgate.sh may not be live yet)"
 
 patterns-established:
   - "Workspace packages used only at build time go in devDependencies"
@@ -71,7 +71,7 @@ Each task was committed atomically:
 
 ## Decisions Made
 - Moved @skillgate/audit-engine to devDependencies since tsup inlines all imports at build time (dist/index.js has 0 references to audit-engine)
-- Used GitHub URL as homepage since skillgate.dev may not be live yet
+- Used GitHub URL as homepage since skillgate.sh may not be live yet
 
 ## Deviations from Plan
 

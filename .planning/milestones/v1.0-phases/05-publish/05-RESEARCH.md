@@ -167,7 +167,7 @@ packages/cli/
     "url": "https://github.com/loris-fo/skillgate.git",
     "directory": "packages/cli"
   },
-  "homepage": "https://skillgate.dev",
+  "homepage": "https://skillgate.sh",
   "bugs": "https://github.com/loris-fo/skillgate/issues",
   "keywords": ["claude", "skill", "security", "audit", "mcp", "cli"],
   "engines": {
@@ -266,7 +266,7 @@ Options:
 npx skillgate install <url>
 
 ## Links
-- Website: https://skillgate.dev
+- Website: https://skillgate.sh
 - GitHub: https://github.com/loris-fo/skillgate
 
 ## License
@@ -287,8 +287,8 @@ MIT
 ## Open Questions
 
 1. **Homepage URL**
-   - What we know: CONTEXT says "pointing to GitHub repo" but also mentions "link to skillgate.dev" in README
-   - Recommendation: Use `https://skillgate.dev` for homepage, GitHub URL for repository field. If skillgate.dev is not live yet, use GitHub repo URL for homepage.
+   - What we know: CONTEXT says "pointing to GitHub repo" but also mentions "link to skillgate.sh" in README
+   - Recommendation: Use `https://skillgate.sh` for homepage, GitHub URL for repository field. If skillgate.sh is not live yet, use GitHub repo URL for homepage.
 
 2. **CHANGELOG inclusion**
    - What we know: CONTEXT gives discretion on this
