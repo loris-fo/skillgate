@@ -55,6 +55,33 @@ export function ReportHero({
           <CopyButton text={permalink} label="Copy Link" />
         </div>
       </div>
+
+      {(result.recommendation.for_who || result.recommendation.caveats?.length > 0 || result.recommendation.alternatives?.length > 0) && (
+        <div className="mt-6 pt-6 border-t border-border">
+          {result.recommendation.for_who && (
+            <p className="text-text-secondary text-sm">
+              <span className="text-text-muted uppercase text-xs tracking-wide">Best for: </span>
+              {result.recommendation.for_who}
+            </p>
+          )}
+          {result.recommendation.caveats?.length > 0 && (
+            <div className="mt-3">
+              <span className="text-text-muted uppercase text-xs tracking-wide">Caveats</span>
+              <ul className="mt-1 list-disc list-inside text-sm text-yellow-400/80">
+                {result.recommendation.caveats.map((c, i) => <li key={i}>{c}</li>)}
+              </ul>
+            </div>
+          )}
+          {result.recommendation.alternatives?.length > 0 && (
+            <div className="mt-3">
+              <span className="text-text-muted uppercase text-xs tracking-wide">Alternatives</span>
+              <ul className="mt-1 list-disc list-inside text-sm text-text-secondary">
+                {result.recommendation.alternatives.map((a, i) => <li key={i}>{a}</li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
     </section>
   );
 }

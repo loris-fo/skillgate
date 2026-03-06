@@ -3,8 +3,8 @@ import { CopyButton } from "@/components/copy-button";
 export function BadgeSection({ slug }: { slug: string }) {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://skillgate.dev";
-  const badgeSrc = `/api/badge/${slug}`;
-  const snippet = `[![Skillgate](${baseUrl}/api/badge/${slug})](${baseUrl}/report/${slug})`;
+  const badgeSrc = `/api/badge/${slug}.svg`;
+  const snippet = `[![Skillgate](${baseUrl}/api/badge/${slug}.svg)](${baseUrl}/report/${slug})`;
 
   return (
     <section className="bg-surface-1 border border-border rounded-lg p-6 my-8">
