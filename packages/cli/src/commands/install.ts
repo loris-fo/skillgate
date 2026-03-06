@@ -46,6 +46,13 @@ export async function installCommand(
 ): Promise<void> {
   const output = createOutputHandler(options.json);
   const spinner = output.startSpinner("Auditing skill...");
+  const stages = [
+    { delay: 2000, text: "Analyzing security patterns..." },
+    { delay: 4000, text: "Generating report..." },
+  ];
+  const timers = stages.map(({ delay, text }) =>
+    setTimeout(() => { if (spinner.isSpinning) spinner.text = text; }, delay)
+  );
 
   try {
     const resolved = resolveInput(source);
@@ -61,7 +68,8 @@ export async function installCommand(
     // Always audit with content (we fetched it for URL inputs)
     const response = await auditViaApi({ content });
 
-    spinner.stop();
+    timers.forEach(clearTimeout);
+    spinner.succeed("Audit complete");
     output.printResult(response);
 
     // Check gating
@@ -83,6 +91,7 @@ export async function installCommand(
       console.log(`Installed to ${filepath}`);
     }
   } catch (error) {
+    timers.forEach(clearTimeout);
     spinner.fail("Audit failed");
     const message = error instanceof Error ? error.message : String(error);
     output.printError(message);

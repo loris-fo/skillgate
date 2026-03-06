@@ -111,7 +111,7 @@ export async function scanCommand(options: ScanOptions): Promise<void> {
     spinner.text = `Auditing skills... (${completedCount}/${uniqueFiles.length})`;
   });
 
-  spinner.stop();
+  spinner.succeed(`Scanned ${uniqueFiles.length} skills`);
 
   // Output results
   if (options.json) {

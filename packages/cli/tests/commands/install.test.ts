@@ -155,7 +155,7 @@ describe("installCommand", () => {
     expect(resolveInput).toHaveBeenCalledWith("./SKILL.md");
     expect(auditViaApi).toHaveBeenCalledWith({ content });
     expect(isBlocked).toHaveBeenCalledWith("safe");
-    expect(spinner.stop).toHaveBeenCalled();
+    expect(spinner.succeed).toHaveBeenCalled();
     expect(handler.printResult).toHaveBeenCalled();
     expect(fs.mkdirSync).toHaveBeenCalledWith(".claude", { recursive: true });
     expect(fs.writeFileSync).toHaveBeenCalledWith(
@@ -185,7 +185,7 @@ describe("installCommand", () => {
       json: false,
     });
 
-    expect(spinner.stop).toHaveBeenCalled();
+    expect(spinner.succeed).toHaveBeenCalled();
     expect(handler.printResult).toHaveBeenCalled();
     expect(fs.writeFileSync).not.toHaveBeenCalled();
     expect(exitSpy).toHaveBeenCalledWith(1);
