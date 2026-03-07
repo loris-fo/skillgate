@@ -15,9 +15,9 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 ### Design System
 
-- [ ] **DS-01**: Background #F0F9FF, cards #FFFFFF with #BAE6FD border and subtle box shadow
-- [ ] **DS-02**: Accent #06B6D4, headings #0C1A1A, body text #475569
-- [ ] **DS-03**: Verdict colors: Safe/Install #22C55E, Critical/Avoid #EF4444, High #F97316
+- [x] **DS-01**: Background #F0F9FF, cards #FFFFFF with #BAE6FD border and subtle box shadow
+- [x] **DS-02**: Accent #06B6D4, headings #0C1A1A, body text #475569
+- [x] **DS-03**: Verdict colors: Safe/Install #22C55E, Critical/Avoid #EF4444, High #F97316
 
 ### Landing
 
@@ -61,9 +61,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAYOUT-01 | Phase 7 | Pending |
 | LAYOUT-02 | Phase 7 | Pending |
 | LAYOUT-03 | Phase 7 | Pending |
-| DS-01 | Phase 7 | Pending |
-| DS-02 | Phase 7 | Pending |
-| DS-03 | Phase 7 | Pending |
+| DS-01 | Phase 7 | Complete |
+| DS-02 | Phase 7 | Complete |
+| DS-03 | Phase 7 | Complete |
 | LAND-01 | Phase 8 | Pending |
 | LAND-02 | Phase 8 | Pending |
 | LAND-03 | Phase 8 | Pending |
