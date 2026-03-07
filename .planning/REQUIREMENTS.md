@@ -9,9 +9,9 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 ### Layout
 
-- [ ] **LAYOUT-01**: All pages wrapped in shared layout component with header and footer
-- [ ] **LAYOUT-02**: Header shows "skillgate" wordmark linking to /, copyable `npm i -g skillgate` pill, and GitHub icon linking to repo
-- [ ] **LAYOUT-03**: Footer shows single row: GitHub · npm · skillgate.sh · MIT License links in #94A3B8
+- [x] **LAYOUT-01**: All pages wrapped in shared layout component with header and footer
+- [x] **LAYOUT-02**: Header shows "skillgate" wordmark linking to /, copyable `npm i -g skillgate` pill, and GitHub icon linking to repo
+- [x] **LAYOUT-03**: Footer shows single row: GitHub · npm · skillgate.sh · MIT License links in #94A3B8
 
 ### Design System
 
@@ -58,9 +58,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAYOUT-01 | Phase 7 | Pending |
-| LAYOUT-02 | Phase 7 | Pending |
-| LAYOUT-03 | Phase 7 | Pending |
+| LAYOUT-01 | Phase 7 | Complete |
+| LAYOUT-02 | Phase 7 | Complete |
+| LAYOUT-03 | Phase 7 | Complete |
 | DS-01 | Phase 7 | Complete |
 | DS-02 | Phase 7 | Complete |
 | DS-03 | Phase 7 | Complete |

@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Web Redesign
 status: executing
-stopped_at: Completed 07-01-PLAN.md
-last_updated: "2026-03-07T09:32:39.043Z"
-last_activity: 2026-03-06 -- v1.1 roadmap created
+stopped_at: Completed 07-02-PLAN.md
+last_updated: "2026-03-07T09:36:08.286Z"
+last_activity: 2026-03-07 -- Completed 07-02 header, footer, and layout shell
 progress:
   total_phases: 3
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
-  percent: 0
+  completed_plans: 2
+  percent: 100
 ---
 
 # Project State
@@ -27,11 +27,11 @@ See: .planning/PROJECT.md (updated 2026-03-06)
 
 Milestone: v1.1 Web Redesign
 Phase: 7 of 9 (Design System & Layout)
-Plan: 1 of 2 in current phase
+Plan: 2 of 2 in current phase (complete)
 Status: Executing
-Last activity: 2026-03-07 -- Completed 07-01 design tokens and typography
+Last activity: 2026-03-07 -- Completed 07-02 header, footer, and layout shell
 
-Progress: [█████░░░░░] 50%
+Progress: [██████████] 100%
 
 ## Accumulated Context
 
@@ -42,6 +42,7 @@ See PROJECT.md Key Decisions table for full log.
 - [v1.1]: Visual-only redesign -- all API routes, data logic, and audit engine stay untouched
 - [v1.1]: Light sky-blue aesthetic (#F0F9FF background) replacing dark terminal theme
 - [Phase 07]: Kept backward-compat aliases (surface-0, text-primary, etc.) so existing pages render without changes
+- [Phase 07]: Home page hero updated to action-oriented copy since wordmark is in shared header
 
 ### Pending Todos
 
@@ -60,6 +61,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-07T09:32:39.041Z
-Stopped at: Completed 07-01-PLAN.md
+Last session: 2026-03-07T09:36:08.283Z
+Stopped at: Completed 07-02-PLAN.md
 Resume file: None
