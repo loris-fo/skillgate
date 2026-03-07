@@ -1,7 +1,7 @@
 # Requirements: Skillgate
 
 **Defined:** 2026-03-06
-**Core Value:** Developers can trust-verify any Claude skill before installing it — with plain-English reasoning, not just a score.
+**Core Value:** Developers can trust-verify any Claude skill before installing it -- with plain-English reasoning, not just a score.
 
 ## v1.1 Requirements
 
@@ -21,7 +21,7 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 ### Landing
 
-- [ ] **LAND-01**: Hero section with headline, subtext, and "Audit a skill →" CTA linking to /audit
+- [ ] **LAND-01**: Hero section with headline, subtext, and "Audit a skill" CTA linking to /audit
 - [ ] **LAND-02**: Feature sections explaining what Skillgate audits
 - [ ] **LAND-03**: Animated report mockup rows fade+slide in sequentially on scroll
 - [ ] **LAND-04**: Badge markdown snippet with working copy button
@@ -35,17 +35,17 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 - [ ] **REPORT-01**: Redesigned verdict, category cards, and utility analysis display
 - [ ] **REPORT-02**: All existing data (badge, copy link, shareable URL) remains functional
-- [ ] **REPORT-03**: "← Audit another skill" link to /audit below report content
+- [ ] **REPORT-03**: "Audit another skill" link to /audit below report content
 
 ## Future Requirements
 
-None — redesign is self-contained.
+None -- redesign is self-contained.
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| API route changes | Redesign is visual only — all routes stay as-is |
+| API route changes | Redesign is visual only -- all routes stay as-is |
 | Audit engine changes | No logic changes, only presentation |
 | CLI changes | CLI is unaffected by web redesign |
 | Dark mode toggle | Single light theme for v1.1 |
@@ -58,27 +58,27 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| LAYOUT-01 | — | Pending |
-| LAYOUT-02 | — | Pending |
-| LAYOUT-03 | — | Pending |
-| DS-01 | — | Pending |
-| DS-02 | — | Pending |
-| DS-03 | — | Pending |
-| LAND-01 | — | Pending |
-| LAND-02 | — | Pending |
-| LAND-03 | — | Pending |
-| LAND-04 | — | Pending |
-| AUDIT-01 | — | Pending |
-| AUDIT-02 | — | Pending |
-| REPORT-01 | — | Pending |
-| REPORT-02 | — | Pending |
-| REPORT-03 | — | Pending |
+| LAYOUT-01 | Phase 7 | Pending |
+| LAYOUT-02 | Phase 7 | Pending |
+| LAYOUT-03 | Phase 7 | Pending |
+| DS-01 | Phase 7 | Pending |
+| DS-02 | Phase 7 | Pending |
+| DS-03 | Phase 7 | Pending |
+| LAND-01 | Phase 8 | Pending |
+| LAND-02 | Phase 8 | Pending |
+| LAND-03 | Phase 8 | Pending |
+| LAND-04 | Phase 8 | Pending |
+| AUDIT-01 | Phase 9 | Pending |
+| AUDIT-02 | Phase 9 | Pending |
+| REPORT-01 | Phase 9 | Pending |
+| REPORT-02 | Phase 9 | Pending |
+| REPORT-03 | Phase 9 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 15 total
-- Mapped to phases: 0
-- Unmapped: 15
+- Mapped to phases: 15
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-06*
-*Last updated: 2026-03-06 after initial definition*
+*Last updated: 2026-03-06 after roadmap creation*
