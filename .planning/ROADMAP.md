@@ -38,11 +38,11 @@
   2. All pages share a footer with GitHub, npm, skillgate.sh, and MIT License links in muted text
   3. Background is light sky-blue (#F0F9FF), cards are white with #BAE6FD borders, and accent color #06B6D4 is used for interactive elements
   4. Verdict colors (green/red/orange) are defined and available for downstream pages
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 07-01: TBD
-- [ ] 07-02: TBD
+- [ ] 07-01-PLAN.md — Design system tokens and font swap (DS-01, DS-02, DS-03)
+- [ ] 07-02-PLAN.md — Shared header/footer layout components (LAYOUT-01, LAYOUT-02, LAYOUT-03)
 
 ### Phase 8: Landing Page
 **Goal**: A visitor landing on skillgate.sh immediately understands what the product does, sees a polished animated preview, and can navigate to audit or copy a badge snippet
