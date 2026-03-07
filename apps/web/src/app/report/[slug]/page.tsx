@@ -31,7 +31,7 @@ export default async function ReportPage({ params }: Props) {
   }
 
   return (
-    <main className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
+    <section className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
       <ReportHero result={report.result} meta={report.meta} />
 
       <h2 className="text-text-primary text-xl font-semibold mb-4">
@@ -47,6 +47,6 @@ export default async function ReportPage({ params }: Props) {
       <UtilitySection utility={report.result.utility_analysis} />
 
       <BadgeSection slug={report.meta.slug} />
-    </main>
+    </section>
   );
 }
