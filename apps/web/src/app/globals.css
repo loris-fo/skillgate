@@ -1,36 +1,45 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-plus-jakarta-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @theme {
-  /* Dark theme base colors */
-  --color-surface-0: #0a0a0f;
-  --color-surface-1: #12121a;
-  --color-surface-2: #1a1a26;
-  --color-surface-3: #242432;
-  --color-border: #2a2a3c;
+  /* Light theme - page background */
+  --color-bg-page: #F0F9FF;
+
+  /* Card surface */
+  --color-surface-card: #FFFFFF;
+  --color-border-card: #BAE6FD;
+  --color-border-card-hover: #06B6D4;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+
+  /* Cyan accent */
+  --color-accent: #06B6D4;
+  --color-accent-hover: #0891B2;
+  --color-accent-muted: #06B6D420;
 
   /* Text colors */
-  --color-text-primary: #f0f0f5;
-  --color-text-secondary: #9898b0;
-  --color-text-muted: #5e5e78;
-
-  /* Purple accent */
-  --color-accent: #8b5cf6;
-  --color-accent-hover: #7c3aed;
-  --color-accent-muted: #8b5cf620;
+  --color-text-heading: #0C1A1A;
+  --color-text-body: #475569;
+  --color-text-muted: #94A3B8;
 
   /* Severity colors */
-  --color-severity-safe: #22c55e;
-  --color-severity-low: #eab308;
-  --color-severity-moderate: #f97316;
-  --color-severity-high: #ef4444;
-  --color-severity-critical: #991b1b;
+  --color-severity-safe: #22C55E;
+  --color-severity-low: #EAB308;
+  --color-severity-moderate: #F97316;
+  --color-severity-high: #F97316;
+  --color-severity-critical: #EF4444;
+
+  /* Backward-compat aliases for existing components */
+  --color-surface-0: #F0F9FF;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F8FAFC;
+  --color-surface-3: #E0F2FE;
+  --color-border: #BAE6FD;
+  --color-text-primary: #0C1A1A;
+  --color-text-secondary: #475569;
 
   /* Subtle transitions */
   --animate-fade-in: fade-in 0.2s ease-out;
