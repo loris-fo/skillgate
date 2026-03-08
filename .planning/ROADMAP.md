@@ -53,10 +53,11 @@ Plans:
   2. Feature sections explain what Skillgate audits in clear, scannable blocks
   3. Animated report mockup rows fade and slide in sequentially as the user scrolls
   4. Badge markdown snippet is displayed with a copy button that copies to clipboard
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 08-01: TBD
+- [ ] 08-01-PLAN.md — Hero section and feature cards (LAND-01, LAND-02)
+- [ ] 08-02-PLAN.md — Animated report mockup and badge snippet (LAND-03, LAND-04)
 
 ### Phase 9: Audit & Report Pages
 **Goal**: Users can audit a skill and view the report with the new design system, with all existing functionality intact
@@ -86,5 +87,5 @@ Plans:
 | 5. Publish | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 6. Tech Debt Cleanup | v1.0 | 2/2 | Complete | 2026-03-06 |
 | 7. Design System & Layout | v1.1 | 0/2 | Not started | - |
-| 8. Landing Page | v1.1 | 0/1 | Not started | - |
+| 8. Landing Page | v1.1 | 0/2 | Not started | - |
 | 9. Audit & Report Pages | v1.1 | 0/2 | Not started | - |
