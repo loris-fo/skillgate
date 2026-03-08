@@ -24,7 +24,7 @@
 **Milestone Goal:** Redesign the web app with a light, professional aesthetic -- new shared layout, landing page, audit page, and report page -- while keeping all API routes, data logic, and audit engine untouched.
 
 - [ ] **Phase 7: Design System & Layout** - Light aesthetic foundation and shared header/footer component
-- [ ] **Phase 8: Landing Page** - Hero, features, animated mockup, and badge copy
+- [x] **Phase 8: Landing Page** - Hero, features, animated mockup, and badge copy (completed 2026-03-08)
 - [ ] **Phase 9: Audit & Report Pages** - Redesigned audit form and report display
 
 ## Phase Details
@@ -53,7 +53,7 @@ Plans:
   2. Feature sections explain what Skillgate audits in clear, scannable blocks
   3. Animated report mockup rows fade and slide in sequentially as the user scrolls
   4. Badge markdown snippet is displayed with a copy button that copies to clipboard
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 08-01-PLAN.md — Hero section and feature cards (LAND-01, LAND-02)
@@ -87,5 +87,5 @@ Plans:
 | 5. Publish | v1.0 | 1/1 | Complete | 2026-03-05 |
 | 6. Tech Debt Cleanup | v1.0 | 2/2 | Complete | 2026-03-06 |
 | 7. Design System & Layout | v1.1 | 0/2 | Not started | - |
-| 8. Landing Page | v1.1 | 0/2 | Not started | - |
+| 8. Landing Page | 2/2 | Complete   | 2026-03-08 | - |
 | 9. Audit & Report Pages | v1.1 | 0/2 | Not started | - |

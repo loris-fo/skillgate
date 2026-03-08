@@ -23,8 +23,8 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 - [x] **LAND-01**: Hero section with headline, subtext, and "Audit a skill" CTA linking to /audit
 - [x] **LAND-02**: Feature sections explaining what Skillgate audits
-- [ ] **LAND-03**: Animated report mockup rows fade+slide in sequentially on scroll
-- [ ] **LAND-04**: Badge markdown snippet with working copy button
+- [x] **LAND-03**: Animated report mockup rows fade+slide in sequentially on scroll
+- [x] **LAND-04**: Badge markdown snippet with working copy button
 
 ### Audit
 
@@ -66,8 +66,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DS-03 | Phase 7 | Complete |
 | LAND-01 | Phase 8 | Complete |
 | LAND-02 | Phase 8 | Complete |
-| LAND-03 | Phase 8 | Pending |
-| LAND-04 | Phase 8 | Pending |
+| LAND-03 | Phase 8 | Complete |
+| LAND-04 | Phase 8 | Complete |
 | AUDIT-01 | Phase 9 | Pending |
 | AUDIT-02 | Phase 9 | Pending |
 | REPORT-01 | Phase 9 | Pending |

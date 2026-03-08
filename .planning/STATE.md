@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Web Redesign
 status: executing
-stopped_at: Completed 08-01-PLAN.md
-last_updated: "2026-03-08T20:24:23.888Z"
-last_activity: 2026-03-08 -- Completed 08-01 hero and features sections
+stopped_at: Completed 08-02-PLAN.md
+last_updated: "2026-03-08T20:32:38.464Z"
+last_activity: 2026-03-08 -- Completed 08-02 animated mockup and badge snippet
 progress:
   total_phases: 3
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
   percent: 75
 ---
 
@@ -26,12 +26,12 @@ See: .planning/PROJECT.md (updated 2026-03-06)
 ## Current Position
 
 Milestone: v1.1 Web Redesign
-Phase: 8 of 9 (Landing Page)
-Plan: 1 of 2 in current phase (complete)
+Phase: 8 of 9 (Landing Page) -- COMPLETE
+Plan: 2 of 2 in current phase (complete)
 Status: Executing
-Last activity: 2026-03-08 -- Completed 08-01 hero and features sections
+Last activity: 2026-03-08 -- Completed 08-02 animated mockup and badge snippet
 
-Progress: [████████░░] 75%
+Progress: [██████████] 100%
 
 ## Accumulated Context
 
@@ -46,6 +46,9 @@ See PROJECT.md Key Decisions table for full log.
 - [Phase 08]: Used inline SVG icons instead of icon library to avoid dependency
 - [Phase 08]: AuditForm removed from home page -- will move to /audit in Phase 9
 - [Phase 08]: All landing components are server components (zero client JS)
+- [Phase 08]: Used CSS transitions with transitionDelay for stagger instead of keyframe animations
+- [Phase 08]: Inline SVG shield badges (shields.io style) to avoid external image dependencies
+- [Phase 08]: AnimatedMockup and BadgeSnippet are client components (IntersectionObserver + clipboard API)
 
 ### Pending Todos
 
@@ -64,6 +67,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-08T20:24:23.866Z
-Stopped at: Completed 08-01-PLAN.md
+Last session: 2026-03-08T20:32:38.453Z
+Stopped at: Completed 08-02-PLAN.md
 Resume file: None
