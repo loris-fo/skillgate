@@ -25,7 +25,7 @@
 
 - [ ] **Phase 7: Design System & Layout** - Light aesthetic foundation and shared header/footer component
 - [x] **Phase 8: Landing Page** - Hero, features, animated mockup, and badge copy (completed 2026-03-08)
-- [ ] **Phase 9: Audit & Report Pages** - Redesigned audit form and report display
+- [x] **Phase 9: Audit & Report Pages** - Redesigned audit form and report display (completed 2026-03-09)
 
 ## Phase Details
 
@@ -68,7 +68,7 @@ Plans:
   2. Report page displays verdict, category cards, and utility analysis in the new card-based design with correct verdict colors
   3. Badge image, copy link, and shareable URL all remain functional on the report page
   4. "Audit another skill" link below report content navigates back to /audit
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 09-01-PLAN.md — Audit page route and form redesign (AUDIT-01, AUDIT-02)
@@ -88,4 +88,4 @@ Plans:
 | 6. Tech Debt Cleanup | v1.0 | 2/2 | Complete | 2026-03-06 |
 | 7. Design System & Layout | v1.1 | 0/2 | Not started | - |
 | 8. Landing Page | 2/2 | Complete   | 2026-03-08 | - |
-| 9. Audit & Report Pages | v1.1 | 0/2 | Not started | - |
+| 9. Audit & Report Pages | 2/2 | Complete   | 2026-03-09 | - |

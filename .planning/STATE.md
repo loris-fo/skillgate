@@ -51,6 +51,7 @@ See PROJECT.md Key Decisions table for full log.
 - [Phase 08]: AnimatedMockup and BadgeSnippet are client components (IntersectionObserver + clipboard API)
 - [Phase 09]: Numeric risk scores: safe=2, low=4, moderate=6, high=8, critical=10 for X/10 display
 - [Phase 09]: Category cards default collapsed for better grid scanability
+- [Phase 09]: AuditForm uses Fragment wrapper to render overlay sibling alongside form
 
 ### Pending Todos
 
@@ -69,6 +70,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-09T11:58:41.099Z
-Stopped at: Completed 09-02-PLAN.md
+Last session: 2026-03-09T12:00:00.000Z
+Stopped at: Completed 09-01-PLAN.md (audit page and loading overlay)
 Resume file: None
