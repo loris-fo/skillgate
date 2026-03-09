@@ -33,9 +33,9 @@ Requirements for web redesign. Each maps to roadmap phases.
 
 ### Report
 
-- [ ] **REPORT-01**: Redesigned verdict, category cards, and utility analysis display
-- [ ] **REPORT-02**: All existing data (badge, copy link, shareable URL) remains functional
-- [ ] **REPORT-03**: "Audit another skill" link to /audit below report content
+- [x] **REPORT-01**: Redesigned verdict, category cards, and utility analysis display
+- [x] **REPORT-02**: All existing data (badge, copy link, shareable URL) remains functional
+- [x] **REPORT-03**: "Audit another skill" link to /audit below report content
 
 ## Future Requirements
 
@@ -70,9 +70,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAND-04 | Phase 8 | Complete |
 | AUDIT-01 | Phase 9 | Pending |
 | AUDIT-02 | Phase 9 | Pending |
-| REPORT-01 | Phase 9 | Pending |
-| REPORT-02 | Phase 9 | Pending |
-| REPORT-03 | Phase 9 | Pending |
+| REPORT-01 | Phase 9 | Complete |
+| REPORT-02 | Phase 9 | Complete |
+| REPORT-03 | Phase 9 | Complete |
 
 **Coverage:**
 - v1.1 requirements: 15 total
