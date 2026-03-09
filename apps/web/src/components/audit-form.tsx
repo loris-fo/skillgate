@@ -61,17 +61,22 @@ export function AuditForm() {
     }
   }
 
-  if (loading) {
-    return (
-      <div className="flex flex-col items-center justify-center py-24 animate-fade-in">
-        <div className="h-10 w-10 rounded-full border-2 border-accent border-t-transparent animate-spin" />
-        <p className="mt-4 text-text-secondary text-lg">Auditing skill...</p>
-      </div>
-    );
-  }
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 animate-fade-in">
+    <>
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+          <div className="rounded-xl bg-white p-8 shadow-lg flex flex-col items-center gap-4">
+            <div className="h-10 w-10 rounded-full border-2 border-accent border-t-transparent animate-spin" />
+            <p className="text-text-heading text-lg font-medium">
+              Auditing skill...
+            </p>
+            <p className="text-text-body text-sm">
+              This usually takes a few seconds
+            </p>
+          </div>
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-5 animate-fade-in">
       {/* URL Input */}
       <div>
         <label
@@ -84,12 +89,13 @@ export function AuditForm() {
           id="skill-url"
           type="url"
           value={url}
+          disabled={loading}
           onChange={(e) => {
             setUrl(e.target.value);
             clearError();
           }}
           placeholder="https://github.com/user/repo/raw/.../SKILL.md"
-          className="w-full rounded-lg border border-border bg-surface-2 px-4 py-2.5 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+          className={`w-full rounded-lg border border-border bg-surface-2 px-4 py-2.5 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors${loading ? " opacity-60" : ""}`}
         />
       </div>
 
@@ -111,13 +117,14 @@ export function AuditForm() {
         <textarea
           id="skill-content"
           value={content}
+          disabled={loading}
           onChange={(e) => {
             setContent(e.target.value);
             clearError();
           }}
           placeholder="Paste SKILL.md content here..."
           rows={12}
-          className="w-full rounded-lg border border-border bg-surface-2 px-4 py-3 text-text-primary placeholder:text-text-muted font-mono text-sm leading-relaxed resize-y focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors"
+          className={`w-full rounded-lg border border-border bg-surface-2 px-4 py-3 text-text-primary placeholder:text-text-muted font-mono text-sm leading-relaxed resize-y focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors${loading ? " opacity-60" : ""}`}
         />
         <p className="mt-1 text-right text-xs text-text-muted">
           {content.length.toLocaleString()} characters
@@ -140,5 +147,6 @@ export function AuditForm() {
         Audit Skill
       </button>
     </form>
+    </>
   );
 }
