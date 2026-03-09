@@ -15,6 +15,9 @@ export {
   type Recommendation,
 } from "./types.js";
 
+// Parsing utilities
+export { ensureDeepParsed } from "./parse.js";
+
 // Schema (useful for consumers to validate)
 export { auditResultSchema } from "./schema.js";
 

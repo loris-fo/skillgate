@@ -3,6 +3,7 @@ import { createCache, type Cache } from "./cache.js";
 import { buildCacheKey } from "./hash.js";
 import { SYSTEM_PROMPT, buildUserMessage } from "./prompt.js";
 import { AUDIT_TOOL, auditResultSchema } from "./schema.js";
+import { ensureDeepParsed } from "./parse.js";
 import { AuditError, type AuditResult } from "./types.js";
 
 const MAX_CONTENT_BYTES = 100_000; // 100KB
@@ -82,7 +83,8 @@ export function createEngine(config: EngineConfig = {}): Engine {
     // 7. Validate with Zod
     let result: AuditResult;
     try {
-      result = auditResultSchema.parse(toolBlock.input);
+      const parsed = ensureDeepParsed(toolBlock.input as Record<string, unknown>);
+      result = auditResultSchema.parse(parsed);
     } catch (error) {
       throw new AuditError(
         `Invalid audit result structure: ${error instanceof Error ? error.message : String(error)}`,
