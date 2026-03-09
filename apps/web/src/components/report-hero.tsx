@@ -17,71 +17,84 @@ export function ReportHero({
   const permalink = `${baseUrl}/report/${meta.slug}`;
 
   return (
-    <section className="bg-surface-1 border border-border rounded-lg p-8 mb-8">
-      <div className={`h-1 -mt-8 rounded-t-lg mb-6 ${verdict.bg}`} />
+    <section className="rounded-xl bg-surface-card border border-border-card shadow-card p-8 mb-8">
+      {/* Top row: verdict pill + score pill + copy link */}
+      <div className="flex items-center gap-4 flex-wrap">
+        <span
+          className={`inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold text-white ${verdict.bg}`}
+        >
+          {verdict.label}
+        </span>
 
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="flex-1">
-          <span
-            className={`text-xs font-semibold uppercase tracking-widest ${verdict.color}`}
-          >
-            Verdict
-          </span>
-          <h1 className={`text-3xl font-bold mt-1 ${verdict.color}`}>
-            {verdict.label}
-          </h1>
-          <p className="text-text-secondary mt-2 max-w-prose">
-            {result.summary}
-          </p>
-        </div>
+        <span
+          className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${severity.color} border-current`}
+        >
+          {severity.numeric}/10
+        </span>
 
-        <div className="flex flex-col items-end gap-3">
-          <div className="text-right">
-            <span className="text-text-muted text-xs uppercase tracking-wide">
-              Overall Score
-            </span>
-            <p className={`text-lg font-semibold ${severity.color}`}>
-              {severity.label}
-            </p>
-          </div>
-
-          <div className="w-32 h-2 rounded-full bg-surface-3 overflow-hidden">
-            <div
-              className={`h-full rounded-full ${severity.bg}`}
-              style={{ width: `${severity.percent}%` }}
-            />
-          </div>
-
-          <CopyButton text={permalink} label="Copy Link" />
-        </div>
+        <CopyButton text={permalink} label="Copy Link" />
       </div>
 
-      {(result.recommendation.for_who || result.recommendation.caveats?.length > 0 || result.recommendation.alternatives?.length > 0) && (
-        <div className="mt-6 pt-6 border-t border-border">
-          {result.recommendation.for_who && (
-            <p className="text-text-secondary text-sm">
-              <span className="text-text-muted uppercase text-xs tracking-wide">Best for: </span>
-              {result.recommendation.for_who}
-            </p>
-          )}
-          {result.recommendation.caveats?.length > 0 && (
-            <div className="mt-3">
-              <span className="text-text-muted uppercase text-xs tracking-wide">Caveats</span>
-              <ul className="mt-1 list-disc list-inside text-sm text-yellow-400/80">
-                {result.recommendation.caveats.map((c, i) => <li key={i}>{c}</li>)}
-              </ul>
-            </div>
-          )}
-          {result.recommendation.alternatives?.length > 0 && (
-            <div className="mt-3">
-              <span className="text-text-muted uppercase text-xs tracking-wide">Alternatives</span>
-              <ul className="mt-1 list-disc list-inside text-sm text-text-secondary">
-                {result.recommendation.alternatives.map((a, i) => <li key={i}>{a}</li>)}
-              </ul>
-            </div>
-          )}
-        </div>
-      )}
+      {/* Summary */}
+      <p className="text-text-body text-base leading-relaxed mt-4">
+        {result.summary}
+      </p>
     </section>
+  );
+}
+
+export function RecommendationCard({
+  recommendation,
+}: {
+  recommendation: AuditResult["recommendation"];
+}) {
+  const hasContent =
+    recommendation.for_who ||
+    recommendation.caveats?.length > 0 ||
+    recommendation.alternatives?.length > 0;
+
+  if (!hasContent) return null;
+
+  return (
+    <div className="rounded-xl bg-surface-card border border-border-card shadow-card p-6">
+      <div className="space-y-4">
+        {recommendation.for_who && (
+          <div>
+            <span className="text-text-muted text-xs uppercase tracking-wide font-medium">
+              Best for
+            </span>
+            <p className="text-text-body text-sm mt-1">
+              {recommendation.for_who}
+            </p>
+          </div>
+        )}
+
+        {recommendation.caveats?.length > 0 && (
+          <div>
+            <span className="text-text-muted text-xs uppercase tracking-wide font-medium">
+              Caveats
+            </span>
+            <ul className="mt-1 list-disc list-inside text-sm text-severity-moderate">
+              {recommendation.caveats.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {recommendation.alternatives?.length > 0 && (
+          <div>
+            <span className="text-text-muted text-xs uppercase tracking-wide font-medium">
+              Alternatives
+            </span>
+            <ul className="mt-1 list-disc list-inside text-sm text-text-body">
+              {recommendation.alternatives.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
