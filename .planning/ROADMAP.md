@@ -68,11 +68,11 @@ Plans:
   2. Report page displays verdict, category cards, and utility analysis in the new card-based design with correct verdict colors
   3. Badge image, copy link, and shareable URL all remain functional on the report page
   4. "Audit another skill" link below report content navigates back to /audit
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 09-01: TBD
-- [ ] 09-02: TBD
+- [ ] 09-01-PLAN.md — Audit page route and form redesign (AUDIT-01, AUDIT-02)
+- [ ] 09-02-PLAN.md — Report page redesign with verdict pills, category grid, and section flow (REPORT-01, REPORT-02, REPORT-03)
 
 ## Progress
 
