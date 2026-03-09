@@ -19,24 +19,28 @@ export function CategoryCard({
   name: string;
   result: CategoryResult;
 }) {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const severity = SEVERITY_CONFIG[result.score];
   const label = CATEGORY_LABELS[name] ?? name;
 
   return (
-    <div className="bg-surface-1 border border-border rounded-lg p-6">
-      {/* Header — clickable toggle */}
+    <div className="rounded-xl bg-surface-card border border-border-card shadow-card p-6">
+      {/* Header -- clickable toggle */}
       <button
         type="button"
         aria-expanded={expanded}
         onClick={() => setExpanded(!expanded)}
-        className="w-full text-left flex items-center justify-between mb-3 cursor-pointer"
+        className="w-full text-left flex items-center justify-between cursor-pointer"
       >
-        <h3 className="text-text-primary font-semibold">{label}</h3>
-        <div className="flex items-center gap-2">
-          <span className={`text-sm font-medium ${severity.color}`}>
+        <div className="flex items-center gap-3">
+          <h3 className="text-text-heading font-semibold">{label}</h3>
+          <span
+            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold text-white ${severity.bg}`}
+          >
             {severity.label}
           </span>
+        </div>
+        <div className="flex items-center gap-2">
           {result.by_design && (
             <span className="bg-accent-muted text-accent text-xs font-medium px-2 py-0.5 rounded-full">
               By Design
@@ -61,20 +65,12 @@ export function CategoryCard({
         </div>
       </button>
 
-      {/* Progress bar — always visible */}
-      <div className="w-full h-2 rounded-full bg-surface-3 overflow-hidden mb-4">
-        <div
-          className={`h-full rounded-full ${severity.bg}`}
-          style={{ width: `${severity.percent}%` }}
-        />
-      </div>
-
-      {/* Finding + Detail — conditionally rendered */}
+      {/* Finding + Detail -- conditionally rendered */}
       {expanded && (
-        <>
-          <p className="text-text-secondary text-sm mb-2">{result.finding}</p>
+        <div className="mt-4">
+          <p className="text-text-body text-sm mb-2">{result.finding}</p>
           <p className="text-text-muted text-sm">{result.detail}</p>
-        </>
+        </div>
       )}
     </div>
   );
