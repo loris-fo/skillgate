@@ -47,6 +47,49 @@
 
 ---
 
+## Milestone: v1.1 — Web Redesign
+
+**Shipped:** 2026-03-09
+**Phases:** 3 | **Plans:** 6 | **Files modified:** 39
+
+### What Was Built
+- Light sky-blue design system tokens replacing dark terminal theme, with backward-compat aliases
+- Shared Header (sticky, frosted-glass blur, wordmark, npm copy pill, GitHub icon) and Footer across all pages
+- Marketing landing page with hero CTA, 3-column feature cards, scroll-animated report mockup, badge snippet
+- Dedicated /audit route with card-based form UI and full-page overlay loading state
+- Redesigned report page with verdict pills, numeric X/10 score, collapsible 2-col category grid
+
+### What Worked
+- Visual-only scope constraint (no API/data changes) eliminated risk of regressions
+- Backward-compat CSS aliases enabled incremental migration — existing pages rendered correctly throughout
+- Phase ordering (tokens → layout → pages) meant each phase built cleanly on the previous
+- Server component defaults for landing page (zero client JS for hero/features) — only AnimatedMockup and BadgeSnippet needed client
+- All 3 phase verifications passed on first attempt — clean execution throughout
+
+### What Was Inefficient
+- ROADMAP.md progress table still got out of sync (Phase 7 showed "Not started" and "0/2 plans" when actually complete)
+- REQUIREMENTS.md AUDIT-01/AUDIT-02 checkboxes not updated during execution — caught only in audit
+- `gsd-tools summary-extract` couldn't find files despite them existing on disk — had to grep manually
+
+### Patterns Established
+- `@theme inline` block in globals.css for Tailwind v4 CSS variable-based design tokens
+- Clipboard copy with useState/setTimeout pattern for "Copied!" feedback
+- IntersectionObserver + CSS transitionDelay for scroll-triggered stagger animations
+- Full-page overlay loading pattern (fixed inset-0, backdrop-blur-sm) over interactive forms
+- Numeric severity scoring (safe=2, low=4, moderate=6, high=8, critical=10) for X/10 display
+
+### Key Lessons
+1. Keep REQUIREMENTS.md checkboxes updated during plan execution, not just in SUMMARY frontmatter — stale docs cause audit noise
+2. Pure visual redesigns are low-risk when scoped correctly — all 15 requirements satisfied, zero regressions
+3. Integration checker caught real cross-phase issues (wrong severity token, duplicate heading) that per-phase verification didn't
+
+### Cost Observations
+- Model mix: quality profile (opus for orchestration, sonnet for sub-agents)
+- Sessions: ~4 sessions over 3 days
+- Notable: 6 plans across 3 phases in 3 days — clean velocity from tight scope and clear dependency chain
+
+---
+
 ## Cross-Milestone Trends
 
 ### Process Evolution
@@ -54,14 +97,17 @@
 | Milestone | Commits | Phases | Key Change |
 |-----------|---------|--------|------------|
 | v1.0 | 100 | 6 | Initial milestone — established audit-before-complete pattern |
+| v1.1 | ~25 | 3 | Visual-only scope — all phases passed verification on first attempt |
 
 ### Cumulative Quality
 
-| Milestone | Tests | Test Files | LOC |
-|-----------|-------|------------|-----|
+| Milestone | Tests | Test Files | Web LOC |
+|-----------|-------|------------|---------|
 | v1.0 | 118 | 20 | 4,797 |
+| v1.1 | 118 | 20 | 2,509 (web app) |
 
 ### Top Lessons (Verified Across Milestones)
 
-1. Milestone audit before completion catches real integration gaps that per-phase verification misses
-2. Dependency-ordered phasing prevents blocked work and enables clean integration
+1. Milestone audit before completion catches real integration gaps that per-phase verification misses (v1.0: 6 gaps, v1.1: 2 defects)
+2. Dependency-ordered phasing prevents blocked work and enables clean integration (confirmed both milestones)
+3. Keep ROADMAP.md and REQUIREMENTS.md in sync during execution — stale docs create unnecessary audit noise (recurring v1.0 + v1.1)

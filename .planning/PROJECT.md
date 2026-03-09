@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Skillgate is a security and utility auditor for Claude AI skill files (SKILL.md). It analyzes skills across five security categories and produces explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.sh), an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
+Skillgate is a security and utility auditor for Claude AI skill files (SKILL.md). It analyzes skills across five security categories and produces explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.sh) with a polished marketing landing page, an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
 
 ## Core Value
 
@@ -21,16 +21,15 @@ Developers can trust-verify any Claude skill before installing it — with plain
 - ✓ CLI fetches from GitHub URLs, skills.sh registry, any HTTP URL, or local files — v1.0
 - ✓ CLI downloads and places SKILL.md into project on successful audit — v1.0
 - ✓ Audit result caching by content hash (same content = same audit, no re-analysis) — v1.0
-- ✓ Dark terminal aesthetic UI — v1.0
-- ✓ Landing page IS the audit interface (no separate marketing page) — v1.0
+- ✓ Shared layout with header (wordmark + npm snippet + GitHub icon) and footer — v1.1
+- ✓ Landing page with hero, feature sections, animated report mockup, badge snippet with copy button — v1.1
+- ✓ Dedicated audit page with redesigned form UI, loading overlay, redirect to report — v1.1
+- ✓ Report page with verdict pills, numeric X/10 score, collapsible category cards, badge, copy link — v1.1
+- ✓ Light design system: #F0F9FF background, white cards with #BAE6FD borders, #06B6D4 accent — v1.1
 
 ### Active
 
-- [ ] Shared layout with header (wordmark + npm snippet + GitHub icon) and footer (GitHub · npm · skillgate.sh · MIT License)
-- [ ] Landing page with hero, feature sections, animated report mockup, badge snippet with copy button
-- [ ] Audit page with redesigned form UI, loading state, redirect to report on completion
-- [ ] Report page with redesigned verdict, categories, utility analysis, badge, copy link, "Audit another" link
-- [ ] Light design system: #F0F9FF background, white cards with #BAE6FD borders, #06B6D4 accent
+(No active requirements — define with `/gsd:new-milestone`)
 
 ### Out of Scope
 
@@ -41,10 +40,13 @@ Developers can trust-verify any Claude skill before installing it — with plain
 - Registry partnerships — after API stabilizes
 - GitHub App — future integration
 - Database — KV/file-based only for MVP
+- Dark mode toggle — single light theme for now
+- Mobile app — web-first approach
 
 ## Context
 
-Shipped v1.0 with 4,797 LOC TypeScript across 146 files.
+Shipped v1.0 (2026-03-06) and v1.1 (2026-03-09).
+Web app: 2,509 LOC TypeScript across 3 pages (landing, audit, report).
 Tech stack: Next.js 15 (App Router), pnpm monorepo, Upstash Redis, Anthropic SDK, Tailwind v4.
 118 tests across 20 test files, all passing.
 Claude Code's skill ecosystem (skills.sh, skill-forge) is growing fast with no trust layer.
@@ -70,23 +72,19 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 | Content-hash dedup for audits | Same SKILL.md = same result, saves API costs | ✓ Good — works reliably |
 | Dual URL scheme (hash + slug) | Hash for integrity, slug for human-readable sharing | ✓ Good — both formats work |
 | CLI downloads + places SKILL.md on pass | Full install flow, not just audit-only gate | ✓ Good — complete workflow |
-| Audit interface IS the homepage | Strongest conversion — no friction between landing and using | ✓ Good — zero-click barrier |
 | pnpm workspaces (no Turborepo) | Lightweight, minimal tooling overhead | ✓ Good — fast builds, no issues |
 | Badge system as growth engine | Skill authors self-distribute trust signal in READMEs | — Pending (needs launch data) |
 | Server-side URL fetch for CORS bypass | Browser can't fetch cross-origin SKILL.md files | ✓ Good — transparent to user |
 | DI factories for testability | createEngine/createCache enable full unit testing without live APIs | ✓ Good — 118 tests pass |
 | CLI ESM-only with tsup bundling | Modern Node.js, tree-shakeable, clean bin entry | ✓ Good — npm-publishable |
 | ora spinner via stderr | Keeps stdout clean for JSON piping in CI/CD | ✓ Good — composable CLI |
+| Visual-only redesign (v1.1) | Keep API/data untouched, only change presentation layer | ✓ Good — zero regressions |
+| Light sky-blue aesthetic replacing dark | Professional feel, differentiates from terminal-heavy dev tools | ✓ Good — clean aesthetic |
+| Dedicated /audit route (v1.1) | Landing page is marketing, /audit is the tool | ✓ Good — better conversion funnel |
+| Backward-compat CSS aliases | Existing components render without changes during migration | ✓ Good — smooth incremental migration |
+| IntersectionObserver for scroll animations | No animation library dependency, lightweight | ✓ Good — performant |
+| Inline SVG badges (shields.io style) | No external image dependencies on landing page | ✓ Good — fast loading |
+| Numeric X/10 risk scores | safe=2, low=4, moderate=6, high=8, critical=10 | ✓ Good — clear severity mapping |
 
 ---
-## Current Milestone: v1.1 Web Redesign
-
-**Goal:** Redesign the web app with a light, professional aesthetic — new shared layout, landing page, audit page, and report page — while keeping all API routes, data logic, and audit engine untouched.
-
-**Target features:**
-- Shared layout component (header + footer) used across all pages
-- Landing page (/) with hero, features, animated report mockup, badge copy
-- Audit page (/audit) with redesigned form wired to existing logic
-- Report page (/report/[slug]) with redesigned verdict/category display
-
-*Last updated: 2026-03-06 after v1.1 milestone start*
+*Last updated: 2026-03-09 after v1.1 milestone*
