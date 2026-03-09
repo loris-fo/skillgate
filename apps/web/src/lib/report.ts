@@ -1,4 +1,4 @@
-import type { AuditResult } from "@skillgate/audit-engine";
+import { ensureDeepParsed, type AuditResult } from "@skillgate/audit-engine";
 import { redis } from "@/lib/kv";
 import type { AuditMeta, AuditResponse } from "@/lib/types";
 
@@ -36,8 +36,9 @@ export async function getReportBySlug(id: string): Promise<AuditResponse | null>
   }
 
   // 3. Load audit data
-  const result = await redis.get<AuditResult>(`audit:${contentHash}`);
-  if (!result) return null;
+  const rawResult = await redis.get<AuditResult>(`audit:${contentHash}`);
+  if (!rawResult) return null;
+  const result = ensureDeepParsed(rawResult as Record<string, unknown>) as AuditResult;
 
   // 4. Build response
   const meta: AuditMeta = {

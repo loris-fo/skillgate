@@ -1,26 +1,8 @@
 import { type NextRequest } from "next/server";
-import type { AuditResult } from "@skillgate/audit-engine";
+import { ensureDeepParsed, type AuditResult } from "@skillgate/audit-engine";
 import { redis } from "@/lib/kv";
 import { errorResponse } from "@/lib/errors";
 import type { AuditMeta, AuditResponse } from "@/lib/types";
-
-/**
- * Upstash Redis can return nested objects as JSON strings.
- * Deep-parse any string fields that should be objects.
- */
-function ensureDeepParsed(result: unknown): AuditResult {
-  if (typeof result !== "object" || result === null) {
-    throw new Error("Invalid audit result from cache");
-  }
-  const r = result as Record<string, unknown>;
-  const fields = ["categories", "utility_analysis", "recommendation"] as const;
-  for (const field of fields) {
-    if (typeof r[field] === "string") {
-      r[field] = JSON.parse(r[field] as string);
-    }
-  }
-  return r as unknown as AuditResult;
-}
 
 export async function GET(
   _request: NextRequest,
@@ -64,7 +46,7 @@ export async function GET(
   if (!rawResult) {
     return errorResponse("NOT_FOUND", `Audit data missing for id: ${id}`);
   }
-  const result = ensureDeepParsed(rawResult);
+  const result = ensureDeepParsed(rawResult as Record<string, unknown>) as AuditResult;
 
   // 4. Build response
   const meta: AuditMeta = {
