@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Landing Page Redesign
 status: executing
-stopped_at: Completed 11-02-PLAN.md
-last_updated: "2026-03-10T11:59:57.158Z"
+stopped_at: Completed quick-4 landing page layout fixes
+last_updated: "2026-03-10T13:34:32.263Z"
 last_activity: 2026-03-10 -- Completed 11-02 Features + Demo Section
 progress:
   total_phases: 2
@@ -52,6 +52,7 @@ Recent decisions affecting current work:
 - [Phase 11]: Hero tests use lineHeight/class proxy assertions due to jsdom clamp() limitation
 - [Phase 11]: Features+demo merged into single two-column component, feature cards are non-clickable divs
 - [Phase 11]: Pill severity labels (bg-severity-safe/low/moderate) replace progress bars in mock report demo
+- [Phase quick-4]: Merged badge-snippet into features-demo-section for two-column layout
 
 ### Pending Todos
 
@@ -68,9 +69,10 @@ None.
 | 1 | Fix CLI Zod schema to match API response shape for categories, utility_analysis, and recommendation fields | 2026-03-06 | 8f652a4 | [1-fix-cli-zod-schema-to-match-api-response](./quick/1-fix-cli-zod-schema-to-match-api-response/) |
 | 2 | Fix double-serialization of audit result fields from Redis in API routes | 2026-03-06 | ca62323 | [2-fix-double-serialization-of-audit-result](./quick/2-fix-double-serialization-of-audit-result/) |
 | 3 | Fix webapp audit Zod validation error -- shared ensureDeepParsed in audit-engine | 2026-03-09 | a6e645e | [3-fix-webapp-audit-zod-validation-error-ca](./quick/3-fix-webapp-audit-zod-validation-error-ca/) |
+| 4 | Landing page layout and visual fixes to match mockup | 2026-03-10 | 9ef8de0 | [4-landing-page-layout-and-visual-fixes-to-](./quick/4-landing-page-layout-and-visual-fixes-to-/) |
 
 ## Session Continuity
 
-Last session: 2026-03-10T11:55:00Z
-Stopped at: Completed 11-02-PLAN.md
-Resume file: .planning/phases/11-landing-page-sections/11-02-SUMMARY.md
+Last session: 2026-03-10T13:34:24.476Z
+Stopped at: Completed quick-4 landing page layout fixes
+Resume file: None
