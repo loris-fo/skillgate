@@ -1,3 +1,7 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 const links = [
   { label: "GitHub", href: "https://github.com/lorisfochesato/skillgate" },
   { label: "npm", href: "https://www.npmjs.com/package/skillgate" },
@@ -9,9 +13,13 @@ const links = [
 ];
 
 export function Footer() {
+  const isLanding = usePathname() === "/";
+
   return (
-    <footer className="py-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm text-text-muted">
+    <footer className={`py-8 ${isLanding ? "border-t border-accent/30" : ""}`}>
+      <div
+        className={`max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm ${isLanding ? "text-text-body" : "text-text-muted"}`}
+      >
         {links.map((link, i) => (
           <span key={link.label}>
             {i > 0 && <span className="mx-2">&middot;</span>}
@@ -19,7 +27,7 @@ export function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-text-body transition-colors"
+              className={`transition-colors ${isLanding ? "hover:text-text-heading" : "hover:text-text-body"}`}
             >
               {link.label}
             </a>
