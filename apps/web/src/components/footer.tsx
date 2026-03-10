@@ -13,7 +13,8 @@ const links = [
 ];
 
 export function Footer() {
-  const isLanding = usePathname() === "/";
+  const pathname = usePathname();
+  const isLanding = pathname === "/" || pathname === "/audit";
 
   return (
     <footer

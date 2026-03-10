@@ -7,7 +7,7 @@ import Link from "next/link";
 export function Header() {
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
-  const isLanding = pathname === "/";
+  const isLanding = pathname === "/" || pathname === "/audit";
 
   async function handleCopy() {
     const text = isLanding ? "npx skillgate" : "npm i -g skillgate";
