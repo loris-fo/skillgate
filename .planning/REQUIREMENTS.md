@@ -21,20 +21,20 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 ### Hero
 
-- [ ] **HERO-01**: Hero heading "Don't install blind." displays at 120px on desktop, scaling down on mobile
-- [ ] **HERO-02**: Subtle gradient orb (violet radial gradient) appears behind hero text
-- [ ] **HERO-03**: Two CTAs: primary "Audit a skill" → /audit, secondary "View example report" → /report/cursor-rules-architect
+- [x] **HERO-01**: Hero heading "Don't install blind." displays at 120px on desktop, scaling down on mobile
+- [x] **HERO-02**: Subtle gradient orb (violet radial gradient) appears behind hero text
+- [x] **HERO-03**: Two CTAs: primary "Audit a skill" → /audit, secondary "View example report" → /report/cursor-rules-architect
 
 ### Features + Demo
 
-- [ ] **FEAT-01**: Two-column layout: left column has 3 stacked feature cards (AI Security Analysis, CLI Gate, Trust Badges), right column has mock report demo
-- [ ] **FEAT-02**: Mock report demo shows hardcoded mixed verdicts: cursor-rules-architect skill, "Use with Caution" verdict, 6.2/10 score, 5 category rows with Safe/Low/Moderate severities
-- [ ] **FEAT-03**: Layout stacks to single column on tablet (≤1024px)
+- [x] **FEAT-01**: Two-column layout: left column has 3 stacked feature cards (AI Security Analysis, CLI Gate, Trust Badges), right column has mock report demo
+- [x] **FEAT-02**: Mock report demo shows hardcoded mixed verdicts: cursor-rules-architect skill, "Use with Caution" verdict, 6.2/10 score, 5 category rows with Safe/Low/Moderate severities
+- [x] **FEAT-03**: Layout stacks to single column on tablet (≤1024px)
 
 ### Trust Badges
 
-- [ ] **BADGE-01**: Three badge examples displayed (Safe to Install, Use with Caution, Avoid) with ShieldBadge SVGs
-- [ ] **BADGE-02**: Each badge has its own markdown snippet with individual copy-to-clipboard button
+- [x] **BADGE-01**: Three badge examples displayed (Safe to Install, Use with Caution, Avoid) with ShieldBadge SVGs
+- [x] **BADGE-02**: Each badge has its own markdown snippet with individual copy-to-clipboard button
 
 ### Footer
 
@@ -43,8 +43,8 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 ### Responsive
 
-- [ ] **RESP-01**: Tablet (≤1024px): features+demo stacks vertically, header adapts
-- [ ] **RESP-02**: Mobile (≤768px): hero heading scales to smaller size, all sections single column
+- [x] **RESP-01**: Tablet (≤1024px): features+demo stacks vertically, header adapts
+- [x] **RESP-02**: Mobile (≤768px): hero heading scales to smaller size, all sections single column
 
 ## Future Requirements
 
@@ -74,18 +74,18 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 | HDR-01 | Phase 10 | Complete |
 | HDR-02 | Phase 10 | Complete |
 | HDR-03 | Phase 10 | Complete |
-| HERO-01 | Phase 11 | Pending |
-| HERO-02 | Phase 11 | Pending |
-| HERO-03 | Phase 11 | Pending |
-| FEAT-01 | Phase 11 | Pending |
-| FEAT-02 | Phase 11 | Pending |
-| FEAT-03 | Phase 11 | Pending |
-| BADGE-01 | Phase 11 | Pending |
-| BADGE-02 | Phase 11 | Pending |
+| HERO-01 | Phase 11 | Complete |
+| HERO-02 | Phase 11 | Complete |
+| HERO-03 | Phase 11 | Complete |
+| FEAT-01 | Phase 11 | Complete |
+| FEAT-02 | Phase 11 | Complete |
+| FEAT-03 | Phase 11 | Complete |
+| BADGE-01 | Phase 11 | Complete |
+| BADGE-02 | Phase 11 | Complete |
 | FTR-01 | Phase 10 | Complete |
 | FTR-02 | Phase 10 | Complete |
-| RESP-01 | Phase 11 | Pending |
-| RESP-02 | Phase 11 | Pending |
+| RESP-01 | Phase 11 | Complete |
+| RESP-02 | Phase 11 | Complete |
 
 **Coverage:**
 - v1.2 requirements: 18 total
