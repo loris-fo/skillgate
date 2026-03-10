@@ -50,6 +50,8 @@ Recent decisions affecting current work:
 - [Phase 11]: Wave 0 test stubs written as RED-state verification contract for landing sections
 - [Phase 11]: CSS clamp(48px, 10vw, 120px) for fluid hero heading instead of breakpoint classes
 - [Phase 11]: Hero tests use lineHeight/class proxy assertions due to jsdom clamp() limitation
+- [Phase 11]: Features+demo merged into single two-column component, feature cards are non-clickable divs
+- [Phase 11]: Pill severity labels (bg-severity-safe/low/moderate) replace progress bars in mock report demo
 
 ### Pending Todos
 
@@ -69,6 +71,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-10T11:54:44Z
-Stopped at: Completed 11-01-PLAN.md
-Resume file: .planning/phases/11-landing-page-sections/11-01-SUMMARY.md
+Last session: 2026-03-10T11:55:00Z
+Stopped at: Completed 11-02-PLAN.md
+Resume file: .planning/phases/11-landing-page-sections/11-02-SUMMARY.md
