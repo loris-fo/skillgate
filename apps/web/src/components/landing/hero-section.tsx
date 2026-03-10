@@ -21,7 +21,7 @@ export function HeroSection() {
         <h1
           className="font-bold text-text-heading"
           style={{
-            fontSize: "clamp(48px, 10vw, 120px)",
+            fontSize: "clamp(48px, 8vw, 96px)",
             lineHeight: 1.0,
             letterSpacing: "-2px",
           }}
@@ -29,7 +29,7 @@ export function HeroSection() {
           Don&apos;t install blind
         </h1>
 
-        <div className="mx-auto mt-4 max-w-3xl">
+        <div className="mx-auto mt-4" style={{ maxWidth: "820px" }}>
           <p className="text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
             Trust-verify any Claude skill before it touches your codebase.
           </p>

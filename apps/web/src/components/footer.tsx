@@ -16,9 +16,13 @@ export function Footer() {
   const isLanding = usePathname() === "/";
 
   return (
-    <footer className={`py-6 ${isLanding ? "border-t border-accent/30" : ""}`}>
+    <footer
+      className={`py-6 ${isLanding ? "border-t border-accent/30" : ""}`}
+      style={isLanding ? { backgroundColor: "#1a1625" } : undefined}
+    >
       <div
-        className={`max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm ${isLanding ? "text-text-body" : "text-text-muted"}`}
+        className={`max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm`}
+        style={isLanding ? { color: "#8a8196" } : undefined}
       >
         {links.map((link, i) => (
           <span key={link.label}>
@@ -27,7 +31,8 @@ export function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors ${isLanding ? "hover:text-text-heading" : "hover:text-text-body"}`}
+              className="transition-colors"
+              style={isLanding ? { color: "#b8b0c8" } : undefined}
             >
               {link.label}
             </a>
