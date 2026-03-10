@@ -71,31 +71,31 @@ const snippetText = "![Skillgate](https://skillgate.sh/badge/your-skill)";
 
 export function BadgeSnippet() {
   return (
-    <section id="badge-section" className="py-16 px-4">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-text-heading font-bold text-2xl mb-8 text-center">
+    <section id="badge-section" className="px-4 py-16">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="mb-4 text-center text-2xl font-bold text-text-heading">
           Add a trust badge
         </h2>
 
-        {/* Badge preview */}
-        <div className="flex gap-4 justify-center mb-6 flex-wrap">
-          {badgeVariants.map((v) => (
-            <ShieldBadge key={v.label} {...v} />
-          ))}
-        </div>
-
-        <p className="text-text-body text-center mb-6">
+        <p className="mb-8 text-center text-text-body">
           After auditing your skill, add the badge to your README.
         </p>
 
-        {/* Markdown snippet */}
-        <div className="relative">
-          <pre className="bg-surface-2 border border-border rounded-lg p-4 pr-24 font-mono text-sm text-text-body overflow-x-auto">
-            {snippetText}
-          </pre>
-          <div className="absolute top-3 right-3">
-            <CopyButton text={snippetText} label="Copy" />
-          </div>
+        {/* Per-badge cards with individual copy buttons */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {badgeVariants.map((v) => (
+            <div key={v.label} className="flex flex-col items-center gap-3">
+              <ShieldBadge {...v} />
+              <div className="relative w-full">
+                <pre className="overflow-x-auto rounded-lg border border-border bg-surface-2 p-3 pr-20 font-mono text-xs text-text-body">
+                  {snippetText}
+                </pre>
+                <div className="absolute right-2 top-2">
+                  <CopyButton text={snippetText} label="Copy" />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
