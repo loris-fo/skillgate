@@ -1,15 +1,85 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export function Header() {
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
+  const isLanding = pathname === "/";
 
   async function handleCopy() {
-    await navigator.clipboard.writeText("npm i -g skillgate");
+    const text = isLanding ? "npx skillgate" : "npm i -g skillgate";
+    await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  if (isLanding) {
+    return (
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-4xl w-[calc(100%-2rem)] rounded-full backdrop-blur-md bg-white/5 border border-white/10 px-4 sm:px-6 py-2.5">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-sans font-bold text-text-heading tracking-tight hover:opacity-80 transition-opacity"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            skillgate
+          </Link>
+
+          {/* Nav + Actions */}
+          <div className="flex items-center gap-4">
+            <nav className="hidden sm:flex items-center gap-4 text-sm">
+              <a
+                href="https://github.com/lorisfochesato/skillgate#readme"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-body hover:text-white transition-colors"
+              >
+                Docs
+              </a>
+              <a
+                href="https://github.com/lorisfochesato/skillgate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-body hover:text-white transition-colors"
+              >
+                GitHub
+              </a>
+            </nav>
+
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="font-mono text-sm bg-white/10 border border-white/10 rounded-full px-3 py-1 text-text-body hover:bg-white/15 transition-colors cursor-pointer"
+            >
+              {copied ? "Copied!" : "npx skillgate"}
+            </button>
+
+            <Link
+              href="/audit"
+              className="bg-accent hover:bg-accent-hover text-white rounded-full px-4 py-1.5 font-semibold text-sm transition-colors"
+            >
+              Try it
+            </Link>
+          </div>
+        </div>
+      </header>
+    );
   }
 
   return (
