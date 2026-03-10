@@ -49,8 +49,8 @@
 **Plans**: 2 plans
 
 Plans:
-- [ ] 10-01-PLAN.md — Dark design tokens + severity color fix + layout plumbing
-- [ ] 10-02-PLAN.md — Floating pill header + dark footer variant
+- [x] 10-01-PLAN.md — Dark design tokens + severity color fix + layout plumbing
+- [x] 10-02-PLAN.md — Floating pill header + dark footer variant
 
 ### Phase 11: Landing Page Sections
 **Goal**: Landing page delivers a compelling dark marketing experience with hero, features+demo, and badge sections
@@ -61,11 +61,11 @@ Plans:
   2. Features section shows a two-column layout: 3 stacked feature cards on the left, and a hardcoded mock report demo on the right showing cursor-rules-architect with "Use with Caution" verdict, 6.2/10 score, and 5 category rows
   3. Badge section displays 3 badge examples (Safe to Install, Use with Caution, Avoid) each with its own copy-to-clipboard button for the markdown snippet
   4. On tablet (<=1024px), features+demo stacks to single column; on mobile (<=768px), hero heading scales down and all sections render single column
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 11-01: TBD
-- [ ] 11-02: TBD
+- [ ] 11-01-PLAN.md — Hero section rework + badge per-copy buttons
+- [ ] 11-02-PLAN.md — Features+demo two-column section + page.tsx wiring
 
 ## Progress
 
@@ -80,5 +80,5 @@ Plans:
 | 7. Design System & Layout | v1.1 | 2/2 | Complete | 2026-03-07 |
 | 8. Landing Page | v1.1 | 2/2 | Complete | 2026-03-08 |
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
-| 10. Dark Design Tokens + Layout Foundation | 2/2 | Complete    | 2026-03-10 | - |
-| 11. Landing Page Sections | v1.2 | 0/? | Not started | - |
+| 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
+| 11. Landing Page Sections | v1.2 | 0/2 | Not started | - |
