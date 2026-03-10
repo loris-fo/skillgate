@@ -10,11 +10,11 @@ export function LayoutBody({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isLanding = pathname === "/";
+  const isDark = pathname === "/" || pathname === "/audit";
 
   return (
     <body
-      className={`${fontClassName} text-text-primary font-sans antialiased min-h-screen flex flex-col${isLanding ? " dark-landing" : ""}`}
+      className={`${fontClassName} text-text-primary font-sans antialiased min-h-screen flex flex-col${isDark ? " dark-landing" : ""}`}
     >
       {children}
     </body>
