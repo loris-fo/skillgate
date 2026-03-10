@@ -27,7 +27,7 @@ describe("HeroSection", () => {
   it("renders a gradient orb element with aria-hidden", () => {
     const orb = document.querySelector("[aria-hidden='true']");
     expect(orb).toBeInTheDocument();
-    expect(orb).toHaveStyle({ filter: expect.stringContaining("blur") });
+    expect(orb).toHaveStyle({ filter: "blur(60px)" });
   });
 
   // HERO-03: Two CTA links with correct hrefs
