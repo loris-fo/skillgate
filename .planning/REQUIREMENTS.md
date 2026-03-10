@@ -9,9 +9,9 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 ### Design System
 
-- [ ] **DS-01**: Landing page uses dark purple/violet color palette (#1a1625 background, #2d2640 surfaces, #9d7aff accent)
-- [ ] **DS-02**: Dark theme tokens are scoped to landing page only — /audit and report pages retain light sky-blue theme
-- [ ] **DS-03**: Severity color tokens (safe/low/moderate/high/critical) remain consistent across both themes
+- [x] **DS-01**: Landing page uses dark purple/violet color palette (#1a1625 background, #2d2640 surfaces, #9d7aff accent)
+- [x] **DS-02**: Dark theme tokens are scoped to landing page only — /audit and report pages retain light sky-blue theme
+- [x] **DS-03**: Severity color tokens (safe/low/moderate/high/critical) remain consistent across both themes
 
 ### Header
 
@@ -68,9 +68,9 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DS-01 | Phase 10 | Pending |
-| DS-02 | Phase 10 | Pending |
-| DS-03 | Phase 10 | Pending |
+| DS-01 | Phase 10 | Complete |
+| DS-02 | Phase 10 | Complete |
+| DS-03 | Phase 10 | Complete |
 | HDR-01 | Phase 10 | Pending |
 | HDR-02 | Phase 10 | Pending |
 | HDR-03 | Phase 10 | Pending |

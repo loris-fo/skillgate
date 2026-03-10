@@ -80,5 +80,5 @@ Plans:
 | 7. Design System & Layout | v1.1 | 2/2 | Complete | 2026-03-07 |
 | 8. Landing Page | v1.1 | 2/2 | Complete | 2026-03-08 |
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
-| 10. Dark Design Tokens + Layout Foundation | v1.2 | 0/2 | Not started | - |
+| 10. Dark Design Tokens + Layout Foundation | 1/2 | In Progress|  | - |
 | 11. Landing Page Sections | v1.2 | 0/? | Not started | - |
