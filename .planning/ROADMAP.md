@@ -61,9 +61,10 @@ Plans:
   2. Features section shows a two-column layout: 3 stacked feature cards on the left, and a hardcoded mock report demo on the right showing cursor-rules-architect with "Use with Caution" verdict, 6.2/10 score, and 5 category rows
   3. Badge section displays 3 badge examples (Safe to Install, Use with Caution, Avoid) each with its own copy-to-clipboard button for the markdown snippet
   4. On tablet (<=1024px), features+demo stacks to single column; on mobile (<=768px), hero heading scales down and all sections render single column
-**Plans**: 2 plans
+**Plans**: 3 plans
 
 Plans:
+- [ ] 11-00-PLAN.md — Wave 0 test stubs for hero, features-demo, and badge sections
 - [ ] 11-01-PLAN.md — Hero section rework + badge per-copy buttons
 - [ ] 11-02-PLAN.md — Features+demo two-column section + page.tsx wiring
 
@@ -81,4 +82,4 @@ Plans:
 | 8. Landing Page | v1.1 | 2/2 | Complete | 2026-03-08 |
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
 | 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
-| 11. Landing Page Sections | v1.2 | 0/2 | Not started | - |
+| 11. Landing Page Sections | v1.2 | 0/3 | Not started | - |
