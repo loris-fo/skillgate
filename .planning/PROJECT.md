@@ -29,7 +29,20 @@ Developers can trust-verify any Claude skill before installing it — with plain
 
 ### Active
 
-(No active requirements — define with `/gsd:new-milestone`)
+See REQUIREMENTS.md for v1.2 requirements.
+
+## Current Milestone: v1.2 Landing Page Redesign
+
+**Goal:** Replace the light sky-blue landing page with a dark purple/violet themed design — floating pill header, 120px hero, two-column features+demo layout, trust badges row.
+
+**Target features:**
+- Dark design system tokens scoped to landing page (#1a1625 bg, #9d7aff accent)
+- Floating pill-shaped header with shield icon, nav links, CLI pill, CTA
+- Hero section with "Don't install blind." at 120px, gradient orb, dual CTAs
+- Two-column features + hardcoded mock report demo (mixed verdicts)
+- Trust badges row with per-badge copy buttons
+- Dark footer variant on landing page
+- Responsive: tablet stacks to single column, mobile heading scales down
 
 ### Out of Scope
 
@@ -45,7 +58,7 @@ Developers can trust-verify any Claude skill before installing it — with plain
 
 ## Context
 
-Shipped v1.0 (2026-03-06) and v1.1 (2026-03-09).
+Shipped v1.0 (2026-03-06), v1.1 (2026-03-09). Starting v1.2 (2026-03-10).
 Web app: 2,509 LOC TypeScript across 3 pages (landing, audit, report).
 Tech stack: Next.js 15 (App Router), pnpm monorepo, Upstash Redis, Anthropic SDK, Tailwind v4.
 118 tests across 20 test files, all passing.
@@ -61,7 +74,7 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 - **Storage**: Upstash Redis for audit persistence — no database
 - **Hosting**: Vercel for web/API
 - **Packages**: npm as `skillgate`, domain skillgate.sh, GitHub loris-fo/skillgate
-- **Styling**: Tailwind CSS v4, light sky-blue aesthetic (v1.1 redesign)
+- **Styling**: Tailwind CSS v4, dark purple/violet landing + light sky-blue product pages
 - **Quality**: Clean open-source code, contributor-friendly DX
 
 ## Key Decisions
@@ -87,4 +100,4 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 | Numeric X/10 risk scores | safe=2, low=4, moderate=6, high=8, critical=10 | ✓ Good — clear severity mapping |
 
 ---
-*Last updated: 2026-03-09 after v1.1 milestone*
+*Last updated: 2026-03-10 after v1.2 milestone start*
