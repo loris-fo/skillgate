@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Landing Page Redesign
-status: defining_requirements
-stopped_at: Defining requirements for v1.2
+status: ready_to_plan
+stopped_at: Roadmap created for v1.2 — ready to plan Phase 10
 last_updated: "2026-03-10T00:00:00.000Z"
-last_activity: 2026-03-10 -- Milestone v1.2 started
+last_activity: 2026-03-10 -- Roadmap created for v1.2 Landing Page Redesign
 progress:
-  total_phases: 0
+  total_phases: 2
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -21,13 +21,15 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-10)
 
 **Core value:** Developers can trust-verify any Claude skill before installing it -- with plain-English reasoning, not just a score.
-**Current focus:** Defining requirements for v1.2 Landing Page Redesign
+**Current focus:** Phase 10 - Dark Design Tokens + Layout Foundation
 
 ## Current Position
 
-Milestone: v1.2 Landing Page Redesign — DEFINING REQUIREMENTS
-Status: Defining requirements
-Next: Define REQUIREMENTS.md, create ROADMAP.md
+Milestone: v1.2 Landing Page Redesign
+Phase: 10 of 11 (Dark Design Tokens + Layout Foundation)
+Plan: 0 of ? in current phase
+Status: Ready to plan
+Last activity: 2026-03-10 -- Roadmap created for v1.2 Landing Page Redesign
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -36,6 +38,13 @@ Progress: [░░░░░░░░░░] 0%
 ### Decisions
 
 See PROJECT.md Key Decisions table for full log.
+
+Recent decisions affecting current work:
+- [v1.2]: Dark theme scoped via .dark-landing CSS class in globals.css
+- [v1.2]: bg-bg-page moves from body to main so landing can override background
+- [v1.2]: Header uses usePathname() for conditional floating pill vs sticky bar
+- [v1.2]: Footer converted to client component for dark variant on landing
+- [v1.2]: MockReportDemo replaces animated-mockup with static hardcoded data
 
 ### Pending Todos
 
@@ -56,5 +65,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Milestone v1.2 started, defining requirements
+Stopped at: Roadmap created for v1.2 milestone
 Resume file: None
