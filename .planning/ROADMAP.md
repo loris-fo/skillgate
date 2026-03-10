@@ -31,7 +31,7 @@
 
 ### v1.2 Landing Page Redesign
 
-- [ ] **Phase 10: Dark Design Tokens + Layout Foundation** - Dark theme tokens scoped to landing, floating pill header, dark footer variant, layout plumbing
+- [x] **Phase 10: Dark Design Tokens + Layout Foundation** - Dark theme tokens scoped to landing, floating pill header, dark footer variant, layout plumbing (completed 2026-03-10)
 - [ ] **Phase 11: Landing Page Sections** - Hero with 120px heading, two-column features+demo, badge cards, responsive breakpoints
 
 ## Phase Details
@@ -80,5 +80,5 @@ Plans:
 | 7. Design System & Layout | v1.1 | 2/2 | Complete | 2026-03-07 |
 | 8. Landing Page | v1.1 | 2/2 | Complete | 2026-03-08 |
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
-| 10. Dark Design Tokens + Layout Foundation | 1/2 | In Progress|  | - |
+| 10. Dark Design Tokens + Layout Foundation | 2/2 | Complete   | 2026-03-10 | - |
 | 11. Landing Page Sections | v1.2 | 0/? | Not started | - |

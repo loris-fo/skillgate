@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Landing Page Redesign
 status: executing
-stopped_at: Completed 10-01-PLAN.md
-last_updated: "2026-03-10T11:08:25.014Z"
+stopped_at: Completed 10-02-PLAN.md
+last_updated: "2026-03-10T11:12:12.720Z"
 last_activity: 2026-03-10 -- Completed 10-01 Dark Design Tokens + Layout Foundation
 progress:
   total_phases: 2
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 50
 ---
 
@@ -46,6 +46,7 @@ Recent decisions affecting current work:
 - [v1.2]: Footer converted to client component for dark variant on landing
 - [v1.2]: MockReportDemo replaces animated-mockup with static hardcoded data
 - [Phase 10]: LayoutBody client component wraps body tag to keep layout.tsx as server component for metadata
+- [Phase 10]: Header uses if/else pattern with two full return blocks for clarity over ternary className toggling
 
 ### Pending Todos
 
@@ -65,6 +66,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-10T11:08:25.011Z
-Stopped at: Completed 10-01-PLAN.md
+Last session: 2026-03-10T11:12:12.717Z
+Stopped at: Completed 10-02-PLAN.md
 Resume file: None

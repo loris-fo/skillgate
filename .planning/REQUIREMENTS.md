@@ -15,9 +15,9 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 ### Header
 
-- [ ] **HDR-01**: Landing page header is a floating pill shape (rounded-full) with transparent backdrop blur
-- [ ] **HDR-02**: Header shows shield icon + "skillgate" wordmark, nav links (Docs, GitHub), CLI pill (`npx skillgate`), and "Try it" CTA button
-- [ ] **HDR-03**: Non-landing pages retain existing sticky header behavior unchanged
+- [x] **HDR-01**: Landing page header is a floating pill shape (rounded-full) with transparent backdrop blur
+- [x] **HDR-02**: Header shows shield icon + "skillgate" wordmark, nav links (Docs, GitHub), CLI pill (`npx skillgate`), and "Try it" CTA button
+- [x] **HDR-03**: Non-landing pages retain existing sticky header behavior unchanged
 
 ### Hero
 
@@ -38,8 +38,8 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 ### Footer
 
-- [ ] **FTR-01**: Footer renders dark variant on landing page (dark text, purple border)
-- [ ] **FTR-02**: Non-landing pages retain existing footer styling unchanged
+- [x] **FTR-01**: Footer renders dark variant on landing page (dark text, purple border)
+- [x] **FTR-02**: Non-landing pages retain existing footer styling unchanged
 
 ### Responsive
 
@@ -71,9 +71,9 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 | DS-01 | Phase 10 | Complete |
 | DS-02 | Phase 10 | Complete |
 | DS-03 | Phase 10 | Complete |
-| HDR-01 | Phase 10 | Pending |
-| HDR-02 | Phase 10 | Pending |
-| HDR-03 | Phase 10 | Pending |
+| HDR-01 | Phase 10 | Complete |
+| HDR-02 | Phase 10 | Complete |
+| HDR-03 | Phase 10 | Complete |
 | HERO-01 | Phase 11 | Pending |
 | HERO-02 | Phase 11 | Pending |
 | HERO-03 | Phase 11 | Pending |
@@ -82,8 +82,8 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 | FEAT-03 | Phase 11 | Pending |
 | BADGE-01 | Phase 11 | Pending |
 | BADGE-02 | Phase 11 | Pending |
-| FTR-01 | Phase 10 | Pending |
-| FTR-02 | Phase 10 | Pending |
+| FTR-01 | Phase 10 | Complete |
+| FTR-02 | Phase 10 | Complete |
 | RESP-01 | Phase 11 | Pending |
 | RESP-02 | Phase 11 | Pending |
 
