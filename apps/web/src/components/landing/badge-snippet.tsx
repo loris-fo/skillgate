@@ -71,31 +71,21 @@ const snippetText = "![Skillgate](https://skillgate.sh/badge/your-skill)";
 
 export function BadgeSnippet() {
   return (
-    <section id="badge-section" className="px-4 py-16">
+    <section id="badge-section" className="px-4 py-6">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-4 text-center text-2xl font-bold text-text-heading">
-          Add a trust badge
+        <h2 className="mb-3 text-[32px] font-semibold text-text-heading">
+          Trust Badges
         </h2>
 
-        <p className="mb-8 text-center text-text-body">
-          After auditing your skill, add the badge to your README.
-        </p>
-
-        {/* Per-badge cards with individual copy buttons */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {badgeVariants.map((v) => (
-            <div key={v.label} className="flex flex-col items-center gap-3">
-              <ShieldBadge {...v} />
-              <div className="relative w-full">
-                <pre className="overflow-x-auto rounded-lg border border-border bg-surface-2 p-3 pr-20 font-mono text-xs text-text-body">
-                  {snippetText}
-                </pre>
-                <div className="absolute right-2 top-2">
-                  <CopyButton text={snippetText} label="Copy" />
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="flex items-center rounded-xl bg-[#2d2640] p-5">
+          <div className="flex items-center gap-4">
+            {badgeVariants.map((v) => (
+              <ShieldBadge key={v.label} {...v} />
+            ))}
+          </div>
+          <div className="ml-auto">
+            <CopyButton text={snippetText} label="Copy" />
+          </div>
         </div>
       </div>
     </section>

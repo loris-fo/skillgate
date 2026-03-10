@@ -16,7 +16,7 @@ export function Footer() {
   const isLanding = usePathname() === "/";
 
   return (
-    <footer className={`py-8 ${isLanding ? "border-t border-accent/30" : ""}`}>
+    <footer className={`py-6 ${isLanding ? "border-t border-accent/30" : ""}`}>
       <div
         className={`max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm ${isLanding ? "text-text-body" : "text-text-muted"}`}
       >
