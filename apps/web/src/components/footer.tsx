@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { useLandingMode } from "@/components/landing-context";
 
 const links = [
   { label: "GitHub", href: "https://github.com/lorisfochesato/skillgate" },
@@ -13,7 +13,7 @@ const links = [
 ];
 
 export function Footer() {
-  const isLanding = usePathname() === "/";
+  const isLanding = useLandingMode();
 
   return (
     <footer

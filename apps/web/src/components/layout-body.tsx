@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { LandingProvider } from "@/components/landing-context";
 
 export function LayoutBody({
   fontClassName,
@@ -16,7 +17,7 @@ export function LayoutBody({
     <body
       className={`${fontClassName} text-text-primary font-sans antialiased min-h-screen flex flex-col${isDark ? " dark-landing" : ""}`}
     >
-      {children}
+      <LandingProvider value={isDark}>{children}</LandingProvider>
     </body>
   );
 }

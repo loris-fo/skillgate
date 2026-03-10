@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useLandingMode } from "@/components/landing-context";
 
 export function Header() {
   const [copied, setCopied] = useState(false);
-  const pathname = usePathname();
-  const isLanding = pathname === "/";
+  const isLanding = useLandingMode();
 
   async function handleCopy() {
     const text = isLanding ? "npx skillgate" : "npm i -g skillgate";
