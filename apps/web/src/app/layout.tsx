@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { LayoutBody } from "@/components/layout-body";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -30,13 +31,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
-      <body className="bg-bg-page text-text-primary font-sans antialiased min-h-screen flex flex-col">
+      <LayoutBody fontClassName={`${plusJakartaSans.variable} ${geistMono.variable}`}>
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 bg-bg-page">
           {children}
         </main>
         <Footer />
-      </body>
+      </LayoutBody>
     </html>
   );
 }
