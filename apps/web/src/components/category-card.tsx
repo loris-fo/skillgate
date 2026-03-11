@@ -10,7 +10,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const SEVERITY_DOT_COLORS: Record<string, string> = {
   safe: "#4ADE80",
-  low: "#FACC15",
+  low: "#E8A04C",
   moderate: "#A855F7",
   high: "#EF4444",
   critical: "#EF4444",

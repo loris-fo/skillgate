@@ -38,10 +38,10 @@ const mockCategories = [
 ];
 
 const PILL_COLORS: Record<string, { bg: string; label: string }> = {
-  safe: { bg: "bg-severity-safe", label: "Safe" },
-  low: { bg: "bg-severity-low", label: "Low" },
-  moderate: { bg: "bg-severity-moderate", label: "Moderate" },
-  critical: { bg: "bg-severity-critical", label: "Critical" },
+  safe: { bg: "#4ADE80", label: "Safe" },
+  low: { bg: "#E8A04C", label: "Low" },
+  moderate: { bg: "#A855F7", label: "Moderate" },
+  critical: { bg: "#EF4444", label: "Critical" },
 };
 
 /* ------------------------------------------------------------------ */
@@ -49,9 +49,9 @@ const PILL_COLORS: Record<string, { bg: string; label: string }> = {
 /* ------------------------------------------------------------------ */
 
 const badgeVariants = [
-  { label: "Safe to Install", bgColor: "#22C55E", textColor: "#FFFFFF" },
-  { label: "Use with Caution", bgColor: "#F97316", textColor: "#FFFFFF" },
-  { label: "Avoid / Critical", bgColor: "#EF4444", textColor: "#FFFFFF" },
+  { label: "Safe", bgColor: "#4ADE80", textColor: "#FFFFFF" },
+  { label: "Caution", bgColor: "#E8A04C", textColor: "#FFFFFF" },
+  { label: "Danger", bgColor: "#EF4444", textColor: "#FFFFFF" },
 ];
 
 function ShieldBadge({
@@ -233,7 +233,8 @@ export function FeaturesDemoSection() {
                 >
                   <span className="text-text-body font-medium">{cat.name}</span>
                   <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold text-white ${PILL_COLORS[cat.severity].bg}`}
+                    className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold text-white"
+                    style={{ backgroundColor: PILL_COLORS[cat.severity].bg }}
                   >
                     {PILL_COLORS[cat.severity].label}
                   </span>

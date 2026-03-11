@@ -3,9 +3,9 @@
 import { CopyButton } from "@/components/copy-button";
 
 const badgeVariants = [
-  { label: "Safe to Install", bgColor: "#22C55E", textColor: "#FFFFFF" },
-  { label: "Use with Caution", bgColor: "#F97316", textColor: "#FFFFFF" },
-  { label: "Avoid / Critical", bgColor: "#EF4444", textColor: "#FFFFFF" },
+  { label: "Safe", bgColor: "#4ADE80", textColor: "#FFFFFF" },
+  { label: "Caution", bgColor: "#E8A04C", textColor: "#FFFFFF" },
+  { label: "Danger", bgColor: "#EF4444", textColor: "#FFFFFF" },
 ];
 
 function ShieldBadge({

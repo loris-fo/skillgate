@@ -26,10 +26,10 @@
   --color-text-muted: #94A3B8;
 
   /* Severity colors */
-  --color-severity-safe: #22C55E;
-  --color-severity-low: #3B82F6;
-  --color-severity-moderate: #F59E0B;
-  --color-severity-high: #F97316;
+  --color-severity-safe: #4ADE80;
+  --color-severity-low: #E8A04C;
+  --color-severity-moderate: #A855F7;
+  --color-severity-high: #EF4444;
   --color-severity-critical: #EF4444;
 
   /* Backward-compat aliases for existing components */
