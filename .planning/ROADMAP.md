@@ -57,7 +57,9 @@
   2. Audit page form label reads "Skill file content" (not "SKILL.md Content") and placeholder text references multiple agents
   3. Running `skillgate --help` shows "AI agent skills" language throughout, with no Claude-specific references
   4. The npm package description (package.json) reads as a universal security auditor for AI agent skills
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 12-01-PLAN.md — Update web app and CLI copy to agent-agnostic language
 
 ### Phase 13: Universal Audit Engine
 **Goal**: The audit engine produces accurate, agent-aware security analysis for any agent's skill/rule file
@@ -117,7 +119,7 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
 | 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
 | 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
-| 12. Agent-Agnostic Messaging | v1.3 | 0/? | Not started | - |
+| 12. Agent-Agnostic Messaging | v1.3 | 0/1 | Not started | - |
 | 13. Universal Audit Engine | v1.3 | 0/? | Not started | - |
 | 14. CLI Scan Multi-Directory | v1.3 | 0/? | Not started | - |
 | 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
