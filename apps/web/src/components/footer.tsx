@@ -21,12 +21,12 @@ export function Footer() {
       style={isLanding ? { backgroundColor: "#1a1625" } : undefined}
     >
       <div
-        className={`max-w-6xl mx-auto px-4 sm:px-6 text-center text-sm`}
+        className={`max-w-6xl mx-auto px-4 text-center text-sm flex flex-wrap justify-center`}
         style={isLanding ? { color: "#8a8196" } : undefined}
       >
         {links.map((link, i) => (
           <span key={link.label}>
-            {i > 0 && <span className="mx-2">&middot;</span>}
+            {i > 0 && <span className="mx-1 md:mx-2">&middot;</span>}
             <a
               href={link.href}
               target="_blank"

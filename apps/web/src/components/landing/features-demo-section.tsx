@@ -148,7 +148,7 @@ export function FeaturesDemoSection() {
             <h2 className="text-xl font-semibold text-text-heading mb-4">
               Features
             </h2>
-            <div className="grid grid-cols-3 gap-4 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 items-stretch">
               {features.map((feature) => (
                 <div
                   key={feature.title}
@@ -170,13 +170,13 @@ export function FeaturesDemoSection() {
             <h2 className="mb-3 text-[32px] font-semibold text-text-heading">
               Trust Badges
             </h2>
-            <div className="flex items-center rounded-xl bg-[#2d2640] p-5">
-              <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 rounded-xl bg-[#2d2640] p-5">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
                 {badgeVariants.map((v) => (
                   <ShieldBadge key={v.label} {...v} />
                 ))}
               </div>
-              <div className="ml-auto">
+              <div className="sm:ml-auto w-full sm:w-auto mt-2 sm:mt-0">
                 <CopyButton text={snippetText} label="Copy" />
               </div>
             </div>
