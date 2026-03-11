@@ -3,12 +3,12 @@
 import { useLandingMode } from "@/components/landing-context";
 
 const links = [
-  { label: "GitHub", href: "https://github.com/lorisfochesato/skillgate" },
+  { label: "GitHub", href: "https://github.com/loris-fo/skillgate" },
   { label: "npm", href: "https://www.npmjs.com/package/skillgate" },
   { label: "skillgate.sh", href: "https://skillgate.sh" },
   {
     label: "MIT License",
-    href: "https://github.com/lorisfochesato/skillgate/blob/main/LICENSE",
+    href: "https://github.com/loris-fo/skillgate/blob/main/LICENSE",
   },
 ];
 

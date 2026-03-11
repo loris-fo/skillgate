@@ -3,6 +3,7 @@ import type { AuditResult } from "@skillgate/audit-engine";
 import { redis } from "@/lib/kv";
 import { errorResponse } from "@/lib/errors";
 import { generateBadge } from "@/lib/badge";
+import { getMockReport } from "@/lib/mock-reports";
 
 export async function GET(
   _request: NextRequest,
@@ -16,20 +17,30 @@ export async function GET(
   const entry = await redis.get<{ contentHash: string; createdAt: string }>(
     `slug:${slug}`,
   );
-  if (!entry) {
+
+  let result: AuditResult | null = null;
+
+  if (entry) {
+    // 2. Load audit data from Redis
+    result = await redis.get<AuditResult>(`audit:${entry.contentHash}`);
+  }
+
+  // 3. Fall back to mock reports
+  if (!result) {
+    const mock = getMockReport(slug);
+    if (mock) {
+      result = mock.result;
+    }
+  }
+
+  if (!result) {
     return errorResponse("NOT_FOUND", `No audit found for slug: ${slug}`);
   }
 
-  // 2. Load audit data
-  const result = await redis.get<AuditResult>(`audit:${entry.contentHash}`);
-  if (!result) {
-    return errorResponse("NOT_FOUND", `Audit data missing for slug: ${slug}`);
-  }
-
-  // 3. Generate SVG badge
+  // 4. Generate SVG badge
   const svg = generateBadge(result.recommendation.verdict);
 
-  // 4. Return SVG with cache headers
+  // 5. Return SVG with cache headers
   return new Response(svg, {
     headers: {
       "Content-Type": "image/svg+xml",

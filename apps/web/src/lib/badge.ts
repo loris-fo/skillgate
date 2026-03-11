@@ -2,10 +2,10 @@ import { makeBadge } from "badge-maker";
 import type { Verdict } from "@skillgate/audit-engine";
 
 const VERDICT_COLORS: Record<Verdict, string> = {
-  install: "#4c1",
-  install_with_caution: "#dfb317",
-  review_first: "#fe7d37",
-  avoid: "#e05d44",
+  install: "#4ADE80",
+  install_with_caution: "#E8A04C",
+  review_first: "#A855F7",
+  avoid: "#EF4444",
 };
 
 const VERDICT_LABELS: Record<Verdict, string> = {

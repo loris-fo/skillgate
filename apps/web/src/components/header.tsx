@@ -41,26 +41,6 @@ export function Header() {
             Skillgate
           </Link>
 
-          {/* Center nav */}
-          <nav className="hidden md:flex items-center" style={{ gap: "32px" }}>
-            {["About", "Features", "Security", "Pricing", "FAQ"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="hover:text-white transition-colors"
-                  style={{
-                    color: "#b8b0c8",
-                    fontSize: "16px",
-                    fontWeight: 500,
-                  }}
-                >
-                  {item}
-                </a>
-              ),
-            )}
-          </nav>
-
           {/* Right: npm pill + GitHub icon */}
           <div className="flex items-center gap-4">
             <button
@@ -77,7 +57,7 @@ export function Header() {
             </button>
 
             <a
-              href="https://github.com/lorisfochesato/skillgate"
+              href="https://github.com/loris-fo/skillgate"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:opacity-80 transition-opacity"
@@ -119,7 +99,7 @@ export function Header() {
           </button>
 
           <a
-            href="https://github.com/lorisfochesato/skillgate"
+            href="https://github.com/loris-fo/skillgate"
             target="_blank"
             rel="noopener noreferrer"
             className="text-text-muted hover:text-accent transition-colors"
