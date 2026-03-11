@@ -1,7 +1,7 @@
 {
   "name": "skillgate",
   "version": "0.1.0",
-  "description": "Audit Claude skills for security risks before installing them",
+  "description": "Security auditor for AI agent skills — audit before you install",
   "type": "module",
   "license": "MIT",
   "author": "loris-fo",
@@ -13,12 +13,15 @@
   "homepage": "https://github.com/loris-fo/skillgate",
   "bugs": "https://github.com/loris-fo/skillgate/issues",
   "keywords": [
-    "claude",
+    "ai-agent",
     "skill",
     "security",
     "audit",
     "mcp",
-    "cli"
+    "cli",
+    "cursor",
+    "windsurf",
+    "copilot"
   ],
   "engines": {
     "node": ">= 18"

@@ -6,12 +6,12 @@ const program = new Command();
 
 program
   .name("skillgate")
-  .description("Audit Claude skills for security risks")
+  .description("Audit AI agent skills for security risks")
   .version("0.1.0");
 
 program
   .command("install")
-  .description("Audit and install a SKILL.md")
+  .description("Audit and install an AI agent skill file")
   .argument("<source>", "URL, registry slug, or local file path")
   .option("-o, --output <dir>", "target directory", ".claude")
   .option("--force", "override High/Critical block")
@@ -20,7 +20,7 @@ program
 
 program
   .command("scan")
-  .description("Audit all SKILL.md files in the project")
+  .description("Audit all skill files in the project")
   .option("--path <dir>", "directory to scan")
   .option("--no-fail", "always exit 0 (reporting only)")
   .option("--json", "output machine-readable JSON")
