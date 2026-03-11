@@ -129,7 +129,7 @@ export function AuditForm() {
           }}
           onFocus={(e) => { e.target.style.borderColor = "#9d7aff"; }}
           onBlur={(e) => { e.target.style.borderColor = "#3d3650"; }}
-          placeholder="Paste skill file content here..."
+          placeholder="Paste skill file content here (Claude, Cursor, Windsurf, and more)..."
           rows={12}
           className="w-full rounded-lg px-4 py-4 text-white placeholder:text-[#8a8196] font-mono text-sm leading-relaxed resize-y focus:outline-none transition-colors"
           style={{ height: "120px", backgroundColor: "#1a1625", border: "1px solid #3d3650", ...(loading ? { opacity: 0.6 } : {}) }}
