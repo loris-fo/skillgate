@@ -70,7 +70,9 @@ Plans:
   1. Submitting a Cursor rules file (.cursorrules) produces a valid audit report with relevant findings -- not Claude-specific assumptions
   2. The audit identifies agent-specific risk patterns: Cursor editor modifications, Windsurf shell execution directives, Copilot safety override instructions
   3. Submitting a generic markdown instruction file (no agent indicators) produces a valid audit without defaulting to Claude-specific analysis
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 13-01-PLAN.md — Universal prompt rewrite with agent-specific risk patterns and detected_agent schema field
 
 ### Phase 14: CLI Scan Multi-Directory
 **Goal**: Developers can scan an entire project and get audits for every agent's skill files automatically
@@ -121,7 +123,7 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
 | 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
-| 13. Universal Audit Engine | v1.3 | 0/? | Not started | - |
+| 13. Universal Audit Engine | v1.3 | 0/1 | Not started | - |
 | 14. CLI Scan Multi-Directory | v1.3 | 0/? | Not started | - |
 | 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |
