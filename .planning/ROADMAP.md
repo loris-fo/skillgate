@@ -4,7 +4,8 @@
 
 - **v1.0 MVP** - Phases 1-6 (shipped 2026-03-06)
 - **v1.1 Web Redesign** - Phases 7-9 (shipped 2026-03-09)
-- **v1.2 Landing Page Redesign** - Phases 10-11 (in progress)
+- **v1.2 Landing Page Redesign** - Phases 10-11 (shipped 2026-03-11)
+- **v1.3 Multi-Agent Support** - Phases 12-16 (in progress)
 
 ## Phases
 
@@ -29,46 +30,79 @@
 
 </details>
 
-### v1.2 Landing Page Redesign
+<details>
+<summary>v1.2 Landing Page Redesign (Phases 10-11) - SHIPPED 2026-03-11</summary>
 
-- [x] **Phase 10: Dark Design Tokens + Layout Foundation** - Dark theme tokens scoped to landing, floating pill header, dark footer variant, layout plumbing (completed 2026-03-10)
-- [x] **Phase 11: Landing Page Sections** - Hero with 120px heading, two-column features+demo, badge cards, responsive breakpoints (completed 2026-03-10)
+- [x] Phase 10: Dark Design Tokens + Layout Foundation (2/2 plans) - completed 2026-03-10
+- [x] Phase 11: Landing Page Sections (3/3 plans) - completed 2026-03-10
+
+</details>
+
+### v1.3 Multi-Agent Support
+
+- [ ] **Phase 12: Agent-Agnostic Messaging** - Update all user-facing copy from Claude-specific to universal agent language
+- [ ] **Phase 13: Universal Audit Engine** - Update audit prompt to analyze any agent's skill/rule files with agent-specific risk patterns
+- [ ] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project
+- [ ] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory
+- [ ] **Phase 16: File Type Detection** - Identify agent type from URL patterns and content analysis
 
 ## Phase Details
 
-### Phase 10: Dark Design Tokens + Layout Foundation
-**Goal**: Landing page renders with dark purple/violet theme while product pages remain unchanged
-**Depends on**: Phase 9
-**Requirements**: DS-01, DS-02, DS-03, HDR-01, HDR-02, HDR-03, FTR-01, FTR-02
+### Phase 12: Agent-Agnostic Messaging
+**Goal**: Every user-facing surface reads as a universal agent skill auditor, not a Claude-specific tool
+**Depends on**: Phase 11
+**Requirements**: COPY-01, COPY-02, COPY-03, COPY-04
 **Success Criteria** (what must be TRUE):
-  1. Landing page displays dark purple background (#1a1625) with violet accent colors, while /audit and /report pages remain light sky-blue
-  2. Severity colors (safe green, low blue, moderate amber, high orange, critical red) render identically on both dark landing and light product pages
-  3. Landing page header appears as a floating rounded pill with backdrop blur, showing shield icon, wordmark, nav links, CLI pill, and CTA button
-  4. Non-landing pages retain their existing sticky header and footer styling with zero visual changes
-  5. Landing page footer renders with dark variant styling (dark text, purple border)
-**Plans**: 2 plans
+  1. Landing page hero/subtitle mentions "AI agent skills" with no Claude-specific language anywhere on the page
+  2. Audit page form label reads "Skill file content" (not "SKILL.md Content") and placeholder text references multiple agents
+  3. Running `skillgate --help` shows "AI agent skills" language throughout, with no Claude-specific references
+  4. The npm package description (package.json) reads as a universal security auditor for AI agent skills
+**Plans**: TBD
 
-Plans:
-- [x] 10-01-PLAN.md — Dark design tokens + severity color fix + layout plumbing
-- [x] 10-02-PLAN.md — Floating pill header + dark footer variant
-
-### Phase 11: Landing Page Sections
-**Goal**: Landing page delivers a compelling dark marketing experience with hero, features+demo, and badge sections
-**Depends on**: Phase 10
-**Requirements**: HERO-01, HERO-02, HERO-03, FEAT-01, FEAT-02, FEAT-03, BADGE-01, BADGE-02, RESP-01, RESP-02
+### Phase 13: Universal Audit Engine
+**Goal**: The audit engine produces accurate, agent-aware security analysis for any agent's skill/rule file
+**Depends on**: Phase 12
+**Requirements**: AUDIT-01, AUDIT-02
 **Success Criteria** (what must be TRUE):
-  1. Hero heading "Don't install blind." renders at 120px on desktop with a violet gradient orb behind it, and two CTA buttons link to /audit and /report/cursor-rules-architect
-  2. Features section shows a two-column layout: 3 stacked feature cards on the left, and a hardcoded mock report demo on the right showing cursor-rules-architect with "Use with Caution" verdict, 6.2/10 score, and 5 category rows
-  3. Badge section displays 3 badge examples (Safe to Install, Use with Caution, Avoid) each with its own copy-to-clipboard button for the markdown snippet
-  4. On tablet (<=1024px), features+demo stacks to single column; on mobile (<=768px), hero heading scales down and all sections render single column
-**Plans**: 3 plans
+  1. Submitting a Cursor rules file (.cursorrules) produces a valid audit report with relevant findings -- not Claude-specific assumptions
+  2. The audit identifies agent-specific risk patterns: Cursor editor modifications, Windsurf shell execution directives, Copilot safety override instructions
+  3. Submitting a generic markdown instruction file (no agent indicators) produces a valid audit without defaulting to Claude-specific analysis
+**Plans**: TBD
 
-Plans:
-- [ ] 11-00-PLAN.md — Wave 0 test stubs for hero, features-demo, and badge sections
-- [ ] 11-01-PLAN.md — Hero section rework + badge per-copy buttons
-- [ ] 11-02-PLAN.md — Features+demo two-column section + page.tsx wiring
+### Phase 14: CLI Scan Multi-Directory
+**Goal**: Developers can scan an entire project and get audits for every agent's skill files automatically
+**Depends on**: Phase 13
+**Requirements**: SCAN-01, SCAN-02
+**Success Criteria** (what must be TRUE):
+  1. Running `skillgate scan` in a project with multiple agent configs (e.g., .claude/skills/, .cursorrules, .github/copilot-instructions.md) discovers and audits all of them
+  2. Scan output labels each file with its detected agent (e.g., "Claude: .claude/skills/deploy.md", "Cursor: .cursorrules")
+  3. Running `skillgate scan` in a project with no agent files reports "no agent skill files found" with the list of directories checked
+**Plans**: TBD
+
+### Phase 15: CLI Install Agent Flag
+**Goal**: Developers can install skills into any supported agent's directory with a single command
+**Depends on**: Phase 14
+**Requirements**: INST-01, INST-02
+**Success Criteria** (what must be TRUE):
+  1. Running `skillgate install <url> --agent cursor` downloads and places the file into the Cursor rules directory
+  2. Running `skillgate install <url>` without --agent flag places the file into .claude/skills/ (backward compatible default)
+  3. Running `skillgate install <url> --agent <invalid>` shows an error listing supported agent values
+**Plans**: TBD
+
+### Phase 16: File Type Detection
+**Goal**: SkillGate automatically identifies which agent a skill file belongs to from its URL or content
+**Depends on**: Phase 13
+**Requirements**: DETECT-01, DETECT-02
+**Success Criteria** (what must be TRUE):
+  1. Submitting a GitHub URL containing ".cursorrules" in the path results in the report identifying it as a Cursor rules file
+  2. Pasting content with Windsurf-specific directives (e.g., "windsurf:" prefixed instructions) results in agent detection without requiring a URL
+  3. Detection results surface in the audit report metadata (agent field populated)
+**Plans**: TBD
 
 ## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
@@ -82,4 +116,9 @@ Plans:
 | 8. Landing Page | v1.1 | 2/2 | Complete | 2026-03-08 |
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
 | 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
-| 11. Landing Page Sections | 3/3 | Complete    | 2026-03-10 | - |
+| 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
+| 12. Agent-Agnostic Messaging | v1.3 | 0/? | Not started | - |
+| 13. Universal Audit Engine | v1.3 | 0/? | Not started | - |
+| 14. CLI Scan Multi-Directory | v1.3 | 0/? | Not started | - |
+| 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
+| 16. File Type Detection | v1.3 | 0/? | Not started | - |

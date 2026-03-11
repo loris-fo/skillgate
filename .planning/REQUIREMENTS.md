@@ -70,24 +70,24 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COPY-01 | — | Pending |
-| COPY-02 | — | Pending |
-| COPY-03 | — | Pending |
-| COPY-04 | — | Pending |
-| AUDIT-01 | — | Pending |
-| AUDIT-02 | — | Pending |
-| SCAN-01 | — | Pending |
-| SCAN-02 | — | Pending |
-| INST-01 | — | Pending |
-| INST-02 | — | Pending |
-| DETECT-01 | — | Pending |
-| DETECT-02 | — | Pending |
+| COPY-01 | Phase 12 | Pending |
+| COPY-02 | Phase 12 | Pending |
+| COPY-03 | Phase 12 | Pending |
+| COPY-04 | Phase 12 | Pending |
+| AUDIT-01 | Phase 13 | Pending |
+| AUDIT-02 | Phase 13 | Pending |
+| SCAN-01 | Phase 14 | Pending |
+| SCAN-02 | Phase 14 | Pending |
+| INST-01 | Phase 15 | Pending |
+| INST-02 | Phase 15 | Pending |
+| DETECT-01 | Phase 16 | Pending |
+| DETECT-02 | Phase 16 | Pending |
 
 **Coverage:**
 - v1.3 requirements: 12 total
-- Mapped to phases: 0
-- Unmapped: 12 ⚠️
+- Mapped to phases: 12
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-11*
-*Last updated: 2026-03-11 after initial definition*
+*Last updated: 2026-03-11 after roadmap creation*
