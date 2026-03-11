@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
 import type { CategoryResult } from "@skillgate/audit-engine";
-import { SEVERITY_CONFIG } from "@/lib/severity";
 
 const CATEGORY_LABELS: Record<string, string> = {
   hidden_logic: "Hidden Logic",
@@ -12,6 +8,22 @@ const CATEGORY_LABELS: Record<string, string> = {
   override_attempts: "Override Attempts",
 };
 
+const SEVERITY_DOT_COLORS: Record<string, string> = {
+  safe: "#4ADE80",
+  low: "#FACC15",
+  moderate: "#A855F7",
+  high: "#EF4444",
+  critical: "#EF4444",
+};
+
+const SEVERITY_LABELS: Record<string, string> = {
+  safe: "Safe",
+  low: "Low",
+  moderate: "Moderate",
+  high: "High",
+  critical: "Critical",
+};
+
 export function CategoryCard({
   name,
   result,
@@ -19,59 +31,46 @@ export function CategoryCard({
   name: string;
   result: CategoryResult;
 }) {
-  const [expanded, setExpanded] = useState(false);
-  const severity = SEVERITY_CONFIG[result.score];
   const label = CATEGORY_LABELS[name] ?? name;
+  const dotColor = SEVERITY_DOT_COLORS[result.score] ?? "#A0A0B0";
+  const severityLabel = SEVERITY_LABELS[result.score] ?? result.score;
 
   return (
-    <div className="rounded-xl bg-surface-card border border-border-card shadow-card p-6">
-      {/* Header -- clickable toggle */}
-      <button
-        type="button"
-        aria-expanded={expanded}
-        onClick={() => setExpanded(!expanded)}
-        className="w-full text-left flex items-center justify-between cursor-pointer"
-      >
-        <div className="flex items-center gap-3">
-          <h3 className="text-text-heading font-semibold">{label}</h3>
+    <div
+      className="rounded-xl p-5"
+      style={{ background: "#1A1A24", border: "1px solid #2A2A3A" }}
+    >
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
           <span
-            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold text-white ${severity.bg}`}
-          >
-            {severity.label}
+            className="w-2 h-2 rounded-full inline-block"
+            style={{ background: dotColor }}
+          />
+          <span className="text-[13px]" style={{ color: dotColor }}>
+            {severityLabel}
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          {result.by_design && (
-            <span className="bg-accent-muted text-accent text-xs font-medium px-2 py-0.5 rounded-full">
-              By Design
-            </span>
-          )}
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`transition-transform duration-200 ${expanded ? "rotate-0" : "rotate-180"}`}
+        {result.by_design && (
+          <span
+            className="text-[11px] px-2 py-0.5 rounded"
+            style={{ background: "#2A2A3A", color: "#A0A0B0" }}
           >
-            <path
-              d="M4 6L8 10L12 6"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-      </button>
+            By Design
+          </span>
+        )}
+      </div>
 
-      {/* Finding + Detail -- conditionally rendered */}
-      {expanded && (
-        <div className="mt-4">
-          <p className="text-text-body text-sm mb-2">{result.finding}</p>
-          <p className="text-text-muted text-sm">{result.detail}</p>
-        </div>
-      )}
+      {/* Category name */}
+      <h3 className="text-[14px] font-semibold text-white mt-2">{label}</h3>
+
+      {/* Finding */}
+      <p
+        className="text-[13px] leading-[1.5] mt-1"
+        style={{ color: "#6B6B7B" }}
+      >
+        {result.finding}
+      </p>
     </div>
   );
 }
