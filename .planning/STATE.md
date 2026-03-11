@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Landing Page Redesign
 status: executing
-stopped_at: Completed quick-5 audit page dark UI reskin
-last_updated: "2026-03-10T14:41:00Z"
-last_activity: 2026-03-10 -- Completed quick-5 audit page dark UI reskin
+stopped_at: Completed quick-6 report page dark UI redesign
+last_updated: "2026-03-11T16:14:19Z"
+last_activity: 2026-03-11 -- Completed quick-6 report page dark UI redesign
 progress:
   total_phases: 2
   completed_phases: 2
@@ -53,6 +53,8 @@ Recent decisions affecting current work:
 - [Phase 11]: Features+demo merged into single two-column component, feature cards are non-clickable divs
 - [Phase 11]: Pill severity labels (bg-severity-safe/low/moderate) replace progress bars in mock report demo
 - [Phase quick-4]: Merged badge-snippet into features-demo-section for two-column layout
+- [Phase quick-6]: Verdict colors use inline hex styles instead of Tailwind severity classes for dark theme
+- [Phase quick-6]: CategoryCard converted to server component by removing expand/collapse toggle
 
 ### Pending Todos
 
@@ -71,9 +73,10 @@ None.
 | 3 | Fix webapp audit Zod validation error -- shared ensureDeepParsed in audit-engine | 2026-03-09 | a6e645e | [3-fix-webapp-audit-zod-validation-error-ca](./quick/3-fix-webapp-audit-zod-validation-error-ca/) |
 | 4 | Landing page layout and visual fixes to match mockup | 2026-03-10 | 9ef8de0 | [4-landing-page-layout-and-visual-fixes-to-](./quick/4-landing-page-layout-and-visual-fixes-to-/) |
 | 5 | Audit page dark UI reskin -- hero and form card | 2026-03-10 | d725481 | [5-audit-page-dark-ui-reskin-hero-and-form-](./quick/5-audit-page-dark-ui-reskin-hero-and-form-/) |
+| 6 | Report page dark UI redesign | 2026-03-11 | 4760b37 | [6-report-page-dark-ui-redesign](./quick/6-report-page-dark-ui-redesign/) |
 
 ## Session Continuity
 
-Last session: 2026-03-10T14:41:00Z
-Stopped at: Completed quick-5 audit page dark UI reskin
+Last session: 2026-03-11T16:14:19Z
+Stopped at: Completed quick-6 report page dark UI redesign
 Resume file: None
