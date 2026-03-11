@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { getReportBySlug } from "@/lib/report";
 import { ReportHero, RecommendationCard } from "@/components/report-hero";
 import { CategoryCard } from "@/components/category-card";
@@ -31,41 +30,48 @@ export default async function ReportPage({ params }: Props) {
     notFound();
   }
 
+  const cats = report.result.categories;
+  const gridCats = [
+    { key: "hidden_logic", data: cats.hidden_logic },
+    { key: "data_access", data: cats.data_access },
+    { key: "action_risk", data: cats.action_risk },
+    { key: "permission_scope", data: cats.permission_scope },
+  ];
+
   return (
-    <section className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
-      <ReportHero result={report.result} meta={report.meta} />
+    <div style={{ backgroundColor: "#0D0D14" }}>
+      <ReportHero result={report.result} meta={report.meta} slug={slug} />
 
-      <h2 className="text-text-heading text-xl font-semibold mb-4">
-        Security Analysis
-      </h2>
+      <div className="max-w-[1100px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 pb-16">
+        {/* Left column */}
+        <div>
+          <h2 className="text-[24px] font-semibold text-white mb-5">
+            Security Analysis
+          </h2>
+          <div className="grid grid-cols-2 gap-4">
+            {gridCats.map(({ key, data }) => (
+              <CategoryCard key={key} name={key} result={data} />
+            ))}
+          </div>
+          <div className="mt-4">
+            <CategoryCard name="override_attempts" result={cats.override_attempts} />
+          </div>
+          <div className="mt-6">
+            <UtilitySection utility={report.result.utility_analysis} />
+          </div>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {Object.entries(report.result.categories).map(([name, cat]) => (
-          <CategoryCard key={name} name={name} result={cat} />
-        ))}
+        {/* Right column */}
+        <div>
+          <h2 className="text-[24px] font-semibold text-white mb-5">
+            Recommendation
+          </h2>
+          <RecommendationCard recommendation={report.result.recommendation} />
+          <div className="mt-6">
+            <BadgeSection slug={report.meta.slug} />
+          </div>
+        </div>
       </div>
-
-      <h2 className="text-text-heading text-xl font-semibold mt-8 mb-4">
-        Recommendation
-      </h2>
-      <RecommendationCard recommendation={report.result.recommendation} />
-
-      <h2 className="text-text-heading text-xl font-semibold mt-8 mb-4">
-        Utility
-      </h2>
-      <UtilitySection utility={report.result.utility_analysis} />
-
-      <h2 className="text-text-heading text-xl font-semibold mt-8 mb-4">
-        Badge
-      </h2>
-      <BadgeSection slug={report.meta.slug} />
-
-      <Link
-        href="/audit"
-        className="inline-flex items-center text-accent hover:text-accent-hover font-medium mt-8 transition-colors"
-      >
-        &larr; Audit another skill
-      </Link>
-    </section>
+    </div>
   );
 }

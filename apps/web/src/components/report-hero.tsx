@@ -6,9 +6,11 @@ import { CopyButton } from "@/components/copy-button";
 export function ReportHero({
   result,
   meta,
+  slug: _slug,
 }: {
   result: AuditResult;
   meta: AuditMeta;
+  slug?: string;
 }) {
   const verdictKey = result.recommendation.verdict;
   const verdict = VERDICT_CONFIG[verdictKey] ?? VERDICT_CONFIG.install;

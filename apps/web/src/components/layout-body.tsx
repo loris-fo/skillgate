@@ -11,7 +11,7 @@ export function LayoutBody({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const isDark = pathname === "/" || pathname === "/audit";
+  const isDark = pathname === "/" || pathname === "/audit" || pathname.startsWith("/report");
 
   return (
     <body
