@@ -40,7 +40,7 @@
 
 ### v1.3 Multi-Agent Support
 
-- [ ] **Phase 12: Agent-Agnostic Messaging** - Update all user-facing copy from Claude-specific to universal agent language
+- [x] **Phase 12: Agent-Agnostic Messaging** - Update all user-facing copy from Claude-specific to universal agent language (completed 2026-03-11)
 - [ ] **Phase 13: Universal Audit Engine** - Update audit prompt to analyze any agent's skill/rule files with agent-specific risk patterns
 - [ ] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project
 - [ ] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory
@@ -57,7 +57,7 @@
   2. Audit page form label reads "Skill file content" (not "SKILL.md Content") and placeholder text references multiple agents
   3. Running `skillgate --help` shows "AI agent skills" language throughout, with no Claude-specific references
   4. The npm package description (package.json) reads as a universal security auditor for AI agent skills
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 Plans:
 - [ ] 12-01-PLAN.md — Update web app and CLI copy to agent-agnostic language
 
@@ -119,7 +119,7 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 9. Audit & Report Pages | v1.1 | 2/2 | Complete | 2026-03-09 |
 | 10. Dark Design Tokens + Layout Foundation | v1.2 | 2/2 | Complete | 2026-03-10 |
 | 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
-| 12. Agent-Agnostic Messaging | v1.3 | 0/1 | Not started | - |
+| 12. Agent-Agnostic Messaging | 1/1 | Complete   | 2026-03-11 | - |
 | 13. Universal Audit Engine | v1.3 | 0/? | Not started | - |
 | 14. CLI Scan Multi-Directory | v1.3 | 0/? | Not started | - |
 | 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |

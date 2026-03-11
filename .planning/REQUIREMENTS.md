@@ -9,10 +9,10 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 ### Messaging & Copy
 
-- [ ] **COPY-01**: Landing page subtitle uses agent-agnostic language (no "Claude" references)
-- [ ] **COPY-02**: Audit page labels use "Skill file content" instead of "SKILL.md Content"
-- [ ] **COPY-03**: CLI help text uses "AI agent skills" instead of "Claude skills"
-- [ ] **COPY-04**: npm package description updated to "security auditor for AI agent skills"
+- [x] **COPY-01**: Landing page subtitle uses agent-agnostic language (no "Claude" references)
+- [x] **COPY-02**: Audit page labels use "Skill file content" instead of "SKILL.md Content"
+- [x] **COPY-03**: CLI help text uses "AI agent skills" instead of "Claude skills"
+- [x] **COPY-04**: npm package description updated to "security auditor for AI agent skills"
 
 ### Audit Engine
 
@@ -70,10 +70,10 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| COPY-01 | Phase 12 | Pending |
-| COPY-02 | Phase 12 | Pending |
-| COPY-03 | Phase 12 | Pending |
-| COPY-04 | Phase 12 | Pending |
+| COPY-01 | Phase 12 | Complete |
+| COPY-02 | Phase 12 | Complete |
+| COPY-03 | Phase 12 | Complete |
+| COPY-04 | Phase 12 | Complete |
 | AUDIT-01 | Phase 13 | Pending |
 | AUDIT-02 | Phase 13 | Pending |
 | SCAN-01 | Phase 14 | Pending |
