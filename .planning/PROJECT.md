@@ -2,11 +2,11 @@
 
 ## What This Is
 
-Skillgate is a security and utility auditor for Claude AI skill files (SKILL.md). It analyzes skills across five security categories and produces explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.sh) with a polished marketing landing page, an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
+Skillgate is a security and utility auditor for AI agent skill files. It analyzes skills from Claude, Cursor, Windsurf, Cline, Aider, GitHub Copilot, and more across five security categories, producing explainable audit reports that distinguish "risky by design" from "maliciously risky." Available as a web app (skillgate.sh) with a polished marketing landing page, an npm CLI (`skillgate`), and an API that registries and IDEs can integrate with.
 
 ## Core Value
 
-Developers can trust-verify any Claude skill before installing it — with plain-English reasoning, not just a score.
+Developers can trust-verify any AI agent skill before installing it — with plain-English reasoning, not just a score.
 
 ## Requirements
 
@@ -27,22 +27,27 @@ Developers can trust-verify any Claude skill before installing it — with plain
 - ✓ Report page with verdict pills, numeric X/10 score, collapsible category cards, badge, copy link — v1.1
 - ✓ Light design system: #F0F9FF background, white cards with #BAE6FD borders, #06B6D4 accent — v1.1
 
+- ✓ Dark purple/violet landing page with floating pill header, 120px hero, gradient orb — v1.2
+- ✓ Two-column features + mock report demo, trust badges row — v1.2
+- ✓ Dark UI reskin for audit and report pages — v1.2
+- ✓ Unified severity color palette (#4ADE80/#E8A04C/#A855F7/#EF4444) — v1.2
+- ✓ Mobile responsive layout across all landing sections — v1.2
+- ✓ Mock reports with random CTA selection — v1.2
+
 ### Active
 
-See REQUIREMENTS.md for v1.2 requirements.
+See REQUIREMENTS.md for v1.3 requirements.
 
-## Current Milestone: v1.2 Landing Page Redesign
+## Current Milestone: v1.3 Multi-Agent Support
 
-**Goal:** Replace the light sky-blue landing page with a dark purple/violet themed design — floating pill header, 120px hero, two-column features+demo layout, trust badges row.
+**Goal:** Expand SkillGate from Claude-only to a universal security gate for AI agent skills — supporting Claude, Cursor, Windsurf, Cline, Aider, GitHub Copilot, and generic markdown files.
 
 **Target features:**
-- Dark design system tokens scoped to landing page (#1a1625 bg, #9d7aff accent)
-- Floating pill-shaped header with shield icon, nav links, CLI pill, CTA
-- Hero section with "Don't install blind." at 120px, gradient orb, dual CTAs
-- Two-column features + hardcoded mock report demo (mixed verdicts)
-- Trust badges row with per-badge copy buttons
-- Dark footer variant on landing page
-- Responsive: tablet stacks to single column, mobile heading scales down
+- Agent-agnostic messaging across all web pages, CLI, and README
+- Audit engine prompt updated to analyze any agent's skill/rule files
+- CLI `scan` auto-detects all known agent skill directories
+- CLI `install` supports `--agent` flag for target agent selection
+- File type detection from URL/content patterns
 
 ### Out of Scope
 
@@ -58,13 +63,13 @@ See REQUIREMENTS.md for v1.2 requirements.
 
 ## Context
 
-Shipped v1.0 (2026-03-06), v1.1 (2026-03-09). Starting v1.2 (2026-03-10).
-Web app: 2,509 LOC TypeScript across 3 pages (landing, audit, report).
+Shipped v1.0 (2026-03-06), v1.1 (2026-03-09), v1.2 (2026-03-11). Starting v1.3 (2026-03-11).
+Web app: ~2,500 LOC TypeScript across 3 pages (landing, audit, report) + dark UI.
 Tech stack: Next.js 15 (App Router), pnpm monorepo, Upstash Redis, Anthropic SDK, Tailwind v4.
 118 tests across 20 test files, all passing.
-Claude Code's skill ecosystem (skills.sh, skill-forge) is growing fast with no trust layer.
+AI coding agents are proliferating (Claude, Cursor, Windsurf, Cline, Copilot, Aider) — each with their own skill/rule file formats but no universal trust layer.
 The badge system is the primary growth mechanic — skill authors add badges to READMEs.
-Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
+Target metric: Position SkillGate as THE universal agent skill auditor.
 
 ## Constraints
 
@@ -100,4 +105,7 @@ Target metric: 10 skill authors add a Skillgate badge within 2 weeks of launch.
 | Numeric X/10 risk scores | safe=2, low=4, moderate=6, high=8, critical=10 | ✓ Good — clear severity mapping |
 
 ---
-*Last updated: 2026-03-10 after v1.2 milestone start*
+| Universal agent support (v1.3) | All agents use markdown/text instruction files with same risk categories | — Pending |
+
+---
+*Last updated: 2026-03-11 after v1.3 milestone start*
