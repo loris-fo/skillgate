@@ -1,50 +1,52 @@
 # Requirements: Skillgate
 
-**Defined:** 2026-03-10
-**Core Value:** Developers can trust-verify any Claude skill before installing it — with plain-English reasoning, not just a score.
+**Defined:** 2026-03-11
+**Core Value:** Developers can trust-verify any AI agent skill before installing it — with plain-English reasoning, not just a score.
 
-## v1.2 Requirements
+## v1.3 Requirements
 
-Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
+Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
-### Design System
+### Messaging & Copy
 
-- [x] **DS-01**: Landing page uses dark purple/violet color palette (#1a1625 background, #2d2640 surfaces, #9d7aff accent)
-- [x] **DS-02**: Dark theme tokens are scoped to landing page only — /audit and report pages retain light sky-blue theme
-- [x] **DS-03**: Severity color tokens (safe/low/moderate/high/critical) remain consistent across both themes
+- [ ] **COPY-01**: Landing page subtitle uses agent-agnostic language (no "Claude" references)
+- [ ] **COPY-02**: Audit page labels use "Skill file content" instead of "SKILL.md Content"
+- [ ] **COPY-03**: CLI help text uses "AI agent skills" instead of "Claude skills"
+- [ ] **COPY-04**: npm package description updated to "security auditor for AI agent skills"
 
-### Header
+### Audit Engine
 
-- [x] **HDR-01**: Landing page header is a floating pill shape (rounded-full) with transparent backdrop blur
-- [x] **HDR-02**: Header shows shield icon + "skillgate" wordmark, nav links (Docs, GitHub), CLI pill (`npx skillgate`), and "Try it" CTA button
-- [x] **HDR-03**: Non-landing pages retain existing sticky header behavior unchanged
+- [ ] **AUDIT-01**: Audit prompt analyzes any markdown/text instruction file without assuming Claude
+- [ ] **AUDIT-02**: Audit prompt includes agent-specific risk patterns (Cursor editor mods, Windsurf shell exec, Copilot safety overrides)
 
-### Hero
+### CLI Scan
 
-- [x] **HERO-01**: Hero heading "Don't install blind." displays at 120px on desktop, scaling down on mobile
-- [x] **HERO-02**: Subtle gradient orb (violet radial gradient) appears behind hero text
-- [x] **HERO-03**: Two CTAs: primary "Audit a skill" → /audit, secondary "View example report" → /report/cursor-rules-architect
+- [ ] **SCAN-01**: `skillgate scan` auto-detects all known agent skill directories (.claude/skills/, .cursor/rules/, .cursorrules, .windsurfrules, .clinerules, .github/copilot-instructions.md)
+- [ ] **SCAN-02**: Scan output identifies which agent each file belongs to
 
-### Features + Demo
+### CLI Install
 
-- [x] **FEAT-01**: Two-column layout: left column has 3 stacked feature cards (AI Security Analysis, CLI Gate, Trust Badges), right column has mock report demo
-- [x] **FEAT-02**: Mock report demo shows hardcoded mixed verdicts: cursor-rules-architect skill, "Use with Caution" verdict, 6.2/10 score, 5 category rows with Safe/Low/Moderate severities
-- [x] **FEAT-03**: Layout stacks to single column on tablet (≤1024px)
+- [ ] **INST-01**: `skillgate install` accepts `--agent` flag to target specific agent directory
+- [ ] **INST-02**: Default install behavior remains `.claude/skills/` when no flag provided
 
-### Trust Badges
+### Detection
 
-- [x] **BADGE-01**: Three badge examples displayed (Safe to Install, Use with Caution, Avoid) with ShieldBadge SVGs
-- [x] **BADGE-02**: Each badge has its own markdown snippet with individual copy-to-clipboard button
+- [ ] **DETECT-01**: File type/agent detection from URL patterns (e.g., `.cursorrules` in GitHub URL)
+- [ ] **DETECT-02**: File type/agent detection from content patterns when pasted
 
-### Footer
+## Previous Requirements
 
-- [x] **FTR-01**: Footer renders dark variant on landing page (dark text, purple border)
-- [x] **FTR-02**: Non-landing pages retain existing footer styling unchanged
+### v1.2 Landing Page Redesign (Complete)
 
-### Responsive
+18/18 requirements satisfied. See MILESTONES.md for details.
 
-- [x] **RESP-01**: Tablet (≤1024px): features+demo stacks vertically, header adapts
-- [x] **RESP-02**: Mobile (≤768px): hero heading scales to smaller size, all sections single column
+### v1.1 Web Redesign (Complete)
+
+15/15 requirements satisfied.
+
+### v1.0 MVP (Complete)
+
+31/31 requirements satisfied.
 
 ## Future Requirements
 
@@ -58,40 +60,34 @@ Requirements for v1.2 Landing Page Redesign. Each maps to roadmap phases.
 
 | Feature | Reason |
 |---------|--------|
-| Dark mode toggle | Landing page is always dark, product pages always light — no user toggle |
-| /audit page redesign | v1.2 scope is landing page only |
-| Report page redesign | v1.2 scope is landing page only |
-| API/CLI changes | v1.2 is visual-only, no backend changes |
-| New fonts | Keep Plus Jakarta Sans from v1.1 |
+| Agent selector dropdown in web form | Keep it simple — SkillGate auto-detects from content/URL |
+| Agent-specific report pages | Same 5 security categories apply universally |
+| YAML parsing for Aider config | Treat as text content, same risk analysis applies |
+| New agent file formats beyond listed | Support the 6 major agents, generic markdown covers the rest |
+| Badge changes | Badge system is agent-agnostic already |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DS-01 | Phase 10 | Complete |
-| DS-02 | Phase 10 | Complete |
-| DS-03 | Phase 10 | Complete |
-| HDR-01 | Phase 10 | Complete |
-| HDR-02 | Phase 10 | Complete |
-| HDR-03 | Phase 10 | Complete |
-| HERO-01 | Phase 11 | Complete |
-| HERO-02 | Phase 11 | Complete |
-| HERO-03 | Phase 11 | Complete |
-| FEAT-01 | Phase 11 | Complete |
-| FEAT-02 | Phase 11 | Complete |
-| FEAT-03 | Phase 11 | Complete |
-| BADGE-01 | Phase 11 | Complete |
-| BADGE-02 | Phase 11 | Complete |
-| FTR-01 | Phase 10 | Complete |
-| FTR-02 | Phase 10 | Complete |
-| RESP-01 | Phase 11 | Complete |
-| RESP-02 | Phase 11 | Complete |
+| COPY-01 | — | Pending |
+| COPY-02 | — | Pending |
+| COPY-03 | — | Pending |
+| COPY-04 | — | Pending |
+| AUDIT-01 | — | Pending |
+| AUDIT-02 | — | Pending |
+| SCAN-01 | — | Pending |
+| SCAN-02 | — | Pending |
+| INST-01 | — | Pending |
+| INST-02 | — | Pending |
+| DETECT-01 | — | Pending |
+| DETECT-02 | — | Pending |
 
 **Coverage:**
-- v1.2 requirements: 18 total
-- Mapped to phases: 18
-- Unmapped: 0 ✓
+- v1.3 requirements: 12 total
+- Mapped to phases: 0
+- Unmapped: 12 ⚠️
 
 ---
-*Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after initial definition*
+*Requirements defined: 2026-03-11*
+*Last updated: 2026-03-11 after initial definition*
