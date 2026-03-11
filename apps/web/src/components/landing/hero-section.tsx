@@ -13,7 +13,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative mx-auto max-w-4xl overflow-hidden px-4 pb-6 pt-8 md:pt-28 text-center">
+    <section className="relative mx-auto max-w-4xl overflow-hidden px-4 pb-6 pt-20 md:pt-28 text-center">
       {/* Violet gradient orb */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
