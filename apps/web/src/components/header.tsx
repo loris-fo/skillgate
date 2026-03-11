@@ -17,7 +17,7 @@ export function Header() {
 
   if (isLanding) {
     return (
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[1200px] w-[calc(100%-80px)] rounded-full backdrop-blur-md bg-white/5 border border-white/10 px-4 sm:px-6 py-2.5">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[1200px] w-[calc(100%-32px)] md:w-[calc(100%-80px)] rounded-full backdrop-blur-md bg-white/5 border border-white/10 px-4 sm:px-6 py-2.5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -46,7 +46,7 @@ export function Header() {
             <button
               type="button"
               onClick={handleCopy}
-              className="font-mono rounded-full px-3 py-1 hover:bg-white/10 transition-colors cursor-pointer"
+              className="hidden sm:inline-flex font-mono rounded-full px-3 py-1 hover:bg-white/10 transition-colors cursor-pointer"
               style={{
                 fontSize: "14px",
                 backgroundColor: "#1e1a28",

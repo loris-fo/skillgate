@@ -13,7 +13,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative mx-auto max-w-4xl overflow-hidden px-4 pb-6 pt-28 text-center">
+    <section className="relative mx-auto max-w-4xl overflow-hidden px-4 pb-6 pt-8 md:pt-28 text-center">
       {/* Violet gradient orb */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -32,7 +32,7 @@ export function HeroSection() {
         <h1
           className="font-bold text-text-heading"
           style={{
-            fontSize: "clamp(48px, 8vw, 96px)",
+            fontSize: "clamp(36px, 8vw, 96px)",
             lineHeight: 1.0,
             letterSpacing: "-2px",
           }}
@@ -40,26 +40,26 @@ export function HeroSection() {
           Don&apos;t install blind
         </h1>
 
-        <div className="mx-auto mt-4" style={{ maxWidth: "820px" }}>
-          <p className="text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
+        <div className="mx-auto mt-4 max-w-full md:max-w-[820px]">
+          <p className="text-base md:text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
             Trust-verify any Claude skill before it touches your codebase.
           </p>
-          <p className="text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
+          <p className="text-base md:text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
             AI-powered security analysis with plain-English reasoning, not just
             a score.
           </p>
         </div>
 
-        <div className="mt-8 flex flex-row items-center justify-center gap-4">
+        <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4">
           <Link
             href="/audit"
-            className="inline-flex items-center rounded-lg bg-[#7c5ccc] px-8 py-4 font-semibold text-white transition-colors hover:bg-[#6b4db8]"
+            className="inline-flex items-center justify-center rounded-lg bg-[#7c5ccc] px-8 py-4 font-semibold text-white transition-colors hover:bg-[#6b4db8] w-full md:w-auto"
           >
             Audit a skill
           </Link>
           <button
             onClick={handleExampleClick}
-            className="inline-flex items-center rounded-lg border-2 border-[#9d7aff] px-8 py-4 font-semibold text-[#9d7aff] transition-colors hover:bg-[#9d7aff]/10"
+            className="inline-flex items-center justify-center rounded-lg border-2 border-[#9d7aff] px-8 py-4 font-semibold text-[#9d7aff] transition-colors hover:bg-[#9d7aff]/10 w-full md:w-auto"
           >
             View example report
           </button>
