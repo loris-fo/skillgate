@@ -23,7 +23,7 @@ export default async function OgImage({
     process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   let verdict = "Skillgate Audit";
-  let summary = "Security audit for Claude skills";
+  let summary = "Security audit for AI agent skills";
   let categories: { name: string; score: string }[] = [];
 
   try {

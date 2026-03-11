@@ -97,7 +97,7 @@ export function AuditForm() {
           }}
           onFocus={(e) => { e.target.style.borderColor = "#9d7aff"; }}
           onBlur={(e) => { e.target.style.borderColor = "#3d3650"; }}
-          placeholder="https://github.com/user/repo/raw/.../SKILL.md"
+          placeholder="https://github.com/user/repo/raw/.../skill-file.md"
           className="w-full rounded-lg px-4 text-white placeholder:text-[#8a8196] focus:outline-none transition-colors"
           style={{ height: "48px", backgroundColor: "#1a1625", border: "1px solid #3d3650", ...(loading ? { opacity: 0.6 } : {}) }}
         />
@@ -117,7 +117,7 @@ export function AuditForm() {
           className="block"
           style={{ fontSize: "14px", fontWeight: 500, color: "white", marginBottom: "8px" }}
         >
-          SKILL.md Content
+          Skill file content
         </label>
         <textarea
           id="skill-content"
@@ -129,7 +129,7 @@ export function AuditForm() {
           }}
           onFocus={(e) => { e.target.style.borderColor = "#9d7aff"; }}
           onBlur={(e) => { e.target.style.borderColor = "#3d3650"; }}
-          placeholder="Paste SKILL.md content here..."
+          placeholder="Paste skill file content here..."
           rows={12}
           className="w-full rounded-lg px-4 py-4 text-white placeholder:text-[#8a8196] font-mono text-sm leading-relaxed resize-y focus:outline-none transition-colors"
           style={{ height: "120px", backgroundColor: "#1a1625", border: "1px solid #3d3650", ...(loading ? { opacity: 0.6 } : {}) }}

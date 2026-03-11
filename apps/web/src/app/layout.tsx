@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Skillgate",
-  description: "Trust-verify Claude skills before installing them",
+  description: "Trust-verify AI agent skills before installing them",
 };
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ import { AuditForm } from "@/components/audit-form";
 export const metadata: Metadata = {
   title: "Audit a Skill — Skillgate",
   description:
-    "Paste a SKILL.md or provide a URL to audit any Claude skill for security risks.",
+    "Paste skill file content or provide a URL to audit any AI agent skill for security risks.",
 };
 
 export default function AuditPage() {
@@ -39,7 +39,7 @@ export default function AuditPage() {
             maxWidth: "700px",
           }}
         >
-          Paste your SKILL.md content or provide a URL to get a full security
+          Paste your skill file content or provide a URL to get a full security
           audit with plain-English reasoning.
         </p>
       </div>

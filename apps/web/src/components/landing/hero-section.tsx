@@ -42,7 +42,7 @@ export function HeroSection() {
 
         <div className="mx-auto mt-4 max-w-full md:max-w-[820px]">
           <p className="text-base md:text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
-            Trust-verify any Claude skill before it touches your codebase.
+            Trust-verify any AI agent skill before it touches your codebase.
           </p>
           <p className="text-base md:text-2xl text-[#b8b0c8]" style={{ lineHeight: 1.5 }}>
             AI-powered security analysis with plain-English reasoning, not just
