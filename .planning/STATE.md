@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.2
 milestone_name: Landing Page Redesign
 status: executing
-stopped_at: Completed quick-6 report page dark UI redesign
-last_updated: "2026-03-11T16:14:19Z"
-last_activity: 2026-03-11 -- Completed quick-6 report page dark UI redesign
+stopped_at: Completed quick-7 badge labels, unified severity colors, and mock reports
+last_updated: "2026-03-11T16:27:51Z"
+last_activity: 2026-03-11 -- Completed quick-7 badge labels, unified severity colors, and mock reports
 progress:
   total_phases: 2
   completed_phases: 2
@@ -55,6 +55,9 @@ Recent decisions affecting current work:
 - [Phase quick-4]: Merged badge-snippet into features-demo-section for two-column layout
 - [Phase quick-6]: Verdict colors use inline hex styles instead of Tailwind severity classes for dark theme
 - [Phase quick-6]: CategoryCard converted to server component by removing expand/collapse toggle
+- [Phase quick-7]: Unified severity palette: safe=#4ADE80, low=#E8A04C, moderate=#A855F7, high/critical=#EF4444
+- [Phase quick-7]: Badge labels shortened to single-word: Safe, Caution, Danger
+- [Phase quick-7]: Mock reports served as fallback in getReportBySlug when Redis returns null
 
 ### Pending Todos
 
@@ -74,9 +77,10 @@ None.
 | 4 | Landing page layout and visual fixes to match mockup | 2026-03-10 | 9ef8de0 | [4-landing-page-layout-and-visual-fixes-to-](./quick/4-landing-page-layout-and-visual-fixes-to-/) |
 | 5 | Audit page dark UI reskin -- hero and form card | 2026-03-10 | d725481 | [5-audit-page-dark-ui-reskin-hero-and-form-](./quick/5-audit-page-dark-ui-reskin-hero-and-form-/) |
 | 6 | Report page dark UI redesign | 2026-03-11 | 4760b37 | [6-report-page-dark-ui-redesign](./quick/6-report-page-dark-ui-redesign/) |
+| 7 | Badge labels, unified severity colors, and mock reports | 2026-03-11 | a8f9c86 | [7-badge-labels-unified-severity-colors-exa](./quick/7-badge-labels-unified-severity-colors-exa/) |
 
 ## Session Continuity
 
-Last session: 2026-03-11T16:14:19Z
-Stopped at: Completed quick-6 report page dark UI redesign
+Last session: 2026-03-11T16:27:51Z
+Stopped at: Completed quick-7 badge labels, unified severity colors, and mock reports
 Resume file: None
