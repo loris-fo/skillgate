@@ -1,6 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { MOCK_SLUGS } from "@/lib/mock-reports";
 
 export function HeroSection() {
+  const router = useRouter();
+
+  function handleExampleClick() {
+    const slug = MOCK_SLUGS[Math.floor(Math.random() * MOCK_SLUGS.length)];
+    router.push(`/report/${slug}`);
+  }
+
   return (
     <section className="relative mx-auto max-w-4xl overflow-hidden px-4 pb-6 pt-28 text-center">
       {/* Violet gradient orb */}
@@ -46,12 +57,12 @@ export function HeroSection() {
           >
             Audit a skill
           </Link>
-          <Link
-            href="/report/cursor-rules-architect"
+          <button
+            onClick={handleExampleClick}
             className="inline-flex items-center rounded-lg border-2 border-[#9d7aff] px-8 py-4 font-semibold text-[#9d7aff] transition-colors hover:bg-[#9d7aff]/10"
           >
             View example report
-          </Link>
+          </button>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { ensureDeepParsed, type AuditResult } from "@skillgate/audit-engine";
 import { redis } from "@/lib/kv";
 import type { AuditMeta, AuditResponse } from "@/lib/types";
+import { getMockReport } from "@/lib/mock-reports";
 
 /**
  * Load a report directly from Redis by slug or content hash.
@@ -23,7 +24,12 @@ export async function getReportBySlug(id: string): Promise<AuditResponse | null>
   } else {
     // 2. Try as content hash
     const resolvedSlug = await redis.get<string>(`hash-to-slug:${id}`);
-    if (!resolvedSlug) return null;
+    if (!resolvedSlug) {
+      // 2b. Try mock reports
+      const mockReport = getMockReport(id);
+      if (mockReport) return mockReport;
+      return null;
+    }
 
     slug = resolvedSlug;
     const entry = await redis.get<{ contentHash: string; createdAt: string }>(
