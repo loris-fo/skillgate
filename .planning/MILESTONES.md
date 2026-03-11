@@ -1,5 +1,26 @@
 # Milestones
 
+## v1.2 Landing Page Redesign (Shipped: 2026-03-11)
+
+**Phases:** 2 | **Plans:** 5 | **Quick tasks:** 8
+**Timeline:** 2 days (2026-03-10 → 2026-03-11)
+
+**Delivered:** Dark purple/violet landing page redesign with floating pill header, 120px hero, two-column features+demo, trust badges, plus dark UI reskin for audit and report pages.
+
+**Key accomplishments:**
+1. Dark design tokens scoped to landing (#1a1625 bg, #9d7aff accent) with LayoutBody client wrapper
+2. Floating pill header with shield icon, npm pill, GitHub icon — conditional via usePathname()
+3. Hero section with "Don't install blind." at clamp(36px, 8vw, 96px), gradient orb, dual CTAs
+4. Two-column features + hardcoded mock report demo with mixed verdicts
+5. Trust badges row with per-badge copy buttons
+6. Dark UI reskin for audit page (hero + form card) and report page (verdict colors, category cards)
+7. Unified severity palette, badge label shortcuts, mock reports as fallback
+8. Mobile responsive fixes across all landing sections
+
+**Requirements:** 18/18 v1.2 requirements satisfied
+
+---
+
 ## v1.1 Web Redesign (Shipped: 2026-03-09)
 
 **Phases:** 3 | **Plans:** 6 | **Files modified:** 39 | **LOC:** +2,922 / -215
