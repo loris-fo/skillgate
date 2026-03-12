@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.3
 milestone_name: Multi-Agent Support
 status: completed
-stopped_at: Completed 16-02-PLAN.md
-last_updated: "2026-03-12T12:01:01.816Z"
+stopped_at: Completed 16-01-PLAN.md
+last_updated: "2026-03-12T12:02:02.991Z"
 last_activity: 2026-03-12 -- Completed 16-02 CLI agent detection wiring
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
   percent: 100
 ---
 
@@ -62,6 +62,7 @@ Recent decisions affecting current work:
 - [Phase 15]: Reuse AGENT_SCAN_MAP for install path resolution; default to .claude/skills/
 - [Phase 16]: Send both content and URL to API for server-side agent detection
 - [Phase 16]: Local URL detection fallback when API returns unknown agent
+- [Phase 16]: URL-detected agent always overrides LLM-inferred and cached detected_agent
 
 ### Pending Todos
 
@@ -89,9 +90,10 @@ None.
 | Phase 14 P01 | 3min | 2 tasks | 10 files |
 | Phase 15 P01 | 2min | 2 tasks | 4 files |
 | Phase 16 P02 | 1min | 2 tasks | 3 files |
+| Phase 16-file-type-detection P01 | 2min | 2 tasks | 3 files |
 
 ## Session Continuity
 
-Last session: 2026-03-12T12:01:01.814Z
-Stopped at: Completed 16-02-PLAN.md
+Last session: 2026-03-12T12:02:02.988Z
+Stopped at: Completed 16-01-PLAN.md
 Resume file: None

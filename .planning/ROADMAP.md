@@ -44,7 +44,7 @@
 - [x] **Phase 13: Universal Audit Engine** - Update audit prompt to analyze any agent's skill/rule files with agent-specific risk patterns (completed 2026-03-12)
 - [x] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project (completed 2026-03-12)
 - [x] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory (completed 2026-03-12)
-- [ ] **Phase 16: File Type Detection** - Identify agent type from URL patterns and content analysis
+- [x] **Phase 16: File Type Detection** - Identify agent type from URL patterns and content analysis (completed 2026-03-12)
 
 ## Phase Details
 
@@ -106,7 +106,7 @@ Plans:
   1. Submitting a GitHub URL containing ".cursorrules" in the path results in the report identifying it as a Cursor rules file
   2. Pasting content with Windsurf-specific directives (e.g., "windsurf:" prefixed instructions) results in agent detection without requiring a URL
   3. Detection results surface in the audit report metadata (agent field populated)
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 Plans:
 - [ ] 16-01-PLAN.md — Web API URL detection and report page agent pill
 - [ ] 16-02-PLAN.md — CLI URL detection and audit output agent display
@@ -133,4 +133,4 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
 | 14. CLI Scan Multi-Directory | 1/1 | Complete    | 2026-03-12 | - |
 | 15. CLI Install Agent Flag | 1/1 | Complete    | 2026-03-12 | - |
-| 16. File Type Detection | 1/2 | In Progress|  | - |
+| 16. File Type Detection | 2/2 | Complete   | 2026-03-12 | - |
