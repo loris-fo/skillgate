@@ -39,8 +39,14 @@ export function printCompactResult(response: AuditResponse): void {
   const emoji = VERDICT_EMOJI[result.recommendation.verdict] ?? "";
   const scoreColor = SCORE_COLOR[result.overall_score] ?? ((s: string) => s);
 
+  // Build agent suffix for verdict line
+  const agentSuffix =
+    result.detected_agent && result.detected_agent !== "unknown"
+      ? ` (${getAgentDisplayName(result.detected_agent)} rules file)`
+      : "";
+
   console.log(
-    `\n${emoji} ${verdict}  Score: ${scoreColor(result.overall_score)}`,
+    `\n${emoji} ${verdict}  Score: ${scoreColor(result.overall_score)}${agentSuffix}`,
   );
 
   for (const [key, cat] of Object.entries(result.categories)) {
