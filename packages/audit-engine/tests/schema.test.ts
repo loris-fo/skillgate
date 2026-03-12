@@ -99,4 +99,29 @@ describe("auditResultSchema", () => {
     };
     expect(() => auditResultSchema.parse(invalid)).toThrow();
   });
+
+  describe("detected_agent", () => {
+    it("validates existing result without detected_agent (backward compatible)", () => {
+      const result = auditResultSchema.parse(mockAuditResult);
+      expect(result).toEqual(mockAuditResult);
+      expect(result).not.toHaveProperty("detected_agent");
+    });
+
+    it("validates result with detected_agent: 'cursor'", () => {
+      const withAgent = { ...mockAuditResult, detected_agent: "cursor" };
+      const result = auditResultSchema.parse(withAgent);
+      expect(result.detected_agent).toBe("cursor");
+    });
+
+    it("validates result with detected_agent: 'unknown'", () => {
+      const withAgent = { ...mockAuditResult, detected_agent: "unknown" };
+      const result = auditResultSchema.parse(withAgent);
+      expect(result.detected_agent).toBe("unknown");
+    });
+
+    it("rejects invalid detected_agent value", () => {
+      const invalid = { ...mockAuditResult, detected_agent: "openai" };
+      expect(() => auditResultSchema.parse(invalid)).toThrow();
+    });
+  });
 });
