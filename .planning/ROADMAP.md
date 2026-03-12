@@ -94,7 +94,9 @@ Plans:
   1. Running `skillgate install <url> --agent cursor` downloads and places the file into the Cursor rules directory
   2. Running `skillgate install <url>` without --agent flag places the file into .claude/skills/ (backward compatible default)
   3. Running `skillgate install <url> --agent <invalid>` shows an error listing supported agent values
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 15-01-PLAN.md — Add --agent flag with install path resolution and validation
 
 ### Phase 16: File Type Detection
 **Goal**: SkillGate automatically identifies which agent a skill file belongs to from its URL or content
@@ -127,5 +129,5 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
 | 14. CLI Scan Multi-Directory | 1/1 | Complete    | 2026-03-12 | - |
-| 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
+| 15. CLI Install Agent Flag | v1.3 | 0/1 | Not started | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |
