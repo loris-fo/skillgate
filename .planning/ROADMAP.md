@@ -43,7 +43,7 @@
 - [x] **Phase 12: Agent-Agnostic Messaging** - Update all user-facing copy from Claude-specific to universal agent language (completed 2026-03-11)
 - [x] **Phase 13: Universal Audit Engine** - Update audit prompt to analyze any agent's skill/rule files with agent-specific risk patterns (completed 2026-03-12)
 - [x] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project (completed 2026-03-12)
-- [ ] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory
+- [x] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory (completed 2026-03-12)
 - [ ] **Phase 16: File Type Detection** - Identify agent type from URL patterns and content analysis
 
 ## Phase Details
@@ -94,7 +94,7 @@ Plans:
   1. Running `skillgate install <url> --agent cursor` downloads and places the file into the Cursor rules directory
   2. Running `skillgate install <url>` without --agent flag places the file into .claude/skills/ (backward compatible default)
   3. Running `skillgate install <url> --agent <invalid>` shows an error listing supported agent values
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 Plans:
 - [ ] 15-01-PLAN.md — Add --agent flag with install path resolution and validation
 
@@ -129,5 +129,5 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
 | 14. CLI Scan Multi-Directory | 1/1 | Complete    | 2026-03-12 | - |
-| 15. CLI Install Agent Flag | v1.3 | 0/1 | Not started | - |
+| 15. CLI Install Agent Flag | 1/1 | Complete   | 2026-03-12 | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |

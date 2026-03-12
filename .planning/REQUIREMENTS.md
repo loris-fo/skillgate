@@ -26,8 +26,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 ### CLI Install
 
-- [ ] **INST-01**: `skillgate install` accepts `--agent` flag to target specific agent directory
-- [ ] **INST-02**: Default install behavior remains `.claude/skills/` when no flag provided
+- [x] **INST-01**: `skillgate install` accepts `--agent` flag to target specific agent directory
+- [x] **INST-02**: Default install behavior remains `.claude/skills/` when no flag provided
 
 ### Detection
 
@@ -78,8 +78,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 | AUDIT-02 | Phase 13 | Complete |
 | SCAN-01 | Phase 14 | Complete |
 | SCAN-02 | Phase 14 | Complete |
-| INST-01 | Phase 15 | Pending |
-| INST-02 | Phase 15 | Pending |
+| INST-01 | Phase 15 | Complete |
+| INST-02 | Phase 15 | Complete |
 | DETECT-01 | Phase 16 | Pending |
 | DETECT-02 | Phase 16 | Pending |
 
