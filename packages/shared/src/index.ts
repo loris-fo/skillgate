@@ -3,6 +3,7 @@ export {
   getAllScanPaths,
   getAgentDisplayName,
   getAgentForPath,
+  getInstallPath,
 } from "./agent-map.js";
 
 export type { AgentScanEntry } from "./agent-map.js";

@@ -90,3 +90,15 @@ export function getAgentForPath(filePath: string): DetectedAgent {
 
   return "unknown";
 }
+
+/**
+ * Returns the install directory for an agent, or null if the agent
+ * only uses dotfiles (not directory-based install).
+ * Installable = has at least one path with trailing slash in AGENT_SCAN_MAP.
+ */
+export function getInstallPath(agent: string): string | null {
+  const entry = AGENT_SCAN_MAP.find((e) => e.agent === agent);
+  if (!entry) return null;
+  const dirPath = entry.paths.find((p) => p.endsWith("/"));
+  return dirPath ?? null;
+}
