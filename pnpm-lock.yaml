@@ -17,6 +17,9 @@ importers:
       '@skillgate/audit-engine':
         specifier: workspace:*
         version: link:../../packages/audit-engine
+      '@skillgate/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@upstash/ratelimit':
         specifier: ^2
         version: 2.0.8(@upstash/redis@1.36.3)

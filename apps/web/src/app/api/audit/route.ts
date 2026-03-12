@@ -5,7 +5,9 @@ import {
   buildCacheKey,
   ensureDeepParsed,
   type AuditResult,
+  type DetectedAgent,
 } from "@skillgate/audit-engine";
+import { getAgentForPath } from "@skillgate/shared";
 import { redis } from "@/lib/kv";
 import { auditRateLimiter } from "@/lib/rate-limit";
 import { errorResponse } from "@/lib/errors";
@@ -102,6 +104,20 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  // URL-based agent detection
+  let urlDetectedAgent: DetectedAgent | undefined;
+  if (typeof rawUrl === "string" && rawUrl.trim()) {
+    try {
+      const urlPath = new URL(rawUrl).pathname;
+      const agent = getAgentForPath(urlPath);
+      if (agent !== "unknown") {
+        urlDetectedAgent = agent;
+      }
+    } catch {
+      /* invalid URL, skip detection */
+    }
+  }
+
   // 2b. Size limit check (before hashing)
   if (Buffer.byteLength(content, "utf8") > MAX_CONTENT_BYTES) {
     return errorResponse(
@@ -123,6 +139,9 @@ export async function POST(request: NextRequest) {
 
     if (slugEntry && cachedResult) {
       const safeCachedResult = ensureDeepParsed(cachedResult as Record<string, unknown>) as AuditResult;
+      if (urlDetectedAgent) {
+        safeCachedResult.detected_agent = urlDetectedAgent;
+      }
       const meta: AuditMeta = {
         slug: existingSlug,
         url: `/api/report/${existingSlug}`,
@@ -138,6 +157,9 @@ export async function POST(request: NextRequest) {
   let result: AuditResult;
   try {
     result = await auditSkill(content);
+    if (urlDetectedAgent) {
+      result.detected_agent = urlDetectedAgent;
+    }
   } catch (error) {
     if (error instanceof AuditError) {
       return errorResponse(error.code, error.message);

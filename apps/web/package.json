@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@skillgate/audit-engine": "workspace:*",
+    "@skillgate/shared": "workspace:*",
     "@upstash/ratelimit": "^2",
     "@upstash/redis": "^1.36",
     "badge-maker": "^4",
