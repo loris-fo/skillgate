@@ -122,9 +122,27 @@ importers:
       '@skillgate/audit-engine':
         specifier: workspace:*
         version: link:../audit-engine
+      '@skillgate/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@types/node':
         specifier: ^25.3.3
         version: 25.3.3
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+      vitest:
+        specifier: ^3.2.0
+        version: 3.2.4(@types/node@25.3.3)(jiti@2.6.1)(jsdom@28.1.0)(lightningcss@1.31.1)
+
+  packages/shared:
+    devDependencies:
+      '@skillgate/audit-engine':
+        specifier: workspace:*
+        version: link:../audit-engine
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@5.9.3)

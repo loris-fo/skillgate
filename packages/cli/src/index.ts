@@ -20,8 +20,12 @@ program
 
 program
   .command("scan")
-  .description("Audit all skill files in the project")
-  .option("--path <dir>", "directory to scan")
+  .description("Audit all agent skill files in the project")
+  .option("--path <dir>", "additional directory to scan")
+  .option(
+    "--agent <name>",
+    "scan only a specific agent (claude, cursor, windsurf, copilot, cline, aider)",
+  )
   .option("--no-fail", "always exit 0 (reporting only)")
   .option("--json", "output machine-readable JSON")
   .action(scanCommand);
