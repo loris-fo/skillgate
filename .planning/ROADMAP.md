@@ -82,7 +82,9 @@ Plans:
   1. Running `skillgate scan` in a project with multiple agent configs (e.g., .claude/skills/, .cursorrules, .github/copilot-instructions.md) discovers and audits all of them
   2. Scan output labels each file with its detected agent (e.g., "Claude: .claude/skills/deploy.md", "Cursor: .cursorrules")
   3. Running `skillgate scan` in a project with no agent files reports "no agent skill files found" with the list of directories checked
-**Plans**: TBD
+**Plans:** 1 plan
+Plans:
+- [ ] 14-01-PLAN.md — Create shared agent scan map and rewrite scan command with multi-agent discovery
 
 ### Phase 15: CLI Install Agent Flag
 **Goal**: Developers can install skills into any supported agent's directory with a single command
@@ -124,6 +126,6 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
-| 14. CLI Scan Multi-Directory | v1.3 | 0/? | Not started | - |
+| 14. CLI Scan Multi-Directory | v1.3 | 0/1 | Not started | - |
 | 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |
