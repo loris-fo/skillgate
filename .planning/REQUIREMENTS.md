@@ -16,8 +16,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 ### Audit Engine
 
-- [ ] **AUDIT-01**: Audit prompt analyzes any markdown/text instruction file without assuming Claude
-- [ ] **AUDIT-02**: Audit prompt includes agent-specific risk patterns (Cursor editor mods, Windsurf shell exec, Copilot safety overrides)
+- [x] **AUDIT-01**: Audit prompt analyzes any markdown/text instruction file without assuming Claude
+- [x] **AUDIT-02**: Audit prompt includes agent-specific risk patterns (Cursor editor mods, Windsurf shell exec, Copilot safety overrides)
 
 ### CLI Scan
 
@@ -74,8 +74,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 | COPY-02 | Phase 12 | Complete |
 | COPY-03 | Phase 12 | Complete |
 | COPY-04 | Phase 12 | Complete |
-| AUDIT-01 | Phase 13 | Pending |
-| AUDIT-02 | Phase 13 | Pending |
+| AUDIT-01 | Phase 13 | Complete |
+| AUDIT-02 | Phase 13 | Complete |
 | SCAN-01 | Phase 14 | Pending |
 | SCAN-02 | Phase 14 | Pending |
 | INST-01 | Phase 15 | Pending |
