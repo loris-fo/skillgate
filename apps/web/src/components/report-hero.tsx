@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { AuditResult } from "@skillgate/audit-engine";
+import { getAgentDisplayName } from "@skillgate/shared";
 import type { AuditMeta } from "@/lib/types";
 import { SEVERITY_CONFIG } from "@/lib/severity";
 
@@ -97,6 +98,19 @@ export function ReportHero({
           >
             {copied ? "Copied!" : "Copy Link"}
           </button>
+
+          {result.detected_agent && result.detected_agent !== "unknown" && (
+            <span
+              className="text-[14px] font-medium px-4 py-2.5 rounded-lg"
+              style={{
+                border: "1px solid #3A3A4A",
+                background: "rgba(168, 85, 247, 0.1)",
+                color: "#C4B5FD",
+              }}
+            >
+              {getAgentDisplayName(result.detected_agent)}
+            </span>
+          )}
         </div>
 
         {/* Description */}
