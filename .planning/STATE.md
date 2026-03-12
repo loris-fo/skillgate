@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.3
 milestone_name: Multi-Agent Support
 status: completed
-stopped_at: Phase 16 context gathered
-last_updated: "2026-03-12T11:51:10.186Z"
-last_activity: 2026-03-12 -- Completed 15-01 CLI install agent flag
+stopped_at: Completed 16-02-PLAN.md
+last_updated: "2026-03-12T12:01:01.816Z"
+last_activity: 2026-03-12 -- Completed 16-02 CLI agent detection wiring
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 5
-  completed_plans: 5
+  total_plans: 7
+  completed_plans: 6
   percent: 100
 ---
 
@@ -21,15 +21,15 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-11)
 
 **Core value:** Developers can trust-verify any AI agent skill before installing it -- with plain-English reasoning, not just a score.
-**Current focus:** Phase 15 - CLI Install Agent Flag
+**Current focus:** Phase 16 - File Type Detection
 
 ## Current Position
 
 Milestone: v1.3 Multi-Agent Support
-Phase: 15 of 16 (CLI Install Agent Flag)
-Plan: 01 of 1 (complete)
-Status: Phase 15 complete (all plans done)
-Last activity: 2026-03-12 -- Completed 15-01 CLI install agent flag
+Phase: 16 of 16 (File Type Detection)
+Plan: 02 of 2 (complete)
+Status: Completed 16-02 CLI agent detection wiring
+Last activity: 2026-03-12 -- Completed 16-02 CLI agent detection wiring
 
 Progress: [██████████] 100%
 
@@ -60,6 +60,8 @@ Recent decisions affecting current work:
 - [Phase 14]: Created @skillgate/shared package for cross-package agent config reuse
 - [Phase 14]: Path convention: trailing slash = directory (glob inside), no slash = single file (existence check)
 - [Phase 15]: Reuse AGENT_SCAN_MAP for install path resolution; default to .claude/skills/
+- [Phase 16]: Send both content and URL to API for server-side agent detection
+- [Phase 16]: Local URL detection fallback when API returns unknown agent
 
 ### Pending Todos
 
@@ -86,9 +88,10 @@ None.
 | Phase 13 P01 | 4min | 2 tasks | 5 files |
 | Phase 14 P01 | 3min | 2 tasks | 10 files |
 | Phase 15 P01 | 2min | 2 tasks | 4 files |
+| Phase 16 P02 | 1min | 2 tasks | 3 files |
 
 ## Session Continuity
 
-Last session: 2026-03-12T11:51:10.179Z
-Stopped at: Phase 16 context gathered
-Resume file: .planning/phases/16-file-type-detection/16-CONTEXT.md
+Last session: 2026-03-12T12:01:01.814Z
+Stopped at: Completed 16-02-PLAN.md
+Resume file: None

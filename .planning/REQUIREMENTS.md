@@ -31,8 +31,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 ### Detection
 
-- [ ] **DETECT-01**: File type/agent detection from URL patterns (e.g., `.cursorrules` in GitHub URL)
-- [ ] **DETECT-02**: File type/agent detection from content patterns when pasted
+- [x] **DETECT-01**: File type/agent detection from URL patterns (e.g., `.cursorrules` in GitHub URL)
+- [x] **DETECT-02**: File type/agent detection from content patterns when pasted
 
 ## Previous Requirements
 
@@ -80,8 +80,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 | SCAN-02 | Phase 14 | Complete |
 | INST-01 | Phase 15 | Complete |
 | INST-02 | Phase 15 | Complete |
-| DETECT-01 | Phase 16 | Pending |
-| DETECT-02 | Phase 16 | Pending |
+| DETECT-01 | Phase 16 | Complete |
+| DETECT-02 | Phase 16 | Complete |
 
 **Coverage:**
 - v1.3 requirements: 12 total
