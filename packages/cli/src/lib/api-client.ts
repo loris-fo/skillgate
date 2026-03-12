@@ -9,7 +9,7 @@ function getApiUrl(): string {
 }
 
 export async function auditViaApi(
-  body: { content: string } | { url: string },
+  body: { content: string; url?: string } | { url: string },
 ): Promise<AuditResponse> {
   const response = await fetchWithRetry(`${getApiUrl()}/audit`, {
     method: "POST",

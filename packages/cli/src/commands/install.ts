@@ -7,6 +7,7 @@ import {
   AGENT_SCAN_MAP,
   getInstallPath,
   getAgentDisplayName,
+  getAgentForPath,
 } from "@skillgate/shared";
 import type { DetectedAgent } from "@skillgate/audit-engine";
 
@@ -115,8 +116,29 @@ export async function installCommand(
       content = await fetchContent(resolved.url);
     }
 
-    // Always audit with content (we fetched it for URL inputs)
-    const response = await auditViaApi({ content });
+    // Send URL alongside content so API can perform URL-based agent detection
+    const auditPayload: { content: string; url?: string } =
+      resolved.type === "url"
+        ? { content, url: resolved.url }
+        : { content };
+    const response = await auditViaApi(auditPayload);
+
+    // Local URL-based detection fallback when API doesn't detect agent
+    if (
+      resolved.type === "url" &&
+      (!response.result.detected_agent ||
+        response.result.detected_agent === "unknown")
+    ) {
+      try {
+        const urlPath = new URL(resolved.url).pathname;
+        const localAgent = getAgentForPath(urlPath);
+        if (localAgent !== "unknown") {
+          response.result.detected_agent = localAgent;
+        }
+      } catch {
+        /* skip invalid URLs */
+      }
+    }
 
     timers.forEach(clearTimeout);
     spinner.succeed("Audit complete");
