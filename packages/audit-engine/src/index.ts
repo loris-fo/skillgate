@@ -13,6 +13,7 @@ export {
   type Categories,
   type UtilityAnalysis,
   type Recommendation,
+  type DetectedAgent,
 } from "./types.js";
 
 // Parsing utilities

@@ -32,6 +32,8 @@ export type Recommendation = {
   alternatives: string[];
 };
 
+export type DetectedAgent = "claude" | "cursor" | "windsurf" | "copilot" | "cline" | "aider" | "unknown";
+
 export type AuditResult = {
   overall_score: Score;
   verdict: string;
@@ -40,6 +42,7 @@ export type AuditResult = {
   categories: Categories;
   utility_analysis: UtilityAnalysis;
   recommendation: Recommendation;
+  detected_agent?: DetectedAgent;
 };
 
 export type AuditErrorCode = "INPUT_TOO_LARGE" | "API_ERROR" | "VALIDATION_ERROR";

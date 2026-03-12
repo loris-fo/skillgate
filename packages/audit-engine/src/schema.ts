@@ -3,6 +3,7 @@ import type Anthropic from "@anthropic-ai/sdk";
 
 const scoreEnum = z.enum(["safe", "low", "moderate", "high", "critical"]);
 const verdictEnum = z.enum(["install", "install_with_caution", "review_first", "avoid"]);
+const detectedAgentEnum = z.enum(["claude", "cursor", "windsurf", "copilot", "cline", "aider", "unknown"]);
 
 const categorySchema = z.object({
   score: scoreEnum,
@@ -36,6 +37,7 @@ export const auditResultSchema = z.object({
     caveats: z.array(z.string()),
     alternatives: z.array(z.string()),
   }),
+  detected_agent: detectedAgentEnum.optional(),
 });
 
 // Verify type alignment with z.infer
@@ -55,7 +57,7 @@ const categoryInputSchema = {
 
 export const AUDIT_TOOL: Anthropic.Tool = {
   name: "record_audit",
-  description: "Record the security audit result for the analyzed SKILL.md",
+  description: "Record the security audit result for the analyzed instruction file",
   input_schema: {
     type: "object" as const,
     properties: {
@@ -106,6 +108,11 @@ export const AUDIT_TOOL: Anthropic.Tool = {
           alternatives: { type: "array" as const, items: { type: "string" as const } },
         },
         required: ["verdict", "for_who", "caveats", "alternatives"],
+      },
+      detected_agent: {
+        type: "string" as const,
+        enum: ["claude", "cursor", "windsurf", "copilot", "cline", "aider", "unknown"],
+        description: "The AI agent this instruction file is written for, or 'unknown' if uncertain",
       },
     },
     required: [
