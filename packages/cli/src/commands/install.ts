@@ -3,12 +3,21 @@ import { resolveInput } from "../lib/input-resolver.js";
 import { auditViaApi } from "../lib/api-client.js";
 import { isBlocked } from "../lib/gating.js";
 import { createOutputHandler } from "../lib/output.js";
+import {
+  AGENT_SCAN_MAP,
+  getInstallPath,
+  getAgentDisplayName,
+} from "@skillgate/shared";
+import type { DetectedAgent } from "@skillgate/audit-engine";
 
 interface InstallOptions {
-  output: string;
+  agent?: string;
+  output?: string;
   force: boolean;
   json: boolean;
 }
+
+const VALID_AGENTS = AGENT_SCAN_MAP.map((e) => e.agent);
 
 /**
  * Extract a filesystem-safe name from SKILL.md content.
@@ -45,6 +54,47 @@ export async function installCommand(
   options: InstallOptions,
 ): Promise<void> {
   const output = createOutputHandler(options.json);
+
+  // Mutual exclusion: --agent and -o/--output
+  if (options.agent && options.output) {
+    console.error(
+      "Error: --agent and -o/--output are mutually exclusive. Use --agent to target an agent directory, or -o for a custom path.",
+    );
+    process.exitCode = 1;
+    return;
+  }
+
+  // Resolve target directory
+  let targetDir: string;
+
+  if (options.agent) {
+    // Validate agent name
+    if (!VALID_AGENTS.includes(options.agent as DetectedAgent)) {
+      console.error(
+        `Error: Unknown agent "${options.agent}". Known agents: ${VALID_AGENTS.join(", ")}`,
+      );
+      process.exitCode = 1;
+      return;
+    }
+
+    const installPath = getInstallPath(options.agent);
+    if (!installPath) {
+      const entry = AGENT_SCAN_MAP.find((e) => e.agent === options.agent)!;
+      console.error(
+        `Error: Agent "${options.agent}" doesn't support directory-based install. Supported: claude, cursor. ${getAgentDisplayName(options.agent as DetectedAgent)} uses a single ${entry.paths[0]} file -- copy content manually.`,
+      );
+      process.exitCode = 1;
+      return;
+    }
+
+    targetDir = installPath;
+  } else if (options.output) {
+    targetDir = options.output;
+  } else {
+    // Default: install into .claude/skills/ (backward-compatible)
+    targetDir = ".claude/skills/";
+  }
+
   const spinner = output.startSpinner("Auditing skill...");
   const stages = [
     { delay: 2000, text: "Analyzing security patterns..." },
@@ -75,16 +125,16 @@ export async function installCommand(
     // Check gating
     if (isBlocked(response.result.overall_score) && !options.force) {
       console.error("Use --force to override.");
-      process.exit(1);
+      process.exitCode = 1;
       return;
     }
 
     // Extract skill name and write file
     const skillName = extractSkillName(content);
     const filename = `${skillName}.md`;
-    const filepath = `${options.output}/${filename}`;
+    const filepath = `${targetDir}/${filename}`;
 
-    fs.mkdirSync(options.output, { recursive: true });
+    fs.mkdirSync(targetDir, { recursive: true });
     fs.writeFileSync(filepath, content, "utf-8");
 
     if (!options.json) {
@@ -95,6 +145,6 @@ export async function installCommand(
     spinner.fail("Audit failed");
     const message = error instanceof Error ? error.message : String(error);
     output.printError(message);
-    process.exit(1);
+    process.exitCode = 1;
   }
 }

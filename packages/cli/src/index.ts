@@ -13,7 +13,8 @@ program
   .command("install")
   .description("Audit and install an AI agent skill file")
   .argument("<source>", "URL, registry slug, or local file path")
-  .option("-o, --output <dir>", "target directory", ".claude")
+  .option("--agent <name>", "install into target agent directory (claude, cursor)")
+  .option("-o, --output <dir>", "target directory (mutually exclusive with --agent)")
   .option("--force", "override High/Critical block")
   .option("--json", "output machine-readable JSON")
   .action(installCommand);
