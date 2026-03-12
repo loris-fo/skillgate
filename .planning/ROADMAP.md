@@ -129,5 +129,5 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
 | 14. CLI Scan Multi-Directory | 1/1 | Complete    | 2026-03-12 | - |
-| 15. CLI Install Agent Flag | 1/1 | Complete   | 2026-03-12 | - |
+| 15. CLI Install Agent Flag | 1/1 | Complete    | 2026-03-12 | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |
