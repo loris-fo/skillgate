@@ -51,43 +51,51 @@ export function createEngine(config: EngineConfig = {}): Engine {
       return cached;
     }
 
-    // 5. Call Claude API
-    let response: Anthropic.Message;
-    try {
-      response = await client.messages.create({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 4096,
-        system: SYSTEM_PROMPT,
-        tools: [AUDIT_TOOL],
-        tool_choice: { type: "tool", name: "record_audit" },
-        messages: [{ role: "user", content: buildUserMessage(content) }],
-      });
-    } catch (error) {
-      throw new AuditError(
-        `Claude API error: ${error instanceof Error ? error.message : String(error)}`,
-        "API_ERROR"
+    // 5. Call Claude API (with one retry on malformed output)
+    let result: AuditResult | undefined;
+    let lastError: unknown;
+
+    for (let attempt = 0; attempt < 2; attempt++) {
+      let response: Anthropic.Message;
+      try {
+        response = await client.messages.create({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 4096,
+          system: SYSTEM_PROMPT,
+          tools: [AUDIT_TOOL],
+          tool_choice: { type: "tool", name: "record_audit" },
+          messages: [{ role: "user", content: buildUserMessage(content) }],
+        });
+      } catch (error) {
+        throw new AuditError(
+          `Claude API error: ${error instanceof Error ? error.message : String(error)}`,
+          "API_ERROR"
+        );
+      }
+
+      // 6. Extract tool_use block
+      const toolBlock = response.content.find(
+        (block): block is Anthropic.ToolUseBlock => block.type === "tool_use"
       );
+      if (!toolBlock) {
+        lastError = new Error("Claude response did not contain a tool_use block");
+        continue;
+      }
+
+      // 7. Validate with Zod
+      try {
+        const parsed = ensureDeepParsed(toolBlock.input as Record<string, unknown>);
+        result = auditResultSchema.parse(parsed);
+        break;
+      } catch (error) {
+        lastError = error;
+        // Retry once — LLM output is non-deterministic
+      }
     }
 
-    // 6. Extract tool_use block
-    const toolBlock = response.content.find(
-      (block): block is Anthropic.ToolUseBlock => block.type === "tool_use"
-    );
-    if (!toolBlock) {
+    if (!result) {
       throw new AuditError(
-        "Claude response did not contain a tool_use block",
-        "VALIDATION_ERROR"
-      );
-    }
-
-    // 7. Validate with Zod
-    let result: AuditResult;
-    try {
-      const parsed = ensureDeepParsed(toolBlock.input as Record<string, unknown>);
-      result = auditResultSchema.parse(parsed);
-    } catch (error) {
-      throw new AuditError(
-        `Invalid audit result structure: ${error instanceof Error ? error.message : String(error)}`,
+        `Invalid audit result structure: ${lastError instanceof Error ? lastError.message : String(lastError)}`,
         "VALIDATION_ERROR"
       );
     }
