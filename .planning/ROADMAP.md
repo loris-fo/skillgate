@@ -42,7 +42,7 @@
 
 - [x] **Phase 12: Agent-Agnostic Messaging** - Update all user-facing copy from Claude-specific to universal agent language (completed 2026-03-11)
 - [x] **Phase 13: Universal Audit Engine** - Update audit prompt to analyze any agent's skill/rule files with agent-specific risk patterns (completed 2026-03-12)
-- [ ] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project
+- [x] **Phase 14: CLI Scan Multi-Directory** - Auto-detect and audit all known agent skill directories in a project (completed 2026-03-12)
 - [ ] **Phase 15: CLI Install Agent Flag** - Support --agent flag to install skills into target agent's directory
 - [ ] **Phase 16: File Type Detection** - Identify agent type from URL patterns and content analysis
 
@@ -82,7 +82,7 @@ Plans:
   1. Running `skillgate scan` in a project with multiple agent configs (e.g., .claude/skills/, .cursorrules, .github/copilot-instructions.md) discovers and audits all of them
   2. Scan output labels each file with its detected agent (e.g., "Claude: .claude/skills/deploy.md", "Cursor: .cursorrules")
   3. Running `skillgate scan` in a project with no agent files reports "no agent skill files found" with the list of directories checked
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 Plans:
 - [ ] 14-01-PLAN.md — Create shared agent scan map and rewrite scan command with multi-agent discovery
 
@@ -126,6 +126,6 @@ Phases execute in numeric order: 12 > 13 > 14 > 15 > 16
 | 11. Landing Page Sections | v1.2 | 3/3 | Complete | 2026-03-10 |
 | 12. Agent-Agnostic Messaging | 2/2 | Complete    | 2026-03-11 | 2026-03-11 |
 | 13. Universal Audit Engine | 1/1 | Complete    | 2026-03-12 | - |
-| 14. CLI Scan Multi-Directory | v1.3 | 0/1 | Not started | - |
+| 14. CLI Scan Multi-Directory | 1/1 | Complete   | 2026-03-12 | - |
 | 15. CLI Install Agent Flag | v1.3 | 0/? | Not started | - |
 | 16. File Type Detection | v1.3 | 0/? | Not started | - |

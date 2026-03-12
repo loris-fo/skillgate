@@ -21,8 +21,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 
 ### CLI Scan
 
-- [ ] **SCAN-01**: `skillgate scan` auto-detects all known agent skill directories (.claude/skills/, .cursor/rules/, .cursorrules, .windsurfrules, .clinerules, .github/copilot-instructions.md)
-- [ ] **SCAN-02**: Scan output identifies which agent each file belongs to
+- [x] **SCAN-01**: `skillgate scan` auto-detects all known agent skill directories (.claude/skills/, .cursor/rules/, .cursorrules, .windsurfrules, .clinerules, .github/copilot-instructions.md)
+- [x] **SCAN-02**: Scan output identifies which agent each file belongs to
 
 ### CLI Install
 
@@ -76,8 +76,8 @@ Requirements for v1.3 Multi-Agent Support. Each maps to roadmap phases.
 | COPY-04 | Phase 12 | Complete |
 | AUDIT-01 | Phase 13 | Complete |
 | AUDIT-02 | Phase 13 | Complete |
-| SCAN-01 | Phase 14 | Pending |
-| SCAN-02 | Phase 14 | Pending |
+| SCAN-01 | Phase 14 | Complete |
+| SCAN-02 | Phase 14 | Complete |
 | INST-01 | Phase 15 | Pending |
 | INST-02 | Phase 15 | Pending |
 | DETECT-01 | Phase 16 | Pending |
