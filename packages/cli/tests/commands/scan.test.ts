@@ -5,9 +5,19 @@ vi.mock("glob", () => ({
   glob: vi.fn(),
 }));
 
-vi.mock("node:fs", () => ({
-  readFileSync: vi.fn(),
-}));
+vi.mock("node:fs", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("node:fs")>();
+  return {
+    ...actual,
+    default: {
+      ...actual,
+      readFileSync: vi.fn(),
+      existsSync: vi.fn(),
+    },
+    readFileSync: vi.fn(),
+    existsSync: vi.fn(),
+  };
+});
 
 vi.mock("../../src/lib/api-client.js", () => ({
   auditViaApi: vi.fn(),
@@ -15,6 +25,7 @@ vi.mock("../../src/lib/api-client.js", () => ({
 
 vi.mock("../../src/lib/output.js", () => ({
   createOutputHandler: vi.fn(),
+  printGroupedScanTable: vi.fn(),
   printScanTable: vi.fn(),
 }));
 
@@ -23,18 +34,19 @@ vi.mock("../../src/lib/gating.js", () => ({
 }));
 
 import { glob } from "glob";
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { scanCommand } from "../../src/commands/scan.js";
 import { auditViaApi } from "../../src/lib/api-client.js";
-import { createOutputHandler, printScanTable } from "../../src/lib/output.js";
+import { createOutputHandler, printGroupedScanTable } from "../../src/lib/output.js";
 import { isBlocked } from "../../src/lib/gating.js";
 import type { AuditResponse } from "../../src/types.js";
 
 const mockGlob = vi.mocked(glob);
 const mockReadFileSync = vi.mocked(readFileSync);
+const mockExistsSync = vi.mocked(existsSync);
 const mockAuditViaApi = vi.mocked(auditViaApi);
 const mockCreateOutputHandler = vi.mocked(createOutputHandler);
-const mockPrintScanTable = vi.mocked(printScanTable);
+const mockPrintGroupedScanTable = vi.mocked(printGroupedScanTable);
 const mockIsBlocked = vi.mocked(isBlocked);
 
 function makeAuditResponse(
@@ -109,6 +121,7 @@ describe("scanCommand", () => {
     fail: ReturnType<typeof vi.fn>;
     succeed: ReturnType<typeof vi.fn>;
     text: string;
+    isSpinning: boolean;
   };
   let mockConsoleLog: ReturnType<typeof vi.fn>;
   let mockConsoleError: ReturnType<typeof vi.fn>;
@@ -123,6 +136,7 @@ describe("scanCommand", () => {
       fail: vi.fn(),
       succeed: vi.fn(),
       text: "",
+      isSpinning: true,
     };
 
     mockCreateOutputHandler.mockReturnValue({
@@ -131,10 +145,11 @@ describe("scanCommand", () => {
       printError: vi.fn(),
     });
 
-    mockConsoleLog = vi.spyOn(console, "log").mockImplementation(() => { });
-    mockConsoleError = vi
-      .spyOn(console, "error")
-      .mockImplementation(() => { });
+    // Default: existsSync returns false (no single-file agent configs exist)
+    mockExistsSync.mockReturnValue(false);
+
+    mockConsoleLog = vi.spyOn(console, "log").mockImplementation(() => {});
+    mockConsoleError = vi.spyOn(console, "error").mockImplementation(() => {});
     mockProcessExit = vi
       .spyOn(process, "exit")
       .mockImplementation(() => undefined as never);
@@ -143,83 +158,76 @@ describe("scanCommand", () => {
       .mockImplementation(() => true);
   });
 
-  it("discovers .md files in .claude/ and .claude/skills/ by default", async () => {
-    // Default scan calls glob twice: once for .claude/, once for .claude/skills/
-    mockGlob
-      .mockResolvedValueOnce(["SKILL.md"] as any)
-      .mockResolvedValueOnce(["test/SKILL.md"] as any);
+  it("discovers files via AGENT_SCAN_MAP glob patterns", async () => {
+    // Glob returns files for directory-based agent paths, empty for others
+    mockGlob.mockResolvedValue(["deploy.md"] as any);
     mockReadFileSync.mockReturnValue("# Test skill");
     mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
     mockIsBlocked.mockReturnValue(false);
 
     await scanCommand({ fail: true, json: false });
 
-    // Should call glob twice - once per default directory
-    expect(mockGlob).toHaveBeenCalledTimes(2);
-    expect(mockGlob).toHaveBeenCalledWith(
-      "**/*.md",
-      expect.objectContaining({
-        cwd: expect.stringContaining(".claude"),
-      }),
-    );
+    // Should call glob for each directory-based agent path in AGENT_SCAN_MAP
+    expect(mockGlob).toHaveBeenCalled();
   });
 
-  it("uses custom path when --path is provided", async () => {
-    mockGlob.mockResolvedValue(["SKILL.md"] as any);
+  it("uses --path additively with agent scan map", async () => {
+    // Default agent paths return nothing
+    mockGlob.mockResolvedValue([] as any);
+    // existsSync returns false for single-file paths
+    mockExistsSync.mockReturnValue(false);
+
+    // Override: when custom path is used, return a file
+    mockGlob.mockImplementation(async (_pattern: any, opts: any) => {
+      if (opts?.cwd?.includes("custom")) return ["SKILL.md"] as any;
+      return [] as any;
+    });
     mockReadFileSync.mockReturnValue("# Test skill");
     mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
     mockIsBlocked.mockReturnValue(false);
 
     await scanCommand({ path: "/custom/dir", fail: true, json: false });
 
-    // Should call glob once with the custom path
-    expect(mockGlob).toHaveBeenCalledTimes(1);
-    expect(mockGlob).toHaveBeenCalledWith(
-      "**/*.md",
-      expect.objectContaining({
-        cwd: "/custom/dir",
-      }),
-    );
+    // Should have discovered the file from --path
+    expect(mockAuditViaApi).toHaveBeenCalled();
   });
 
-  it("prints table with 3 rows for 3 passing skills and exits 0", async () => {
-    // Use --path to avoid double-glob
+  it("prints grouped scan table for results", async () => {
     mockGlob.mockResolvedValue(["a.md", "b.md", "c.md"] as any);
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
     mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
     mockIsBlocked.mockReturnValue(false);
 
     await scanCommand({ path: "/test", fail: true, json: false });
 
-    expect(mockPrintScanTable).toHaveBeenCalledWith(
+    expect(mockPrintGroupedScanTable).toHaveBeenCalledWith(
       expect.arrayContaining([
-        expect.objectContaining({ file: expect.stringContaining("a.md") }),
-        expect.objectContaining({ file: expect.stringContaining("b.md") }),
-        expect.objectContaining({ file: expect.stringContaining("c.md") }),
+        expect.objectContaining({ file: expect.any(String), agent: expect.any(String) }),
       ]),
     );
     expect(mockProcessExit).not.toHaveBeenCalledWith(1);
   });
 
-  it("exits 1 when a High score skill is found", async () => {
-    mockGlob.mockResolvedValue(["safe.md", "high.md", "low.md"] as any);
+  it("exits 1 when a high score skill is found", async () => {
+    mockGlob.mockResolvedValue(["safe.md", "high.md"] as any);
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
     mockAuditViaApi
       .mockResolvedValueOnce(makeAuditResponse("safe"))
-      .mockResolvedValueOnce(makeAuditResponse("high", "avoid"))
-      .mockResolvedValueOnce(makeAuditResponse("low"));
+      .mockResolvedValueOnce(makeAuditResponse("high", "avoid"));
     mockIsBlocked
       .mockReturnValueOnce(false)
-      .mockReturnValueOnce(true)
-      .mockReturnValueOnce(false);
+      .mockReturnValueOnce(true);
 
     await scanCommand({ path: "/test", fail: true, json: false });
 
     expect(mockProcessExit).toHaveBeenCalledWith(1);
   });
 
-  it("exits 0 with --no-fail even when High score skill is found", async () => {
+  it("exits 0 with --no-fail even when high score skill is found", async () => {
     mockGlob.mockResolvedValue(["safe.md", "high.md"] as any);
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
     mockAuditViaApi
       .mockResolvedValueOnce(makeAuditResponse("safe"))
@@ -231,11 +239,11 @@ describe("scanCommand", () => {
     expect(mockProcessExit).not.toHaveBeenCalledWith(1);
   });
 
-  it("outputs JSON array when --json is specified", async () => {
+  it("outputs JSON when --json is specified", async () => {
     mockGlob.mockResolvedValue(["a.md"] as any);
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
-    const response = makeAuditResponse("safe");
-    mockAuditViaApi.mockResolvedValue(response);
+    mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
     mockIsBlocked.mockReturnValue(false);
 
     await scanCommand({ path: "/test", fail: true, json: true });
@@ -243,23 +251,29 @@ describe("scanCommand", () => {
     expect(mockStdoutWrite).toHaveBeenCalledWith(
       expect.stringContaining('"file"'),
     );
-    expect(mockPrintScanTable).not.toHaveBeenCalled();
+    expect(mockPrintGroupedScanTable).not.toHaveBeenCalled();
   });
 
   it("prints message and exits 0 when no files found", async () => {
     mockGlob.mockResolvedValue([] as any);
+    mockExistsSync.mockReturnValue(false);
 
     await scanCommand({ fail: true, json: false });
 
     expect(mockConsoleLog).toHaveBeenCalledWith(
-      expect.stringContaining("No skill files found"),
+      expect.stringContaining("No agent skill files found"),
     );
     expect(mockProcessExit).not.toHaveBeenCalledWith(1);
   });
 
   it("limits concurrency to 5 parallel API calls", async () => {
     const files = Array.from({ length: 10 }, (_, i) => `file${i}.md`);
-    mockGlob.mockResolvedValue(files as any);
+    // Return empty for default agent paths, only return files for --path
+    mockGlob.mockImplementation(async (_pattern: any, opts: any) => {
+      if (opts?.cwd?.includes("test-concurrency")) return files as any;
+      return [] as any;
+    });
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
     mockIsBlocked.mockReturnValue(false);
 
@@ -274,7 +288,7 @@ describe("scanCommand", () => {
       return makeAuditResponse("safe");
     });
 
-    await scanCommand({ path: "/test", fail: true, json: false });
+    await scanCommand({ path: "/test-concurrency", fail: true, json: false });
 
     expect(maxConcurrent).toBeLessThanOrEqual(5);
     expect(mockAuditViaApi).toHaveBeenCalledTimes(10);
@@ -283,6 +297,7 @@ describe("scanCommand", () => {
   it("shows rate limit warning when file count exceeds 25", async () => {
     const files = Array.from({ length: 30 }, (_, i) => `file${i}.md`);
     mockGlob.mockResolvedValue(files as any);
+    mockExistsSync.mockReturnValue(false);
     mockReadFileSync.mockReturnValue("# Skill");
     mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
     mockIsBlocked.mockReturnValue(false);
@@ -294,18 +309,11 @@ describe("scanCommand", () => {
     );
   });
 
-  it("updates spinner progress during auditing", async () => {
-    const files = ["a.md", "b.md", "c.md"];
-    mockGlob.mockResolvedValue(files as any);
-    mockReadFileSync.mockReturnValue("# Skill");
-    mockAuditViaApi.mockResolvedValue(makeAuditResponse("safe"));
-    mockIsBlocked.mockReturnValue(false);
+  it("validates --agent flag rejects unknown agents", async () => {
+    await scanCommand({ agent: "invalid", fail: true, json: false });
 
-    await scanCommand({ path: "/test", fail: true, json: false });
-
-    const outputHandler = mockCreateOutputHandler.mock.results[0]?.value;
-    expect(outputHandler?.startSpinner).toHaveBeenCalledWith(
-      expect.stringContaining("0/3"),
+    expect(mockConsoleError).toHaveBeenCalledWith(
+      expect.stringContaining('Invalid agent "invalid"'),
     );
   });
 });

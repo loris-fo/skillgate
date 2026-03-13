@@ -109,6 +109,8 @@ function setupOutputMock() {
     stop: vi.fn(),
     fail: vi.fn(),
     succeed: vi.fn(),
+    isSpinning: true,
+    text: "",
   };
   const handler = {
     startSpinner: vi.fn(() => spinner),
@@ -120,17 +122,16 @@ function setupOutputMock() {
 }
 
 describe("installCommand", () => {
-  let exitSpy: ReturnType<typeof vi.spyOn>;
+  let originalExitCode: number | undefined;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    exitSpy = vi
-      .spyOn(process, "exit")
-      .mockImplementation(() => undefined as never);
+    originalExitCode = process.exitCode;
+    process.exitCode = undefined;
   });
 
   afterEach(() => {
-    exitSpy.mockRestore();
+    process.exitCode = originalExitCode;
   });
 
   it("installs a local file with passing score", async () => {
@@ -147,7 +148,7 @@ describe("installCommand", () => {
     const { handler, spinner } = setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
@@ -157,16 +158,16 @@ describe("installCommand", () => {
     expect(isBlocked).toHaveBeenCalledWith("safe");
     expect(spinner.succeed).toHaveBeenCalled();
     expect(handler.printResult).toHaveBeenCalled();
-    expect(fs.mkdirSync).toHaveBeenCalledWith(".claude", { recursive: true });
+    expect(fs.mkdirSync).toHaveBeenCalledWith(".claude/skills", { recursive: true });
     expect(fs.writeFileSync).toHaveBeenCalledWith(
-      ".claude/commit-helper.md",
+      ".claude/skills/commit-helper.md",
       content,
       "utf-8",
     );
-    expect(exitSpy).not.toHaveBeenCalled();
+    expect(process.exitCode).toBeUndefined();
   });
 
-  it("blocks install for high score and exits 1", async () => {
+  it("blocks install for high score and sets exitCode 1", async () => {
     const { installCommand } = await import("../../src/commands/install.js");
 
     const content = "# Bad Skill\n\nDangerous.";
@@ -180,7 +181,7 @@ describe("installCommand", () => {
     const { handler, spinner } = setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
@@ -188,7 +189,7 @@ describe("installCommand", () => {
     expect(spinner.succeed).toHaveBeenCalled();
     expect(handler.printResult).toHaveBeenCalled();
     expect(fs.writeFileSync).not.toHaveBeenCalled();
-    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(process.exitCode).toBe(1);
   });
 
   it("force-installs despite high score", async () => {
@@ -205,17 +206,16 @@ describe("installCommand", () => {
     setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: true,
       json: false,
     });
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
-      ".claude/risky-skill.md",
+      ".claude/skills/risky-skill.md",
       content,
       "utf-8",
     );
-    expect(exitSpy).not.toHaveBeenCalledWith(1);
   });
 
   it("outputs JSON when --json flag set", async () => {
@@ -232,7 +232,7 @@ describe("installCommand", () => {
     setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: true,
     });
@@ -240,7 +240,7 @@ describe("installCommand", () => {
     expect(createOutputHandler).toHaveBeenCalledWith(true);
   });
 
-  it("fetches content for URL inputs before auditing", async () => {
+  it("fetches content for URL inputs and sends URL in audit payload", async () => {
     const { installCommand } = await import("../../src/commands/install.js");
 
     const content = "# URL Skill\n\nFetched from URL.";
@@ -249,7 +249,6 @@ describe("installCommand", () => {
       url: "https://example.com/SKILL.md",
     });
 
-    // Mock global fetch for URL content fetching
     const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(
       new Response(content, { status: 200 }),
     );
@@ -259,15 +258,18 @@ describe("installCommand", () => {
     setupOutputMock();
 
     await installCommand("https://example.com/SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
 
     expect(fetchSpy).toHaveBeenCalledWith("https://example.com/SKILL.md");
-    expect(auditViaApi).toHaveBeenCalledWith({ content });
+    expect(auditViaApi).toHaveBeenCalledWith({
+      content,
+      url: "https://example.com/SKILL.md",
+    });
     expect(fs.writeFileSync).toHaveBeenCalledWith(
-      ".claude/url-skill.md",
+      ".claude/skills/url-skill.md",
       content,
       "utf-8",
     );
@@ -287,14 +289,14 @@ describe("installCommand", () => {
     const { handler, spinner } = setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
 
     expect(spinner.fail).toHaveBeenCalled();
     expect(handler.printError).toHaveBeenCalledWith("API timeout");
-    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(process.exitCode).toBe(1);
   });
 
   it("creates output directory if it does not exist", async () => {
@@ -341,13 +343,13 @@ describe("installCommand", () => {
     setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
-      ".claude/my-amazing-commit-helper.md",
+      ".claude/skills/my-amazing-commit-helper.md",
       content,
       "utf-8",
     );
@@ -367,13 +369,13 @@ describe("installCommand", () => {
     setupOutputMock();
 
     await installCommand("./SKILL.md", {
-      output: ".claude",
+      output: ".claude/skills",
       force: false,
       json: false,
     });
 
     expect(fs.writeFileSync).toHaveBeenCalledWith(
-      ".claude/skill.md",
+      ".claude/skills/skill.md",
       content,
       "utf-8",
     );

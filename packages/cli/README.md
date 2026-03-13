@@ -1,8 +1,10 @@
 # skillgate
 
-**Audit Claude skills before you install them.**
+**Audit AI agent skills before you install them.**
 
-Claude skills can do a lot — that's the point. But before you drop a skill into your `.claude/` directory, it's worth knowing what it actually does. Skillgate runs a structured security audit and tells you if a skill is safe to install, needs a closer look, or should be avoided entirely.
+AI agent skills and rules files can do a lot — that's the point. But before you drop one into your project, it's worth knowing what it actually does. Skillgate runs a structured security audit and tells you if a skill is safe to install, needs a closer look, or should be avoided entirely.
+
+Works with **Claude**, **Cursor**, **Windsurf**, **GitHub Copilot**, **Cline**, and **Aider**.
 
 ```sh
 npx skillgate install https://github.com/user/repo/blob/main/.claude/skills/my-skill.md
@@ -12,7 +14,7 @@ npx skillgate install https://github.com/user/repo/blob/main/.claude/skills/my-s
 
 ## The problem
 
-The Claude skills ecosystem is growing fast. Skills from GitHub, skills.sh, and community repos are easy to share and easy to install. Most are genuinely useful. But a skill is executable context — it runs inside your Claude sessions and can shape how the agent behaves, what it accesses, and what it does on your behalf.
+The AI agent skills ecosystem is growing fast. Skills, rules, and instruction files from GitHub and community repos are easy to share and easy to install. Most are genuinely useful. But a skill is executable context — it runs inside your agent sessions and can shape how the agent behaves, what it accesses, and what it does on your behalf.
 
 There's currently no standard way to know if a skill is safe before you install it.
 
@@ -25,9 +27,10 @@ Skillgate fills that gap.
 When you run `skillgate install <url>`, it:
 
 1. Fetches the skill content from the URL or local file
-2. Sends it to the Skillgate API, which runs a structured audit using Claude
-3. Scores the skill across five security categories
-4. Blocks the install if the risk is too high — or installs it to `.claude/` if it passes
+2. Sends it to the Skillgate API, which runs a structured audit
+3. Detects which agent the file belongs to (from URL patterns or content analysis)
+4. Scores the skill across five security categories
+5. Blocks the install if the risk is too high — or installs it if it passes
 
 The audit checks five categories:
 
@@ -37,7 +40,7 @@ The audit checks five categories:
 | **Data Access** | Attempts to read, write, or exfiltrate files, environment variables, or sensitive data |
 | **Action Risk** | Destructive or irreversible commands — deleting files, running scripts, network calls |
 | **Permission Scope** | Requests for capabilities beyond what the skill's stated purpose requires |
-| **Override Attempts** | Instructions to ignore Claude's guidelines, hijack system prompts, or perform social engineering |
+| **Override Attempts** | Instructions to override agent safety guidelines, hijack system prompts, or perform social engineering |
 
 Each category gets a score: `safe`, `warn`, or `critical`. The overall verdict is one of three:
 
@@ -75,13 +78,16 @@ skillgate install <source> [options]
 
 | Option | Description |
 |--------|-------------|
-| `-o, --output <dir>` | Target directory (default: `.claude`) |
+| `--agent <name>` | Install into target agent directory (claude, cursor, etc.) |
+| `-o, --output <dir>` | Custom target directory (mutually exclusive with `--agent`) |
 | `--force` | Install despite High or Critical verdict |
 | `--json` | Machine-readable JSON output |
 
+Default install directory is `.claude/skills/`. Use `--agent cursor` to install into `.cursor/rules/` instead.
+
 ### `scan`
 
-Audit all skills already in your project.
+Audit all agent skill files in your project. Automatically discovers files across all supported agent directories.
 
 ```sh
 skillgate scan [options]
@@ -89,9 +95,12 @@ skillgate scan [options]
 
 | Option | Description |
 |--------|-------------|
-| `--path <dir>` | Directory to scan (default: `.claude`) |
+| `--agent <name>` | Scan only a specific agent's files |
+| `--path <dir>` | Add a custom directory to scan (additive to auto-discovery) |
 | `--no-fail` | Always exit 0, reporting only |
 | `--json` | Machine-readable JSON output |
+
+Auto-discovers files in: `.claude/skills/`, `.cursor/rules/`, `.cursorrules`, `.windsurfrules`, `.github/copilot-instructions.md`, `.clinerules`, and `.aider/`.
 
 ### Exit codes
 
@@ -99,6 +108,19 @@ skillgate scan [options]
 |------|---------|
 | `0` | All skills passed |
 | `1` | One or more skills scored High or Critical |
+
+---
+
+## Supported agents
+
+| Agent | Scanned paths |
+|-------|---------------|
+| Claude | `.claude/`, `.claude/skills/` |
+| Cursor | `.cursor/rules/`, `.cursorrules` |
+| Windsurf | `.windsurfrules` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Cline | `.clinerules` |
+| Aider | `.aider/` |
 
 ---
 
@@ -116,11 +138,11 @@ If you're publishing a skill, the badge signals that you've audited it — and l
 
 ## Why skills need auditing
 
-Skills run inside Claude sessions. A malicious or poorly written skill can:
+Skills and rules files run inside agent sessions. A malicious or poorly written skill can:
 
-- Instruct Claude to read files it shouldn't
+- Instruct the agent to read files it shouldn't
 - Exfiltrate data through generated content
-- Override Claude's safety guidelines
+- Override agent safety guidelines
 - Perform actions outside the stated purpose of the skill
 
 Most skills are fine. Skillgate is fast (a few seconds per audit) and runs before anything is installed, so the cost of checking is low and the downside of not checking can be high.
@@ -131,7 +153,7 @@ Most skills are fine. Skillgate is fast (a few seconds per audit) and runs befor
 
 - Skillgate catches detectable patterns — obfuscated or deeply nested logic may not be caught
 - The `--force` flag bypasses the gate entirely; use it only if you've reviewed the skill yourself
-- Audits are run by Claude and reflect its analysis, not a formal security review
+- Audits reflect AI analysis, not a formal security review
 - Caching means repeated audits of the same content return instantly; force a fresh audit by modifying the skill
 
 ---
