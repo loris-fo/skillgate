@@ -24,6 +24,12 @@ coverage/
 *.swp
 *.swo
 
+# Next.js
+.next/
+
+# Agent config (local tool state, not project source)
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
